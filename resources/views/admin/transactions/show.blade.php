@@ -1,0 +1,831 @@
+@extends('admin.layout')
+
+@section('title', 'Transaction Details')
+
+@section('content')
+<div class="space-y-8">
+    
+    <!-- Page Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+            <div class="flex items-center space-x-3 mb-2">
+                <a href="{{ route('admin.transactions.index') }}" 
+                   class="text-gray-600 hover:text-red-600 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </a>
+                <h1 class="text-3xl font-bold text-gray-900">Transaction Details</h1>
+            </div>
+            <p class="text-gray-600">Transaction ID: {{ $transaction->transaction_id }}</p>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            @if($transaction->isFailed())
+                <form action="{{ route('admin.transactions.retry', $transaction) }}" method="POST" class="inline-block">
+                    @csrf
+                    <button type="submit" 
+                            class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-gray-900 font-medium rounded-lg transition-colors"
+                            onclick="return confirm('Are you sure you want to retry this transaction?')">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Retry Transaction
+                    </button>
+                </form>
+            @endif
+
+            @if($transaction->isCompleted())
+                <button type="button" 
+                        class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-gray-900 font-medium rounded-lg transition-colors"
+                        onclick="openRefundModal()">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/>
+                    </svg>
+                    Process Refund
+                </button>
+            @endif
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Transaction Details -->
+        <div class="lg:col-span-2 space-y-8">
+            
+            <!-- Basic Information -->
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    Transaction Information
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Transaction ID</label>
+                        <p class="text-white font-mono">{{ $transaction->transaction_id }}</p>
+                    </div>
+
+                    @if($transaction->gateway_transaction_id)
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Gateway Transaction ID</label>
+                        <p class="text-white font-mono">{{ $transaction->gateway_transaction_id }}</p>
+                    </div>
+                    @endif
+
+                    @if($transaction->payment_method === 'kokopay' && $transaction->gateway_reference)
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Koko Pay Order ID</label>
+                        <p class="text-white font-mono bg-purple-900/20 px-2 py-1 rounded">{{ $transaction->gateway_reference }}</p>
+                    </div>
+                    @endif
+
+                    @if($transaction->order)
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Order Number</label>
+                        <a href="{{ route('admin.orders.show', $transaction->order) }}" 
+                           class="text-red-600 hover:text-[#d97706] transition-colors">
+                            {{ $transaction->order->order_number }}
+                        </a>
+                    </div>
+                    @endif
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Payment Method</label>
+                        @php $cardType = $transaction->card_type; @endphp
+                        <div class="flex flex-col space-y-2">
+                            <!-- Primary Payment Method -->
+                            <div class="flex items-center">
+                                @if($transaction->payment_method === 'webxpay')
+                                    <div class="w-6 h-6 bg-purple-500/20 rounded flex items-center justify-center mr-2">
+                                        <svg class="w-3 h-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3-3v8a3 3 0 003 3z"/>
+                                        </svg>
+                                    </div>
+                                @elseif($transaction->payment_method === 'kokopay')
+                                    <div class="w-6 h-6 bg-indigo-500/20 rounded flex items-center justify-center mr-2">
+                                        <svg class="w-3 h-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                                        </svg>
+                                    </div>
+                                @elseif($transaction->payment_method === 'bank_transfer')
+                                    <div class="w-6 h-6 bg-cyan-500/20 rounded flex items-center justify-center mr-2">
+                                        <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m11 0a2 2 0 01-2 2H7a2 2 0 01-2-2m14 0V9a2 2 0 00-2-2M9 7h6m-6 4h6m-6 4h6m-6 4h6"/>
+                                        </svg>
+                                    </div>
+                                @endif
+                                <span class="text-white">{{ $transaction->payment_method_name }}</span>
+                            </div>
+                            
+                            <!-- Card Type Information -->
+                            @if($cardType['type'] !== 'unknown')
+                                <div class="flex items-center space-x-2 ml-8 p-2 bg-gray-700/30 rounded-lg">
+                                    <span class="text-lg">{{ $cardType['icon'] }}</span>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm {{ $cardType['color'] }} font-medium">{{ $cardType['brand'] }}</span>
+                                        @if(isset($cardType['gateway']) && $transaction->payment_method === 'webxpay')
+                                            <span class="text-xs text-gray-600">Gateway: {{ $cardType['gateway'] }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Status</label>
+                        @php
+                            $statusColors = [
+                                'pending' => 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+                                'processing' => 'bg-red-500/20 text-red-400 border-red-500/30',
+                                'completed' => 'bg-green-500/20 text-green-400 border-green-500/30',
+                                'failed' => 'bg-red-500/20 text-red-400 border-red-500/30',
+                                'cancelled' => 'bg-gray-500/20 text-gray-600 border-gray-500/30',
+                                'refunded' => 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+                            ];
+                            $statusColor = $statusColors[$transaction->status] ?? 'bg-gray-500/20 text-gray-600 border-gray-500/30';
+                        @endphp
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border {{ $statusColor }}">
+                            {{ ucfirst($transaction->status) }}
+                        </span>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Currency</label>
+                        <p class="text-white">{{ $transaction->currency }}</p>
+                    </div>
+                </div>
+
+                @if($transaction->description)
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Description</label>
+                    <p class="text-white">{{ $transaction->description }}</p>
+                </div>
+                @endif
+
+                @if($transaction->failure_reason)
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Failure Reason</label>
+                    <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-3">
+                        <p class="text-red-400">{{ $transaction->failure_reason }}</p>
+                    </div>
+                </div>
+                @endif
+            </div>
+
+            <!-- Customer Information -->
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    Customer Information
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Name</label>
+                        <p class="text-white">{{ $transaction->customer_name ?: 'N/A' }}</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
+                        <p class="text-white">{{ $transaction->customer_email ?: 'N/A' }}</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">Phone</label>
+                        <p class="text-white">{{ $transaction->customer_phone ?: 'N/A' }}</p>
+                    </div>
+
+                    @if($transaction->ip_address)
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">IP Address</label>
+                        <p class="text-white font-mono">{{ $transaction->ip_address }}</p>
+                    </div>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Gateway Response -->
+            @if($transaction->gateway_response)
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                    Gateway Response
+                </h3>
+
+                <div class="bg-white rounded-lg p-4">
+                    <pre class="text-sm text-gray-700 overflow-x-auto"><code>{{ json_encode($transaction->gateway_response, JSON_PRETTY_PRINT) }}</code></pre>
+                </div>
+            </div>
+            @endif
+
+            <!-- Order Details -->
+            @if($transaction->order)
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"/>
+                        </svg>
+                        Order Details
+                    </h3>
+                    <a href="{{ route('admin.orders.show', $transaction->order) }}" 
+                       class="text-red-600 hover:text-[#d97706] text-sm transition-colors">
+                        View Full Order →
+                    </a>
+                </div>
+
+                <div class="space-y-4">
+                    @foreach($transaction->order->orderItems as $item)
+                    @php
+                        // Get product details to check for discounts
+                        $product = \App\Models\SmaProduct::find($item->product_id);
+                        $hasDiscount = false;
+                        $originalPrice = $item->unit_price;
+                        $discountAmount = 0;
+                        $discountPercentage = 0;
+                        
+                        if ($product) {
+                            $hasDiscount = $product->price > $product->final_price;
+                            $originalPrice = $product->price;
+                            if ($hasDiscount) {
+                                $discountAmount = $originalPrice - $item->unit_price;
+                                $discountPercentage = round(($discountAmount / $originalPrice) * 100);
+                            }
+                        }
+                    @endphp
+                    
+                    <div class="flex items-center space-x-4 p-4 bg-white rounded-lg">
+                        @if($item->product)
+                            <img src="{{ $item->product->main_image }}" 
+                                 alt="{{ $item->product->name }}" 
+                                 class="w-16 h-16 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2">
+                                    <h4 class="text-gray-900 font-medium">{{ $item->product->name }}</h4>
+                                    @if($hasDiscount)
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-900/50 text-red-300 border border-red-700/50">
+                                            {{ $discountPercentage }}% OFF
+                                        </span>
+                                    @endif
+                                </div>
+                                @if($item->product_code)
+                                    <p class="text-gray-500 text-xs">Code: {{ $item->product_code }}</p>
+                                @endif
+                                <p class="text-gray-600 text-sm">Quantity: {{ $item->quantity }}</p>
+                                @if($hasDiscount)
+                                    <div class="space-y-1">
+                                        <p class="text-gray-500 text-sm line-through">LKR {{ number_format($originalPrice, 2) }} each</p>
+                                        <p class="text-green-400 font-medium text-sm">LKR {{ number_format($item->unit_price, 2) }} each (Sale Price)</p>
+                                    </div>
+                                @else
+                                    <p class="text-red-600 font-medium">LKR {{ number_format($item->unit_price, 2) }} each</p>
+                                @endif
+                            </div>
+                            <div class="text-right">
+                                @if($hasDiscount)
+                                    <div class="space-y-1">
+                                        <p class="text-gray-900 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
+                                        <p class="text-green-400 text-xs">Saved: LKR {{ number_format($discountAmount * $item->quantity, 2) }}</p>
+                                    </div>
+                                @else
+                                    <p class="text-gray-900 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
+                                @endif
+                            </div>
+                        @else
+                            <div class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center">
+                                <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-gray-600 font-medium">{{ $item->product_name ?? 'Product Not Found' }}</h4>
+                                @if($item->product_code)
+                                    <p class="text-gray-500 text-xs">Code: {{ $item->product_code }}</p>
+                                @endif
+                                <p class="text-gray-500 text-sm">Quantity: {{ $item->quantity }}</p>
+                                <p class="text-gray-600 font-medium">LKR {{ number_format($item->unit_price, 2) }} each</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-gray-600 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
+                            </div>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+                
+                <!-- Order Summary Breakdown -->
+                @if($transaction->order)
+                @php
+                    $order = $transaction->order;
+                    // Calculate original subtotal and discounts
+                    $originalSubtotal = 0;
+                    $currentSubtotal = 0;
+                    foreach($order->orderItems as $item) {
+                        $product = \App\Models\SmaProduct::find($item->product_id);
+                        if ($product) {
+                            $originalSubtotal += $item->quantity * $product->price;
+                            $currentSubtotal += $item->quantity * $product->final_price;
+                        } else {
+                            // For deleted products, use stored prices
+                            $currentSubtotal += $item->total_price;
+                            $originalSubtotal += $item->total_price; // Assume no discount for deleted products
+                        }
+                    }
+                    $totalDiscountSavings = $originalSubtotal - $currentSubtotal;
+                    
+                    // Calculate payment fees if applicable
+                    $paymentFee = 0;
+                    if ($transaction->payment_method === 'webxpay') {
+                        $paymentFee = $order->total_amount * 0.03;
+                    }
+                    
+                    $finalTotal = $order->total_amount + $paymentFee;
+                @endphp
+                
+                <div class="mt-6 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                    <h4 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        💰 Complete Order Summary
+                    </h4>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Price Breakdown -->
+                        <div class="space-y-4">
+                            <!-- Product Pricing Breakdown -->
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">🛍️ Product Pricing</h5>
+                                <div class="space-y-2 text-sm">
+                                    @if($totalDiscountSavings > 0)
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Original Subtotal</span>
+                                            <span class="text-gray-700 line-through">LKR {{ number_format($originalSubtotal, 2) }}</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-green-400">💸 Product Discounts</span>
+                                            <span class="text-green-400">-LKR {{ number_format($totalDiscountSavings, 2) }}</span>
+                                        </div>
+                                    @endif
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Subtotal (After Discounts)</span>
+                                        <span class="text-gray-900 font-medium">LKR {{ number_format($order->subtotal, 2) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- Additional Charges -->
+                            @if($order->shipping_cost > 0 || $order->tax_amount > 0 || $order->discount_amount > 0)
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h5 class="text-sm font-medium text-gray-700 mb-3">📦 Additional Charges</h5>
+                                    <div class="space-y-2 text-sm">
+                                        @if($order->shipping_cost > 0)
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">🚚 Shipping Cost</span>
+                                                <span class="text-white">+LKR {{ number_format($order->shipping_cost, 2) }}</span>
+                                            </div>
+                                        @endif
+                                        @if($order->tax_amount > 0)
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">🧾 Tax</span>
+                                                <span class="text-white">+LKR {{ number_format($order->tax_amount, 2) }}</span>
+                                            </div>
+                                        @endif
+                                        @if($order->discount_amount > 0)
+                                            <div class="flex justify-between">
+                                                <span class="text-green-400">🎫 Order Discount</span>
+                                                <span class="text-green-400">-LKR {{ number_format($order->discount_amount, 2) }}</span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                
+                            <!-- Payment Information -->
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">💳 Payment Details</h5>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Payment Method</span>
+                                        <span class="text-white">
+                                            @if($transaction->payment_method === 'webxpay')
+                                                💳 WebXPay (Card Payment)
+                                            @elseif($transaction->payment_method === 'kokopay')
+                                                ⏰ Koko Pay (BNPL)
+                                            @elseif($transaction->payment_method === 'bank_transfer')
+                                                🏦 Bank Transfer
+                                            @else
+                                                {{ ucfirst(str_replace('_', ' ', $transaction->payment_method)) }}
+                                            @endif
+                                        </span>
+                                    </div>
+                                    @if($paymentFee > 0)
+                                        <div class="flex justify-between">
+                                            <span class="text-yellow-400">⚡ Payment Processing Fee (3%)</span>
+                                            <span class="text-yellow-400">+LKR {{ number_format($paymentFee, 2) }}</span>
+                                        </div>
+                                    @endif
+                                    @if($transaction->gateway_reference)
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Transaction ID</span>
+                                            <span class="text-red-400 font-mono text-xs">{{ $transaction->gateway_reference }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                
+                            <!-- Total Summary -->
+                            <div class="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-lg p-4">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-lg font-medium text-gray-900">Order Total</span>
+                                        <span class="text-lg font-bold text-gray-900">LKR {{ number_format($order->total_amount, 2) }}</span>
+                                    </div>
+                                    @if($paymentFee > 0)
+                                        <div class="flex justify-between items-center text-sm border-t border-slate-200 pt-2">
+                                            <span class="text-yellow-300 font-medium">💰 Total Paid</span>
+                                            <span class="text-xl font-bold text-red-600">LKR {{ number_format($finalTotal, 2) }}</span>
+                                        </div>
+                                    @endif
+                                    @if($totalDiscountSavings > 0)
+                                        <div class="text-center text-sm text-green-400 bg-green-900/20 rounded px-2 py-1">
+                                            🎉 Customer saved LKR {{ number_format($totalDiscountSavings, 2) }} on this order!
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Right Column: Delivery & Transaction Info -->
+                        <div class="space-y-4">
+                            <!-- Customer Information -->
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">👤 Customer Information</h5>
+                                <div class="text-sm text-gray-700">
+                                    <p class="font-medium text-white">{{ $order->customer_name }}</p>
+                                    <p class="text-red-400">📞 {{ $order->customer_phone }}</p>
+                                    @if($order->customer_email)
+                                        <p class="text-red-400">📧 {{ $order->customer_email }}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            
+                            <!-- Shipping Address -->
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">📍 Delivery Address</h5>
+                                <div class="text-sm text-gray-700">
+                                    <p>{{ $order->shipping_address_line_1 }}</p>
+                                    @if($order->shipping_address_line_2)
+                                        <p>{{ $order->shipping_address_line_2 }}</p>
+                                    @endif
+                                    <p>{{ $order->shipping_city }}, {{ $order->shipping_state }} {{ $order->shipping_postal_code }}</p>
+                                    <p>{{ $order->shipping_country }}</p>
+                                </div>
+                            </div>
+                
+                            <!-- Transaction Status & Timeline -->
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">📊 Status Information</h5>
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-xs {{ $order->status_badge }} px-2 py-1 rounded-full">
+                                            📋 {{ ucfirst($order->status) }}
+                                        </span>
+                                        <span class="text-xs {{ $order->payment_status_badge }} px-2 py-1 rounded-full">
+                                            💳 {{ ucfirst(str_replace('_', ' ', $order->payment_status)) }}
+                                        </span>
+                                    </div>
+                                    <div class="text-xs text-gray-600">
+                                        <p>Order Placed: {{ $order->created_at->format('M d, Y \a\t g:i A') }}</p>
+                                        @if($transaction->completed_at)
+                                            <p>Payment Completed: {{ $transaction->completed_at->format('M d, Y \a\t g:i A') }}</p>
+                                        @endif
+                                        @if($order->payment_method === 'bank_transfer' && $order->transfer_slip_path)
+                                            <p class="text-green-400 mt-1">✅ Transfer slip uploaded</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- Special Instructions -->
+                            @if($order->notes)
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h5 class="text-sm font-medium text-gray-700 mb-3">📝 Special Instructions</h5>
+                                    <p class="text-sm text-gray-700">{{ $order->notes }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                @endif
+            </div>
+            @endif
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-8">
+            
+            <!-- Timeline -->
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Transaction Timeline
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm">Transaction Created</p>
+                            <p class="text-gray-600 text-xs">{{ $transaction->created_at->format('M d, Y H:i:s') }}</p>
+                        </div>
+                    </div>
+
+                    @if($transaction->initiated_at)
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm">Payment Initiated</p>
+                            <p class="text-gray-600 text-xs">{{ $transaction->initiated_at->format('M d, Y H:i:s') }}</p>
+                        </div>
+                    </div>
+                    @endif
+
+                    @if($transaction->completed_at)
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm">Payment Completed</p>
+                            <p class="text-gray-600 text-xs">{{ $transaction->completed_at->format('M d, Y H:i:s') }}</p>
+                        </div>
+                    </div>
+                    @endif
+
+                    @if($transaction->failed_at)
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm">Payment Failed</p>
+                            <p class="text-gray-600 text-xs">{{ $transaction->failed_at->format('M d, Y H:i:s') }}</p>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Koko Pay Specific Information -->
+            @if($transaction->payment_method === 'kokopay' && $transaction->metadata)
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <div class="w-6 h-6 bg-purple-500/20 rounded flex items-center justify-center mr-2">
+                        <svg class="w-3 h-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    Koko Pay Details
+                </h3>
+
+                <div class="space-y-3">
+                    <!-- CORE KOKO PAY PARAMETERS -->
+                    @if(isset($transaction->metadata['orderId']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">orderId</span>
+                        <span class="text-white font-mono font-bold">{{ $transaction->metadata['orderId'] }}</span>
+                    </div>
+                    @endif
+
+                    @if(isset($transaction->metadata['trnId']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">trnId</span>
+                        <span class="text-white font-mono font-bold">{{ $transaction->metadata['trnId'] }}</span>
+                    </div>
+                    @endif
+
+                    @if(isset($transaction->metadata['status']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">status</span>
+                        <span class="text-white font-bold {{ $transaction->metadata['status'] === 'SUCCESS' ? 'text-green-400' : 'text-red-400' }}">{{ $transaction->metadata['status'] }}</span>
+                    </div>
+                    @endif
+
+                    @if(isset($transaction->metadata['desc']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">desc</span>
+                        <span class="text-white">{{ $transaction->metadata['desc'] ?: '(empty)' }}</span>
+                    </div>
+                    @endif
+
+                    <!-- ADDITIONAL KOKO PAY PARAMETERS -->
+                    @if(isset($transaction->metadata['key']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">key</span>
+                        <span class="text-white font-mono">{{ $transaction->metadata['key'] ?: '(empty)' }}</span>
+                    </div>
+                    @endif
+
+                    @if(isset($transaction->metadata['signature']))
+                    <div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <div class="text-purple-300 font-medium mb-2">signature</div>
+                        <div class="text-white font-mono text-xs break-all bg-purple-800/30 p-2 rounded">
+                            {{ $transaction->metadata['signature'] ?: '(not provided)' }}
+                        </div>
+                    </div>
+                    @endif
+
+                    <!-- PAYMENT FLOW INFO -->
+                    @if(isset($transaction->metadata['source']))
+                    <div class="flex justify-between items-center p-3 bg-gray-100/20 rounded-lg border border-gray-500/30">
+                        <span class="text-gray-700 font-medium">Source</span>
+                        <span class="text-white capitalize">{{ str_replace('_', ' ', $transaction->metadata['source']) }}</span>
+                    </div>
+                    @endif
+
+                    @if(isset($transaction->metadata['payment_flow']))
+                    <div class="flex justify-between items-center p-3 bg-gray-100/20 rounded-lg border border-gray-500/30">
+                        <span class="text-gray-700 font-medium">Payment Flow</span>
+                        <span class="text-white capitalize {{ $transaction->metadata['payment_flow'] === 'successful' ? 'text-green-400' : 'text-red-400' }}">{{ $transaction->metadata['payment_flow'] }}</span>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            @endif
+
+            <!-- WebXPay Details -->
+            @if($transaction->payment_method === 'webxpay' && $transaction->metadata)
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <div class="w-6 h-6 bg-purple-500/20 rounded flex items-center justify-center mr-2">
+                        <svg class="w-3 h-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3-3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    WebXPay Payment Details
+                </h3>
+                <div class="space-y-3">
+                    <!-- CORE WEBXPAY PARAMETERS -->
+                    @if($transaction->gateway_reference)
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">Reference Number</span>
+                        <span class="text-white font-mono font-bold">{{ $transaction->gateway_reference }}</span>
+                    </div>
+                    @endif
+                    
+                    @if(isset($transaction->metadata['payment_gateway']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">Payment Gateway</span>
+                        <span class="text-white capitalize">{{ $transaction->metadata['payment_gateway'] }}</span>
+                    </div>
+                    @endif
+                    
+                    @if(isset($transaction->metadata['transaction_datetime']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">Transaction DateTime</span>
+                        <span class="text-white font-mono">{{ $transaction->metadata['transaction_datetime'] }}</span>
+                    </div>
+                    @endif
+                    
+                    @if(isset($transaction->metadata['signature_valid']))
+                    <div class="flex justify-between items-center p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <span class="text-purple-300 font-medium">Signature Valid</span>
+                        <span class="text-white font-bold {{ $transaction->metadata['signature_valid'] ? 'text-green-400' : 'text-red-400' }}">
+                            {{ $transaction->metadata['signature_valid'] ? 'YES' : 'NO' }}
+                        </span>
+                    </div>
+                    @endif
+                    
+                    <!-- GATEWAY RESPONSE DATA -->
+                    @if($transaction->gateway_response)
+                    <div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <div class="text-purple-300 font-medium mb-2">Gateway Response</div>
+                        <div class="space-y-2 text-sm">
+                            @if(isset($transaction->gateway_response['order_id']))
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Order ID:</span>
+                                <span class="text-white font-mono">{{ $transaction->gateway_response['order_id'] }}</span>
+                            </div>
+                            @endif
+                            @if(isset($transaction->gateway_response['status_code']))
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status Code:</span>
+                                <span class="text-white font-mono">{{ $transaction->gateway_response['status_code'] }}</span>
+                            </div>
+                            @endif
+                            @if(isset($transaction->gateway_response['comment']))
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Comment:</span>
+                                <span class="text-white">{{ $transaction->gateway_response['comment'] ?: '(empty)' }}</span>
+                            </div>
+                            @endif
+                            @if(isset($transaction->gateway_response['payment_status']))
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Payment Status:</span>
+                                <span class="text-white font-bold {{ $transaction->gateway_response['payment_status'] === 'success' ? 'text-green-400' : 'text-red-400' }}">
+                                    {{ strtoupper($transaction->gateway_response['payment_status']) }}
+                                </span>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    @endif
+                    
+                    <!-- CUSTOM FIELDS -->
+                    @if(isset($transaction->metadata['custom_fields']) && $transaction->metadata['custom_fields'])
+                    <div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+                        <div class="text-purple-300 font-medium mb-2">Custom Fields</div>
+                        <div class="text-white font-mono text-xs break-all bg-purple-800/30 p-2 rounded">
+                            {{ $transaction->metadata['custom_fields'] }}
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            @endif
+
+            <!-- Additional Metadata -->
+            @if($transaction->metadata)
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    Raw Metadata
+                </h3>
+
+                <div class="bg-white rounded-lg p-4">
+                    <pre class="text-sm text-gray-700 overflow-x-auto"><code>{{ json_encode($transaction->metadata, JSON_PRETTY_PRINT) }}</code></pre>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
+<!-- Refund Modal -->
+<div id="refundModal" class="fixed inset-0 bg-slate-50/75 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl border border-gray-200 p-6 max-w-md w-full mx-4">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">Refund Transaction</h3>
+            <button onclick="closeRefundModal()" class="text-gray-600 hover:text-red-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <form action="{{ route('admin.transactions.refund', $transaction) }}" method="POST">
+            @csrf
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Refund Reason</label>
+                <textarea name="refund_reason" 
+                          rows="3" 
+                          required
+                          placeholder="Enter the reason for this refund..."
+                          class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+            </div>
+            
+            <div class="flex space-x-4">
+                <button type="submit" 
+                        class="flex-1 bg-purple-600 hover:bg-purple-700 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors">
+                    Process Refund
+                </button>
+                <button type="button" 
+                        onclick="closeRefundModal()"
+                        class="flex-1 bg-gray-600 hover:bg-gray-100 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openRefundModal() {
+    const modal = document.getElementById('refundModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeRefundModal() {
+    const modal = document.getElementById('refundModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// Close modal on outside click
+document.getElementById('refundModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeRefundModal();
+    }
+});
+</script>
+@endsection
