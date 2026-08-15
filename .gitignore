@@ -5,8 +5,8 @@
 .env.local
 auth.json
 
-# Dependencies (install on server: composer install / npm install)
-/vendor/
+# Dependencies — vendor is committed so the host can run without composer/terminal.
+# node_modules is still omitted (frontend assets ship via public/build).
 /node_modules/
 
 # IDE / OS
