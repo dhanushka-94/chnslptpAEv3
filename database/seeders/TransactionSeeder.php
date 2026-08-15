@@ -23,7 +23,7 @@ class TransactionSeeder extends Seeder
             return;
         }
 
-        $paymentMethods = ['webxpay', 'kokopay', 'bank_transfer'];
+        $paymentMethods = ['bank_transfer'];
         $statuses = ['pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded'];
         
         foreach ($orders as $index => $order) {
@@ -31,13 +31,7 @@ class TransactionSeeder extends Seeder
             $status = $statuses[array_rand($statuses)];
             $amount = $order->total ?? rand(5000, 50000);
             
-            // Calculate transaction fee based on payment method
-            $transactionFee = match($paymentMethod) {
-                'kokopay' => $amount * 0.10, // 10% for Koko Pay
-                'webxpay' => $amount * 0.035, // 3.5% for WebXPay
-                'bank_transfer' => 0, // No fee for bank transfer
-                default => 0
-            };
+            $transactionFee = 0;
 
             $transaction = Transaction::create([
                 'transaction_id' => 'TXN_' . strtoupper(Str::random(10)),
@@ -45,7 +39,7 @@ class TransactionSeeder extends Seeder
                 'payment_method' => $paymentMethod,
                 'status' => $status,
                 'amount' => $amount,
-                'currency' => 'LKR',
+                'currency' => 'AED',
                 'gateway_transaction_id' => $status !== 'pending' ? 'GTW_' . strtoupper(Str::random(12)) : null,
                 'gateway_reference' => $status !== 'pending' ? 'REF_' . strtoupper(Str::random(8)) : null,
                 'customer_name' => $order->billing_first_name . ' ' . $order->billing_last_name,
@@ -54,7 +48,7 @@ class TransactionSeeder extends Seeder
                 'transaction_fee' => $transactionFee,
                 'description' => 'CHANCE LAPTOPS Order #' . $order->order_number,
                 'failure_reason' => $status === 'failed' ? $this->getRandomFailureReason() : null,
-                'initiated_at' => now()->subMinutes(rand(1, 1440)), // Random time in last 24 hours
+                'initiated_at' => now()->subMinutes(rand(1, 1440)),
                 'completed_at' => $status === 'completed' ? now()->subMinutes(rand(0, 720)) : null,
                 'failed_at' => $status === 'failed' ? now()->subMinutes(rand(0, 120)) : null,
                 'metadata' => $this->getMetadata($paymentMethod, $status),
@@ -62,7 +56,6 @@ class TransactionSeeder extends Seeder
                 'user_agent' => $this->getRandomUserAgent(),
             ]);
 
-            // Add gateway response for non-pending transactions
             if ($status !== 'pending') {
                 $transaction->update([
                     'gateway_response' => $this->getGatewayResponse($paymentMethod, $status),
@@ -97,11 +90,6 @@ class TransactionSeeder extends Seeder
             'environment' => config('app.env'),
         ];
 
-        if ($paymentMethod === 'kokopay') {
-            $metadata['installments'] = 3;
-            $metadata['bnpl_approved'] = $status === 'completed';
-        }
-
         if ($status === 'refunded') {
             $metadata['refund_reason'] = 'Customer requested refund';
             $metadata['refunded_by'] = 'Admin User';
@@ -118,30 +106,6 @@ class TransactionSeeder extends Seeder
             'timestamp' => now()->toISOString(),
             'version' => '1.0',
         ];
-
-        if ($paymentMethod === 'webxpay') {
-            return array_merge($baseResponse, [
-                'response_code' => $status === 'completed' ? '00' : ($status === 'failed' ? '05' : '01'),
-                'response_message' => $status === 'completed' ? 'Transaction Successful' : 
-                                   ($status === 'failed' ? 'Transaction Declined' : 'Transaction Pending'),
-                'authorization_code' => $status === 'completed' ? strtoupper(Str::random(6)) : null,
-                'card_type' => 'VISA',
-                'card_last_four' => '****' . rand(1000, 9999),
-            ]);
-        }
-
-        if ($paymentMethod === 'kokopay') {
-            return array_merge($baseResponse, [
-                'approval_status' => $status === 'completed' ? 'APPROVED' : ($status === 'failed' ? 'DECLINED' : 'PENDING'),
-                'credit_check' => $status === 'completed' ? 'PASSED' : ($status === 'failed' ? 'FAILED' : 'PENDING'),
-                'installment_plan' => [
-                    'total_amount' => rand(5000, 50000),
-                    'installments' => 3,
-                    'monthly_amount' => rand(1500, 17000),
-                ],
-                'risk_score' => rand(1, 100),
-            ]);
-        }
 
         if ($paymentMethod === 'bank_transfer') {
             return array_merge($baseResponse, [

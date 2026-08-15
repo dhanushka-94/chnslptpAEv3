@@ -80,7 +80,7 @@ class MigrateOrdersToTransactions extends Command
                     'payment_method' => $order->payment_method,
                     'status' => 'completed',
                     'amount' => $order->total_amount,
-                    'currency' => 'LKR',
+                    'currency' => 'AED',
                     'gateway_transaction_id' => $order->payment_reference,
                     'gateway_reference' => $order->payment_reference,
                     'customer_name' => $order->customer_name,

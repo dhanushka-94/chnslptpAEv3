@@ -169,8 +169,8 @@
                         <label for="payment_method" class="block text-sm font-medium text-gray-700 mb-2">Payment Method</label>
                         <select id="payment_method" name="payment_method" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                             <option value="">All Methods</option>
-                            <option value="webxpay" {{ request('payment_method') === 'webxpay' ? 'selected' : '' }}>💳 WebXPay</option>
-                            <option value="kokopay" {{ request('payment_method') === 'kokopay' ? 'selected' : '' }}>⏰ Koko Pay (BNPL)</option>
+                            <option value="tamara" {{ request('payment_method') === 'tamara' ? 'selected' : '' }}>Tamara (Coming Soon)</option>
+                            <option value="tabby" {{ request('payment_method') === 'tabby' ? 'selected' : '' }}>Tabby (Coming Soon)</option>
                             <option value="bank_transfer" {{ request('payment_method') === 'bank_transfer' ? 'selected' : '' }}>🏦 Bank Transfer</option>
                         </select>
                     </div>
@@ -274,12 +274,16 @@
                         @if(request('payment_method'))
                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs bg-indigo-900/50 text-indigo-200 border border-indigo-700">
                                 Method: 
-                                @if(request('payment_method') === 'webxpay')
-                                    💳 WebXPay
-                                @elseif(request('payment_method') === 'kokopay')
-                                    ⏰ Koko Pay
+                                @if(request('payment_method') === 'tamara')
+                                    Tamara (Coming Soon)
+                                @elseif(request('payment_method') === 'tabby')
+                                    Tabby (Coming Soon)
                                 @elseif(request('payment_method') === 'bank_transfer')
                                     🏦 Bank Transfer
+                                @elseif(request('payment_method') === 'webxpay')
+                                    💳 Card (Legacy)
+                                @elseif(request('payment_method') === 'kokopay')
+                                    ⏰ BNPL (Legacy)
                                 @else
                                     {{ ucfirst(str_replace('_', ' ', request('payment_method'))) }}
                                 @endif
@@ -420,10 +424,8 @@
                                         <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium {{ $order->payment_method_badge }}">
                                             {{ $order->payment_method_display }}
                                         </span>
-                                        @if($order->payment_method === 'kokopay')
-                                            <span class="text-xs text-purple-400 font-medium">BNPL</span>
-                                        @elseif($order->payment_method === 'webxpay')
-                                            <span class="text-xs text-red-400 font-medium">Gateway</span>
+                                        @if($order->payment_method === 'tamara' || $order->payment_method === 'tabby')
+                                            <span class="text-xs text-amber-400 font-medium">Coming Soon</span>
                                         @elseif($order->payment_method === 'bank_transfer')
                                             <span class="text-xs text-green-400 font-medium">Manual</span>
                                             @if($order->transfer_slip_path)
@@ -431,6 +433,8 @@
                                             @else
                                                 <span class="text-xs text-gray-500 font-medium" title="No transfer slip">⏳</span>
                                             @endif
+                                        @elseif(in_array($order->payment_method, ['webxpay', 'kokopay']))
+                                            <span class="text-xs text-gray-400 font-medium">Legacy</span>
                                         @endif
                                     </div>
                                 </td>
@@ -440,7 +444,7 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
-                                    LKR {{ number_format($order->total_amount, 2) }}
+                                    AED {{ number_format($order->total_amount, 2) }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                     <div class="flex flex-col">

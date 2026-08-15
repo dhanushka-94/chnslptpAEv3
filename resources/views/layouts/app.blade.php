@@ -6,15 +6,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- SEO Meta Tags -->
-    <title>@yield('title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service, Accessories in Sri Lanka')</title>
-    <meta name="description" content="@yield('description', 'Chance Laptops - Your trusted destination for brand new and used laptops, laptop repair services, and all laptop accessories in Sri Lanka. Expert service, quality products, and affordable prices.')">
-    <meta name="keywords" content="@yield('keywords', 'laptops Sri Lanka, brand new laptops, used laptops, laptop repair, laptop service, laptop accessories, laptop parts, laptop screen repair, laptop battery, laptop charger, Chance Laptops, Sri Lanka, Colombo')">
+    <title>@yield('title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service, Accessories in United Arab Emirates')</title>
+    <meta name="description" content="@yield('description', 'Chance Laptops - Your trusted destination for brand new and used laptops, laptop repair services, and all laptop accessories in United Arab Emirates. Expert service, quality products, and affordable prices.')">
+    <meta name="keywords" content="@yield('keywords', 'laptops United Arab Emirates, brand new laptops, used laptops, laptop repair, laptop service, laptop accessories, laptop parts, laptop screen repair, laptop battery, laptop charger, Chance Laptops, United Arab Emirates, Dubai, Abu Dhabi')">
     <meta name="author" content="Chance Laptops">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="@yield('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops in Sri Lanka')">
-    <meta property="og:description" content="@yield('og_description', 'Chance Laptops - Brand new and used laptops, professional laptop repair & service, and all laptop accessories in Sri Lanka. Expert technicians, quality products.')">
+    <meta property="og:title" content="@yield('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops in United Arab Emirates')">
+    <meta property="og:description" content="@yield('og_description', 'Chance Laptops - Brand new and used laptops, professional laptop repair & service, and all laptop accessories in United Arab Emirates. Expert technicians, quality products.')">
     <meta property="og:image" content="@yield('og_image', asset('chance-laptops-logo.png'))">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="@yield('og_type', 'website')">
@@ -22,8 +22,8 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops in Sri Lanka')">
-    <meta name="twitter:description" content="@yield('og_description', 'Chance Laptops - Brand new and used laptops, professional laptop repair & service, and all laptop accessories in Sri Lanka. Expert technicians, quality products.')">
+    <meta name="twitter:title" content="@yield('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops in United Arab Emirates')">
+    <meta name="twitter:description" content="@yield('og_description', 'Chance Laptops - Brand new and used laptops, professional laptop repair & service, and all laptop accessories in United Arab Emirates. Expert technicians, quality products.')">
     <meta name="twitter:image" content="@yield('og_image', asset('chance-laptops-logo.png'))">
     
     <!-- Canonical URL -->
@@ -101,7 +101,7 @@
             <div class="flex flex-col sm:flex-row justify-between items-center py-2.5 text-sm">
                 <!-- Contact Information -->
                 <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 md:space-x-6 text-gray-700 text-center sm:text-left w-full sm:w-auto mb-2 sm:mb-0">
-                    <a href="https://wa.me/{{ config('products.whatsapp_number', '971522306476') }}"
+                    <a href="https://wa.me/{{ config('products.whatsapp_number', '971581811579') }}"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="flex items-center justify-center sm:justify-start space-x-2 group cursor-pointer min-h-[44px] py-1">
@@ -112,7 +112,7 @@
                         </div>
                         <div>
                             <span class="text-sm font-medium text-gray-700 group-hover:text-[#25D366] transition-colors block leading-tight">WhatsApp</span>
-                            <span class="text-xs text-gray-500">{{ config('products.whatsapp_display', '+971 52 230 6476') }}</span>
+                            <span class="text-xs text-gray-500">{{ config('products.whatsapp_display', '+971 58 181 1579') }}</span>
                         </div>
                     </a>
                     
@@ -135,7 +135,7 @@
                         <svg class="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
-                        <span class="text-white font-semibold text-xs hidden sm:inline whitespace-nowrap">Island Wide Express Delivery</span>
+                        <span class="text-white font-semibold text-xs hidden sm:inline whitespace-nowrap">Across the UAE Express Delivery</span>
                         <span class="text-white font-semibold text-xs sm:hidden whitespace-nowrap">Express Delivery</span>
                     </div>
 
@@ -143,7 +143,7 @@
                     <div class="flex items-center space-x-1.5 sm:space-x-2">
                         <span class="text-gray-500 text-xs hidden lg:inline mr-1">Follow:</span>
                         <div class="flex space-x-1.5 sm:space-x-2">
-                            <a href="https://www.facebook.com/" 
+                            <a href="{{ config('products.facebook_url') }}" 
                                target="_blank" 
                                rel="noopener noreferrer"
                                class="w-7 h-7 bg-gray-100 hover:bg-[#1877f2] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-300/50 hover:border-[#1877f2]"
@@ -152,22 +152,13 @@
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                 </svg>
                             </a>
-                            <a href="https://www.youtube.com/" 
+                            <a href="{{ config('products.instagram_url') }}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               class="w-7 h-7 bg-gray-100 hover:bg-[#ff0000] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-300/50 hover:border-[#ff0000]"
-                               title="Subscribe to our YouTube channel">
-                                <svg class="w-3.5 h-3.5 text-gray-600 hover:text-red-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.tiktok.com/" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="w-7 h-7 bg-gray-100 hover:bg-slate-50 hover:border-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-300/50"
-                               title="Follow us on TikTok">
-                                <svg class="w-3.5 h-3.5 text-gray-600 hover:text-red-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                               class="w-7 h-7 bg-gray-100 hover:bg-gradient-to-br hover:from-[#f58529] hover:via-[#dd2a7b] hover:to-[#8134af] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-300/50"
+                               title="Follow us on Instagram">
+                                <svg class="w-3.5 h-3.5 text-gray-600 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                                 </svg>
                             </a>
                         </div>
@@ -320,7 +311,7 @@
                         <div class="hidden lg:block min-w-[90px]">
                             <div class="flex flex-col items-start">
                                 <span class="text-sm font-semibold">Cart</span>
-                                <span class="cart-total text-xs text-gray-600 font-medium">LKR 0.00</span>
+                                <span class="cart-total text-xs text-gray-600 font-medium">AED 0.00</span>
                             </div>
                         </div>
                     </a>
@@ -333,7 +324,7 @@
                             </svg>
                         </div>
                         <div class="ml-1.5 min-w-[60px] hidden xs:block">
-                            <span class="cart-total text-xs text-gray-600 font-medium">LKR 0.00</span>
+                            <span class="cart-total text-xs text-gray-600 font-medium">AED 0.00</span>
                         </div>
                     </a>
 
@@ -675,7 +666,7 @@
                             </svg>
                             <span class="mobile-cart-text font-medium">Cart</span>
                         </div>
-                        <span class="cart-total text-xs text-red-400 font-semibold">LKR 0.00</span>
+                        <span class="cart-total text-xs text-red-400 font-semibold">AED 0.00</span>
                     </a>
                 </div>
             </div>
@@ -689,262 +680,150 @@
 
     <!-- Footer -->
     <footer class="site-footer relative mt-16 overflow-hidden">
-        <!-- Trust bar -->
         <div class="footer-trust-bar">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    <div class="footer-trust-item">
-                        <svg class="w-5 h-5 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        <span>Island-Wide Express Delivery</span>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center sm:text-left">
+                    <div class="footer-trust-item justify-center sm:justify-start">
+                        <svg class="w-4 h-4 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <span>Across the UAE Express Delivery</span>
                     </div>
-                    <div class="footer-trust-item">
-                        <svg class="w-5 h-5 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <span>Quality Laptops & Accessories</span>
+                    <div class="footer-trust-item justify-center sm:justify-start">
+                        <svg class="w-4 h-4 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <span>1-Year Hardware Warranty</span>
                     </div>
-                    <div class="footer-trust-item">
-                        <svg class="w-5 h-5 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span>Bank Transfer — Coming Soon</span>
+                    <div class="footer-trust-item justify-center sm:justify-start">
+                        <svg class="w-4 h-4 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>Sharjah Store · Open Daily (Fri Closed)</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-14 pb-6 sm:pb-8">
-            <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 mb-8 sm:mb-12">
-                <!-- Company Info -->
-                <div class="lg:col-span-1">
-                    <div class="footer-brand-block">
-                    <div class="flex flex-col items-start sm:items-center lg:items-start space-y-4 mb-6">
-                        <img src="{{ asset('chance-laptops-logo.png') }}" 
-                             alt="Chance Laptops Logo" 
-                             class="w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto sm:mx-0">
-                        <div class="flex-1 w-full text-center sm:text-left">
-                            <h3 class="text-xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent mb-1">
-                                CHANCE LAPTOPS
-                            </h3>
-                            <p class="text-xs font-semibold text-red-500 uppercase tracking-wide mb-2">Chance Laptops (Pvt) Ltd</p>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Brand new & used laptops, expert repair services, and comprehensive accessories in Sri Lanka.
-                            </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-8 xl:gap-10 mb-10">
+                {{-- Brand --}}
+                <div class="xl:col-span-4">
+                    <div class="footer-brand-block h-full">
+                        <div class="flex items-start gap-4 mb-5">
+                            <img src="{{ asset('chance-laptops-logo.png') }}"
+                                 alt="Chance Laptops"
+                                 class="w-16 h-16 object-contain flex-shrink-0">
+                            <div>
+                                <h3 class="text-xl font-bold text-red-600 leading-tight">CHANCE LAPTOPS</h3>
+                                <p class="text-xs font-semibold text-red-500/90 uppercase tracking-wider mt-0.5">Sharjah · UAE</p>
+                                <p class="text-slate-600 text-sm leading-relaxed mt-2">
+                                    Brand-new &amp; used laptops, accessories, and expert repair across the United Arab Emirates.
+                                </p>
+                            </div>
                         </div>
-                        </div>
-                    
-                    <!-- Social Media -->
-                    <div class="mt-6">
-                        <p class="text-gray-600 text-sm mb-3 font-medium">Follow Us</p>
-                        <div class="flex space-x-3">
-                            <!-- Facebook -->
-                            <a href="https://www.facebook.com/" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
+                        <div class="flex items-center gap-2.5">
+                            <a href="{{ config('products.facebook_url') }}"
+                               target="_blank" rel="noopener noreferrer"
                                class="social-icon-btn hover:bg-[#1877f2] hover:text-white hover:border-[#1877f2]"
-                               title="Follow us on Facebook">
-                                <svg class="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
+                               title="Facebook" aria-label="Facebook">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                             </a>
-                            <!-- YouTube -->
-                            <a href="https://www.youtube.com/" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="social-icon-btn hover:bg-[#ff0000] hover:text-white hover:border-[#ff0000]"
-                               title="Subscribe to our YouTube channel">
-                                <svg class="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
+                            <a href="{{ config('products.instagram_url') }}"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-icon-btn hover:bg-gradient-to-br hover:from-[#f58529] hover:via-[#dd2a7b] hover:to-[#8134af] hover:text-white hover:border-transparent"
+                               title="Instagram" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                             </a>
-                            <!-- TikTok -->
-                            <a href="https://www.tiktok.com/" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="social-icon-btn hover:bg-slate-900 hover:text-white hover:border-slate-900"
-                               title="Follow us on TikTok">
-                                <svg class="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                                </svg>
+                            <a href="https://wa.me/{{ config('products.whatsapp_number') }}"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-icon-btn hover:bg-[#25D366] hover:text-white hover:border-[#25D366]"
+                               title="WhatsApp" aria-label="WhatsApp">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
                             </a>
-                    </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="space-y-2.5">
+                {{-- Links --}}
+                <div class="xl:col-span-2">
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="space-y-2">
                         <li><a href="{{ route('home') }}" class="footer-link">Home</a></li>
                         <li><a href="{{ route('products.index') }}" class="footer-link">All Products</a></li>
-                        <li><a href="{{ route('categories.index') }}" class="footer-link">All Categories</a></li>
+                        <li><a href="{{ route('categories.index') }}" class="footer-link">Categories</a></li>
                         <li><a href="{{ route('promotions.index') }}" class="footer-link">Promotions</a></li>
                         <li><a href="{{ route('wholesale.index') }}" class="footer-link">Wholesale</a></li>
+                    </ul>
+                </div>
+
+                <div class="xl:col-span-2">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="space-y-2">
                         <li><a href="{{ route('about-us.index') }}" class="footer-link">About Us</a></li>
-                        <li><a href="{{ route('contact-us.index') }}" class="footer-link">Contact Us</a></li>
+                        <li><a href="{{ route('contact-us.index') }}" class="footer-link">Contact</a></li>
+                        <li><a href="{{ route('warranty') }}" class="footer-link">Warranty</a></li>
+                        <li><a href="{{ route('privacy-policy') }}" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms-of-service') }}" class="footer-link">Terms of Service</a></li>
                     </ul>
                 </div>
 
-                <!-- Categories -->
-                <div>
-                    <h4 class="footer-heading">Categories</h4>
-                    <ul class="space-y-2 sm:space-y-3">
-                        @if(isset($menuCategories) && $menuCategories->count() > 0)
-                            @foreach($menuCategories->take(6) as $category)
-                                <li>
-                                    <a href="{{ route('categories.show', $category->slug ?: $category->id) }}" class="footer-link">{{ $category->name }}</a>
-                                </li>
-                            @endforeach
-                        @else
-                            <li>
-                                <a href="{{ route('categories.index') }}" class="footer-link">
-                                    <svg class="w-4 h-4 mr-2 text-red-500/50 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                    Browse All Categories
-                                </a>
-                            </li>
-                        @endif
+                {{-- Contact --}}
+                <div class="xl:col-span-4">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <span class="footer-contact-label">WhatsApp</span>
+                            <a href="https://wa.me/{{ config('products.whatsapp_number') }}" target="_blank" rel="noopener noreferrer" class="footer-contact-value hover:text-[#25D366]">
+                                {{ config('products.whatsapp_display') }}
+                            </a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-label">Email</span>
+                            <a href="mailto:info@chancelaptops.ae" class="footer-contact-value hover:text-red-600">info@chancelaptops.ae</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-label">Hours</span>
+                            <span class="footer-contact-value">Everyday 11:00 AM – 11:00 PM · Friday Closed</span>
+                        </li>
+                        <li>
+                            <span class="footer-contact-label">Address</span>
+                            <span class="footer-contact-value leading-relaxed">{{ config('products.store_address') }}</span>
+                        </li>
                     </ul>
                 </div>
+            </div>
 
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="footer-heading">Contact Info</h4>
-                    <div class="space-y-3">
-                        <!-- WhatsApp -->
-                        <div class="footer-contact-card">
-                            <div class="w-10 h-10 bg-[#25D366]/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                                </svg>
-                            </div>
-                            <div class="text-gray-600 text-sm">
-                                <div class="font-medium text-gray-700 mb-1">WhatsApp</div>
-                                <a href="https://wa.me/{{ config('products.whatsapp_number', '971522306476') }}"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="hover:text-[#25D366] transition-colors font-semibold text-slate-800">
-                                    {{ config('products.whatsapp_display', '+971 52 230 6476') }}
-                                </a>
-                            </div>
+            {{-- Payments --}}
+            <div class="footer-payments-strip">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <p class="text-sm font-bold text-slate-900">Payments launching soon</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Tamara · Tabby · Bank Transfer</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <div class="footer-pay-chip" title="Tamara — Coming Soon">
+                            <img src="{{ asset('images/tamara-logo.png') }}" alt="Tamara" class="h-7 w-auto object-contain">
+                            <span class="footer-soon-tag">Soon</span>
                         </div>
-                        
-                        <!-- Email -->
-                        <div class="footer-contact-card">
-                            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z"/>
-                            </svg>
-                            </div>
-                            <div class="text-gray-600 text-sm">
-                                <div class="font-medium text-gray-700 mb-1">Email</div>
-                                <a href="mailto:info@chancelaptops.ae" class="hover:text-red-400 transition-colors break-all">info@chancelaptops.ae</a>
-                            </div>
+                        <div class="footer-pay-chip" title="Tabby — Coming Soon">
+                            <img src="{{ asset('images/tabby-logo.png') }}" alt="Tabby" class="h-7 w-auto object-contain">
+                            <span class="footer-soon-tag">Soon</span>
                         </div>
-                        
-                        <!-- Hours -->
-                        <div class="footer-contact-card">
-                            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            </div>
-                            <div class="text-gray-600 text-sm">
-                                <div class="font-medium text-gray-700 mb-1">Business Hours</div>
-                                <div>Mon-Fri: <span class="text-red-400">9:00 AM - 6:30 PM</span></div>
-                                <div>Sat-Sun: <span class="text-red-400">9:00 AM - 5:30 PM</span></div>
-                                <div class="text-xs text-gray-500 mt-1">Closed on Poya Days</div>
-                            </div>
+                        <div class="footer-pay-chip footer-pay-chip--muted" title="Bank Transfer — Coming Soon">
+                            <span class="text-xs font-bold text-slate-700">Bank Transfer</span>
+                            <span class="footer-soon-tag">Soon</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Payment Methods Section -->
-            <div class="border-t border-red-500/20 pt-6 sm:pt-8 mb-6 sm:mb-8">
-                <div class="text-center mb-4 sm:mb-6">
-                    <h4 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 flex items-center justify-center">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                        </svg>
-                        We Accept
-                    </h4>
-                    <p class="text-gray-600 text-xs sm:text-sm">More payment options launching soon</p>
-                </div>
-                <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6">
-                    <div class="footer-payment-card opacity-80 cursor-default">
-                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center shadow-sm flex-shrink-0">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M2 8V4.5C2 3.67 2.67 3 3.5 3H20.5C21.33 3 22 3.67 22 4.5V8H2ZM22 10V19.5C22 20.33 21.33 21 20.5 21H3.5C2.67 21 2 20.33 2 19.5V10H22ZM4 18H6V16H4V18ZM8 18H10V16H8V18Z"/>
-                            </svg>
-                        </div>
-                        <div class="text-left">
-                            <div class="text-sm font-bold text-red-600">Bank Transfer</div>
-                            <div class="text-xs text-amber-700 font-semibold">Coming Soon</div>
-                        </div>
-                    </div>
-                    <div class="footer-payment-card opacity-80 cursor-default">
-                        <img src="{{ asset('images/kokopay-logo.png') }}" alt="" class="w-10 h-10 object-contain opacity-70 flex-shrink-0">
-                        <div class="text-left">
-                            <div class="text-sm font-bold text-gray-700">KOKO Pay</div>
-                            <div class="text-xs text-amber-700 font-semibold">Coming Soon</div>
-                        </div>
-                    </div>
-                    <div class="footer-payment-card opacity-80 cursor-default">
-                        <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                            </svg>
-                        </div>
-                        <div class="text-left">
-                            <div class="text-sm font-bold text-gray-700">Installments</div>
-                            <div class="text-xs text-amber-700 font-semibold">Coming Soon</div>
-                        </div>
-                    </div>
-                </div>
-                    
-                    <!-- Security Notice -->
-                    <div class="mt-6 text-center">
-                    <div class="inline-flex items-center px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-lg">
-                        <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.7C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16.8V12.8C8,12.1 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
-                            </svg>
-                        <p class="text-gray-600 text-xs">Your payment information is processed securely. We do not store credit card details.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Section -->
-            <div class="border-t border-slate-200 pt-8 mt-4">
-                <div class="footer-bottom-bar flex flex-col lg:flex-row justify-between items-center gap-4">
-                    <div class="text-center lg:text-left">
-                        <p class="text-slate-700 text-sm font-medium">
-                            © {{ date('Y') }} <span class="text-red-600 font-bold">Chance Laptops (Pvt) Ltd</span> · All rights reserved
+            {{-- Bottom --}}
+            <div class="footer-bottom-bar mt-8 pt-6 border-t border-slate-200/80">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
+                    <div>
+                        <p class="text-slate-700 text-sm">
+                            © {{ date('Y') }} <span class="text-red-600 font-bold">Chance Laptops</span> · All rights reserved
                         </p>
-                        <p class="text-slate-500 text-xs mt-1">Laptops · Repair · Accessories · Island-wide delivery</p>
-                        <p class="text-slate-500 text-xs mt-2">
+                        <p class="text-slate-500 text-xs mt-1">
                             Developed by <a href="https://olexto.com" target="_blank" rel="noopener" class="text-red-600 font-semibold hover:underline">Olexto Digital Solutions</a>
                         </p>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                        <a href="{{ route('privacy-policy') }}" class="text-gray-600 hover:text-red-400 text-sm transition-colors flex items-center group">
-                            <svg class="w-3 h-3 mr-1 text-red-500/50 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                            Privacy Policy
-                                </a>
-                        <a href="{{ route('terms-of-service') }}" class="text-gray-600 hover:text-red-400 text-sm transition-colors flex items-center group">
-                            <svg class="w-3 h-3 mr-1 text-red-500/50 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                            Terms of Service
-                        </a>
-                        <a href="{{ route('warranty') }}" class="text-gray-600 hover:text-red-400 text-sm transition-colors flex items-center group">
-                            <svg class="w-3 h-3 mr-1 text-red-500/50 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                            Warranty
-                        </a>
-                    </div>
+                    <p class="text-slate-500 text-xs">Laptops · Repair · Accessories · Across the UAE</p>
                 </div>
             </div>
         </div>
@@ -1013,7 +892,7 @@
                     const cartTotalElements = document.querySelectorAll('.cart-total');
                     cartTotalElements.forEach(element => {
                         if (element) {
-                            element.textContent = `LKR ${cartTotal}`;
+                            element.textContent = `AED ${cartTotal}`;
                         }
                     });
                 }
@@ -1372,13 +1251,13 @@
                     if (hasPromotion) {
                         priceHtml = `
                             <div class="flex items-center space-x-2">
-                                <span class="text-xs text-primary-400 font-semibold">LKR ${finalPrice.toLocaleString()}</span>
-                                <span class="text-xs text-gray-500 line-through">LKR ${originalPrice.toLocaleString()}</span>
+                                <span class="text-xs text-primary-400 font-semibold">AED ${finalPrice.toLocaleString()}</span>
+                                <span class="text-xs text-gray-500 line-through">AED ${originalPrice.toLocaleString()}</span>
                                 <span class="text-xs bg-red-500 text-white px-1 py-0.5 rounded">SALE</span>
                             </div>
                         `;
                     } else {
-                        priceHtml = `<div class="text-xs text-primary-400">LKR ${finalPrice.toLocaleString()}</div>`;
+                        priceHtml = `<div class="text-xs text-primary-400">AED ${finalPrice.toLocaleString()}</div>`;
                     }
                     
                     html += `<a href="${productUrl}" class="block py-2 px-3 text-gray-700 hover:bg-gray-900 hover:text-primary-400 transition-colors rounded">
@@ -1476,12 +1355,12 @@
         });
     </script>
     <!-- Floating WhatsApp (bottom-right) -->
-    <a href="https://wa.me/{{ config('products.whatsapp_number', '971522306476') }}"
+    <a href="https://wa.me/{{ config('products.whatsapp_number', '971581811579') }}"
        target="_blank"
        rel="noopener noreferrer"
        class="floating-whatsapp"
        aria-label="Chat on WhatsApp"
-       title="Chat on WhatsApp {{ config('products.whatsapp_display', '+971 52 230 6476') }}">
+       title="Chat on WhatsApp {{ config('products.whatsapp_display', '+971 58 181 1579') }}">
         <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
         </svg>

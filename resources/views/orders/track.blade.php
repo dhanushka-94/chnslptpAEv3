@@ -99,7 +99,7 @@
                                         @else bg-red-100 text-red-800 @endif">
                                         {{ ucfirst($order->status) }}
                                     </span>
-                                    <span class="font-bold text-slate-900">LKR {{ number_format($order->total_amount, 2) }}</span>
+                                    <span class="font-bold text-slate-900">AED {{ number_format($order->total_amount, 2) }}</span>
                                     <svg class="w-5 h-5 text-slate-400 group-hover:text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                                 </div>
                             </a>
@@ -143,7 +143,7 @@
                         </div>
                         <h3 class="text-lg font-bold text-slate-900">Branch network</h3>
                     </div>
-                    <p class="text-slate-600 text-sm mb-5">Find pickup and delivery locations across Sri Lanka (55+ branches).</p>
+                    <p class="text-slate-600 text-sm mb-5">Find pickup and delivery locations across United Arab Emirates (55+ branches).</p>
                     <a href="https://www.promptxpress.lk/BranchNetwork.aspx#" target="_blank" rel="noopener noreferrer"
                        class="info-btn-secondary w-full">
                         View branch locations
@@ -155,7 +155,7 @@
             <div class="mt-6 p-4 rounded-xl bg-red-50 border border-red-100 flex gap-3">
                 <img src="{{ asset('images/promtexpress.png') }}" alt="" class="w-8 h-8 object-contain flex-shrink-0">
                 <p class="text-sm text-slate-700">
-                    <strong class="text-slate-900">Delivery info:</strong> Island-wide shipping via Prompt Xpress. Typical delivery is 24–48 hours after dispatch once you receive your tracking number.
+                    <strong class="text-slate-900">Delivery info:</strong> Across the UAE Express Delivery via Prompt Xpress. Typical delivery is 24–48 hours after dispatch once you receive your tracking number.
                 </p>
             </div>
         </div>

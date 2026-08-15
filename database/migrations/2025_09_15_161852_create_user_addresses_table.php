@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');
-            $table->string('country')->default('Sri Lanka');
+            $table->string('country')->default('United Arab Emirates');
             $table->boolean('is_default')->default(false);
             $table->timestamps();
             

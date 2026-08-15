@@ -141,7 +141,7 @@ class DashboardController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'postal_code' => $request->postal_code,
-            'country' => $request->country ?? 'Sri Lanka',
+            'country' => $request->country ?? 'United Arab Emirates',
             'is_default' => $request->boolean('is_default'),
         ]);
 
@@ -183,7 +183,7 @@ class DashboardController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'postal_code' => $request->postal_code,
-            'country' => $request->country ?? 'Sri Lanka',
+            'country' => $request->country ?? 'United Arab Emirates',
             'is_default' => $request->boolean('is_default'),
         ]);
 
@@ -269,7 +269,7 @@ class DashboardController extends Controller
             'sms_notifications' => 'boolean',
             'marketing_notifications' => 'boolean',
             'language' => 'in:en,si,ta',
-            'currency' => 'in:LKR,USD',
+            'currency' => 'in:AED,USD',
             'timezone' => 'string|max:50',
         ]);
 
@@ -284,8 +284,8 @@ class DashboardController extends Controller
                 'sms_notifications' => $request->boolean('sms_notifications', true),
                 'marketing_notifications' => $request->boolean('marketing_notifications', false),
                 'language' => $request->input('language', 'en'),
-                'currency' => $request->input('currency', 'LKR'),
-                'timezone' => $request->input('timezone', 'Asia/Colombo'),
+                'currency' => $request->input('currency', 'AED'),
+                'timezone' => $request->input('timezone', 'Asia/Dubai'),
             ])
         ]);
 

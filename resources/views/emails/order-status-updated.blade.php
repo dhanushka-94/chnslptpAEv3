@@ -14,11 +14,11 @@ Your order **{{ $order->order_number }}** status has been updated.
 | Product | Quantity | Price |
 |:--------|:--------:|------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
-**Order Total:** LKR {{ number_format($order->total_amount, 2) }}
+**Order Total:** AED {{ number_format($order->total_amount, 2) }}
 
 @if($order->status === 'shipped' && $order->tracking_number)
 ## Tracking Information
@@ -46,8 +46,8 @@ Best regards,
 
 @component('mail::subcopy')
 If you have any questions about your order, please contact us:
-- Phone: 0112 95 9005
-- WhatsApp: +94 777 506 939
+- Phone: +971 58 181 1579
+- WhatsApp: +971 58 181 1579
 - Email: info@chancelaptops.ae
 @endcomponent
 @endcomponent

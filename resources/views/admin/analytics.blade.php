@@ -133,7 +133,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-green-100 text-sm">Total Revenue</p>
-                    <p class="text-2xl font-bold">Rs. {{ number_format($revenueData->sum('revenue'), 2) }}</p>
+                    <p class="text-2xl font-bold">AED {{ number_format($revenueData->sum('revenue'), 2) }}</p>
                     <p class="text-green-100 text-sm mt-1">Last {{ $period }} days</p>
                 </div>
                 <div class="text-green-200">
@@ -165,7 +165,7 @@
                         $totalOrders = $revenueData->sum('orders');
                         $avgOrder = $totalOrders > 0 ? $revenueData->sum('revenue') / $totalOrders : 0;
                     @endphp
-                    <p class="text-2xl font-bold">Rs. {{ number_format($avgOrder, 2) }}</p>
+                    <p class="text-2xl font-bold">AED {{ number_format($avgOrder, 2) }}</p>
                     <p class="text-purple-100 text-sm mt-1">Per order</p>
                 </div>
                 <div class="text-purple-200">
@@ -210,7 +210,7 @@
                     <div class="flex flex-col items-center group">
                         <div class="bg-primary-500 rounded-t group-hover:bg-primary-400 transition-colors relative"
                              style="height: {{ max($height, 5) }}%; width: 20px;"
-                             title="Date: {{ $data->date }}, Revenue: Rs. {{ number_format($data->revenue, 2) }}">
+                             title="Date: {{ $data->date }}, Revenue: AED {{ number_format($data->revenue, 2) }}">
                         </div>
                         <div class="text-xs text-gray-600 mt-2 transform -rotate-45 origin-left">
                             {{ \Carbon\Carbon::parse($data->date)->format('M d') }}
@@ -248,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="text-right">
-                                <p class="text-white font-semibold">Rs. {{ number_format($product->revenue, 2) }}</p>
+                                <p class="text-white font-semibold">AED {{ number_format($product->revenue, 2) }}</p>
                                 <p class="text-gray-600 text-sm">Revenue</p>
                             </div>
                         </div>
@@ -330,7 +330,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="text-center">
                 <div class="text-3xl font-bold text-primary-400">
-                    Rs. {{ number_format($revenueData->avg('revenue'), 2) }}
+                    AED {{ number_format($revenueData->avg('revenue'), 2) }}
                 </div>
                 <div class="text-gray-600 mt-1">Average Daily Revenue</div>
             </div>

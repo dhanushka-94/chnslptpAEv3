@@ -98,7 +98,7 @@
                     <div class="ml-5 w-0 flex-1">
                         <dl>
                             <dt class="text-sm font-medium text-gray-600 truncate">Total Spent</dt>
-                            <dd class="text-lg font-medium text-gray-900">LKR {{ number_format($totalSpent, 2) }}</dd>
+                            <dd class="text-lg font-medium text-gray-900">AED {{ number_format($totalSpent, 2) }}</dd>
                         </dl>
                     </div>
                 </div>

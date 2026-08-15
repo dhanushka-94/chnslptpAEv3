@@ -9,7 +9,7 @@ Excellent! We've successfully received your payment for order **{{ $order->order
 
 **Order Number:** {{ $order->order_number }}  
 **Payment Date:** {{ now()->format('F d, Y \a\t g:i A') }}  
-**Amount Paid:** **LKR {{ number_format($order->total_amount, 2) }}**  
+**Amount Paid:** **AED {{ number_format($order->total_amount, 2) }}**  
 **Payment Method:** {{ ucfirst(str_replace('_', ' ', $order->payment_method)) }}  
 @if($order->payment_reference)
 **Payment Reference:** {{ $order->payment_reference }}
@@ -21,7 +21,7 @@ Excellent! We've successfully received your payment for order **{{ $order->order
 | Product | Quantity | Unit Price | Total |
 |:--------|:--------:|:----------:|------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->unit_price, 2) }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->unit_price, 2) }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
@@ -29,17 +29,17 @@ Excellent! We've successfully received your payment for order **{{ $order->order
 
 | | |
 |:-----------|----------:|
-| **Subtotal** | LKR {{ number_format($order->subtotal, 2) }} |
+| **Subtotal** | AED {{ number_format($order->subtotal, 2) }} |
 @if($order->shipping_cost > 0)
-| **Shipping** | LKR {{ number_format($order->shipping_cost, 2) }} |
+| **Shipping** | AED {{ number_format($order->shipping_cost, 2) }} |
 @endif
 @if($order->tax_amount > 0)
-| **Tax** | LKR {{ number_format($order->tax_amount, 2) }} |
+| **Tax** | AED {{ number_format($order->tax_amount, 2) }} |
 @endif
 @if($order->discount_amount > 0)
-| **Discount** | -LKR {{ number_format($order->discount_amount, 2) }} |
+| **Discount** | -AED {{ number_format($order->discount_amount, 2) }} |
 @endif
-| **Total Paid** | **LKR {{ number_format($order->total_amount, 2) }}** |
+| **Total Paid** | **AED {{ number_format($order->total_amount, 2) }}** |
 
 @component('mail::panel')
 **Payment Status: CONFIRMED** ✅
@@ -102,8 +102,8 @@ This email serves as your official payment receipt. Please keep it for:
 
 Questions about your payment or order?
 
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579
 - **Email:** orders@chancelaptops.ae
 
 ### Account Access

@@ -16,7 +16,7 @@
                     <div class="text-right text-white">
                         <h2 class="text-xl font-semibold mb-2">CHANCE LAPTOPS</h2>
                         <p class="text-red-100">Your Trusted IT Partner</p>
-                        <p class="text-red-100">Sri Lanka's Leading Computer Store</p>
+                        <p class="text-red-100">United Arab Emirates's Leading Computer Store</p>
                     </div>
                 </div>
             </div>
@@ -105,8 +105,8 @@
                                             @endif
                                         </td>
                                         <td class="border border-gray-300 px-4 py-3 text-center text-gray-900 font-medium">{{ $item->quantity }}</td>
-                                        <td class="border border-gray-300 px-4 py-3 text-right text-gray-900 font-medium">LKR {{ number_format($item->unit_price, 2) }}</td>
-                                        <td class="border border-gray-300 px-4 py-3 text-right font-bold text-gray-900">LKR {{ number_format($item->total_price, 2) }}</td>
+                                        <td class="border border-gray-300 px-4 py-3 text-right text-gray-900 font-medium">AED {{ number_format($item->unit_price, 2) }}</td>
+                                        <td class="border border-gray-300 px-4 py-3 text-right font-bold text-gray-900">AED {{ number_format($item->total_price, 2) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -122,30 +122,30 @@
                             <div class="space-y-2 text-sm">
                                 <div class="flex justify-between text-gray-800">
                                     <span>Subtotal:</span>
-                                    <span class="font-medium">LKR {{ number_format($order->subtotal, 2) }}</span>
+                                    <span class="font-medium">AED {{ number_format($order->subtotal, 2) }}</span>
                                 </div>
                                 @if($order->tax_amount > 0)
                                     <div class="flex justify-between text-gray-800">
                                         <span>Tax:</span>
-                                        <span class="font-medium">LKR {{ number_format($order->tax_amount, 2) }}</span>
+                                        <span class="font-medium">AED {{ number_format($order->tax_amount, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($order->shipping_cost > 0)
                                     <div class="flex justify-between text-gray-800">
                                         <span>Shipping:</span>
-                                        <span class="font-medium">LKR {{ number_format($order->shipping_cost, 2) }}</span>
+                                        <span class="font-medium">AED {{ number_format($order->shipping_cost, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($order->discount_amount > 0)
                                     <div class="flex justify-between text-green-700">
                                         <span>Discount:</span>
-                                        <span class="font-medium">-LKR {{ number_format($order->discount_amount, 2) }}</span>
+                                        <span class="font-medium">-AED {{ number_format($order->discount_amount, 2) }}</span>
                                     </div>
                                 @endif
                                 <hr class="my-2 border-gray-300">
                                 <div class="flex justify-between text-lg font-bold text-gray-900">
                                     <span>Total Amount:</span>
-                                    <span>LKR {{ number_format($order->total_amount, 2) }}</span>
+                                    <span>AED {{ number_format($order->total_amount, 2) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -200,8 +200,8 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                     </svg>
                                     <div>
-                                        <p class="text-gray-800">0112 95 9005</p>
-                                        <p class="text-gray-800">0777 50 69 39 / 071 53 21 750</p>
+                                        <p class="text-gray-800">+971 58 181 1579</p>
+                                        <p class="text-gray-800">+971 58 181 1579 / +971 58 181 1579</p>
                                     </div>
                                 </div>
                                 
@@ -227,7 +227,7 @@
                                 <p>• All sales are final unless otherwise specified</p>
                                 <p>• Products come with manufacturer warranty</p>
                                 <p>• For technical support and inquiries, please contact us</p>
-                                <p>• Sri Lanka's leading computer specialist since establishment</p>
+                                <p>• United Arab Emirates's leading computer specialist since establishment</p>
                             </div>
                         </div>
                     </div>

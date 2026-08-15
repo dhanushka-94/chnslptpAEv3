@@ -48,8 +48,8 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Total Revenue</p>
-                    <p class="text-3xl font-bold text-gray-900">LKR {{ number_format($stats['total_amount'], 2) }}</p>
-                    <p class="text-sm text-green-400">+LKR {{ number_format($stats['total_fees'], 2) }} in fees</p>
+                    <p class="text-3xl font-bold text-gray-900">AED {{ number_format($stats['total_amount'], 2) }}</p>
+                    <p class="text-sm text-green-400">+AED {{ number_format($stats['total_fees'], 2) }} in fees</p>
                 </div>
                 <div class="p-3 bg-green-500/20 rounded-lg">
                     <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,11 +97,11 @@
         <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">Credit/Debit Cards</p>
-                    <p class="text-2xl font-bold text-gray-900">{{ number_format($stats['webxpay_count']) }}</p>
+                    <p class="text-sm font-medium text-gray-600">Tamara (Coming Soon)</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($stats['tamara_count'] ?? 0) }}</p>
                 </div>
-                <div class="p-3 bg-purple-500/20 rounded-lg">
-                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="p-3 bg-amber-500/20 rounded-lg">
+                    <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3-3v8a3 3 0 003 3z"/>
                     </svg>
                 </div>
@@ -111,11 +111,11 @@
         <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">Koko Pay (BNPL)</p>
-                    <p class="text-2xl font-bold text-gray-900">{{ number_format($stats['kokopay_count']) }}</p>
+                    <p class="text-sm font-medium text-gray-600">Tabby (Coming Soon)</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($stats['tabby_count'] ?? 0) }}</p>
                 </div>
-                <div class="p-3 bg-indigo-500/20 rounded-lg">
-                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="p-3 bg-teal-500/20 rounded-lg">
+                    <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
                     </svg>
                 </div>
@@ -158,8 +158,8 @@
                     <select name="payment_method" 
                             class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         <option value="">All Methods</option>
-                        <option value="webxpay" {{ request('payment_method') == 'webxpay' ? 'selected' : '' }}>Credit/Debit Card</option>
-                        <option value="kokopay" {{ request('payment_method') == 'kokopay' ? 'selected' : '' }}>Koko Pay (BNPL)</option>
+                        <option value="tamara" {{ request('payment_method') == 'tamara' ? 'selected' : '' }}>Tamara (Coming Soon)</option>
+                        <option value="tabby" {{ request('payment_method') == 'tabby' ? 'selected' : '' }}>Tabby (Coming Soon)</option>
                         <option value="bank_transfer" {{ request('payment_method') == 'bank_transfer' ? 'selected' : '' }}>Bank Transfer</option>
                     </select>
                 </div>
@@ -244,9 +244,9 @@
                                     <div class="text-sm text-gray-600">Order: {{ $transaction->order->order_number }}</div>
                                 @endif
                         @if($transaction->payment_method === 'kokopay' && $transaction->gateway_reference)
-                            <div class="text-xs text-purple-400 font-mono">⏰ Koko ID: {{ $transaction->gateway_reference }}</div>
+                            <div class="text-xs text-amber-400 font-mono">⏰ BNPL Ref: {{ $transaction->gateway_reference }}</div>
                         @elseif($transaction->payment_method === 'webxpay' && $transaction->gateway_reference)
-                            <div class="text-xs text-purple-400 font-mono">💳 WebX Ref: {{ $transaction->gateway_reference }}</div>
+                            <div class="text-xs text-amber-400 font-mono">💳 Legacy Ref: {{ $transaction->gateway_reference }}</div>
                         @endif
                                 @if($transaction->gateway_transaction_id)
                                     <div class="text-xs text-gray-500">Gateway: {{ $transaction->gateway_transaction_id }}</div>
@@ -273,20 +273,27 @@
                             <div class="flex flex-col space-y-1">
                                 <!-- Primary Payment Method -->
                                 <div class="flex items-center">
-                                    @if($transaction->payment_method === 'webxpay')
-                                        <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-3">
-                                            <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3-3v8a3 3 0 003 3z"/>
+                                    @if($transaction->payment_method === 'tamara')
+                                        <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                             </svg>
                                         </div>
-                                        <span class="text-sm text-white">Credit/Debit Card</span>
-                                    @elseif($transaction->payment_method === 'kokopay')
-                                        <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mr-3">
-                                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                                        <span class="text-sm text-white">Tamara (Coming Soon)</span>
+                                    @elseif($transaction->payment_method === 'tabby')
+                                        <div class="w-8 h-8 bg-teal-500/20 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                             </svg>
                                         </div>
-                                        <span class="text-sm text-white">Koko Pay (BNPL)</span>
+                                        <span class="text-sm text-white">Tabby (Coming Soon)</span>
+                                    @elseif(in_array($transaction->payment_method, ['webxpay', 'kokopay']))
+                                        <div class="w-8 h-8 bg-gray-500/20 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm text-white">{{ $transaction->payment_method_name }}</span>
                                     @elseif($transaction->payment_method === 'bank_transfer')
                                         <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center mr-3">
                                             <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -294,11 +301,13 @@
                                             </svg>
                                         </div>
                                         <span class="text-sm text-white">Bank Transfer</span>
+                                    @else
+                                        <span class="text-sm text-white">{{ $transaction->payment_method_name }}</span>
                                     @endif
                                 </div>
                                 
                                 <!-- Card Type Information -->
-                                @if($cardType['type'] !== 'unknown' && $transaction->payment_method === 'webxpay')
+                                @if($cardType['type'] !== 'unknown' && in_array($transaction->payment_method, ['webxpay']))
                                     <div class="flex items-center space-x-1 ml-11">
                                         <span class="text-sm">{{ $cardType['icon'] }}</span>
                                         <span class="text-xs {{ $cardType['color'] }} font-medium">{{ $cardType['brand'] }}</span>
@@ -313,10 +322,10 @@
                         <!-- Amount -->
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex flex-col">
-                                <div class="text-sm font-medium text-white">LKR {{ number_format($transaction->amount, 2) }}</div>
+                                <div class="text-sm font-medium text-white">AED {{ number_format($transaction->amount, 2) }}</div>
                                 @if($transaction->transaction_fee > 0)
-                                    <div class="text-xs text-gray-600">Fee: LKR {{ number_format($transaction->transaction_fee, 2) }}</div>
-                                    <div class="text-xs text-green-400">Total: LKR {{ number_format($transaction->total_amount, 2) }}</div>
+                                    <div class="text-xs text-gray-600">Fee: AED {{ number_format($transaction->transaction_fee, 2) }}</div>
+                                    <div class="text-xs text-green-400">Total: AED {{ number_format($transaction->total_amount, 2) }}</div>
                                 @endif
                             </div>
                         </td>
@@ -330,7 +339,7 @@
                                     'completed' => 'bg-green-500/20 text-green-400 border-green-500/30',
                                     'failed' => 'bg-red-500/20 text-red-400 border-red-500/30',
                                     'cancelled' => 'bg-gray-500/20 text-gray-600 border-gray-500/30',
-                                    'refunded' => 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+                                    'refunded' => 'bg-amber-500/20 text-amber-400 border-purple-500/30',
                                 ];
                                 $statusColor = $statusColors[$transaction->status] ?? 'bg-gray-500/20 text-gray-600 border-gray-500/30';
                             @endphp
@@ -383,7 +392,7 @@
 
                                 @if($transaction->isCompleted())
                                     <button type="button" 
-                                            class="text-purple-400 hover:text-purple-300 transition-colors"
+                                            class="text-amber-400 hover:text-purple-300 transition-colors"
                                             title="Refund Transaction"
                                             onclick="openRefundModal('{{ $transaction->id }}')">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -15,18 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
         
-        // Exclude payment callback routes from CSRF verification
+        // Exclude generic payment callback routes from CSRF verification
         $middleware->validateCsrfTokens(except: [
             '/payment/notify',
             '/payment/return',
             '/payment/cancel',
-            '/payment/webxpay/notify',
-            '/payment/webxpay/return',
-            '/payment/webxpay/cancel',
-            '/payment/kokopay/notify',
-            '/payment/kokopay/return',
-            '/payment/kokopay/cancel',
-            '/pay/webxpayResponse',  // Legacy WebXPay return URL
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

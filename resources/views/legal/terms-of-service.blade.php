@@ -1,210 +1,156 @@
 @extends('layouts.app')
 
-@section('title', 'Terms of Service - Chance Laptops (Pvt) Ltd | Laptops, Repair & Service in Sri Lanka')
+@section('title', 'Terms of Service - Chance Laptops UAE')
+@section('description', 'Terms of Service for Chance Laptops in the United Arab Emirates — purchases, delivery, payments, warranty, and store policies.')
 
 @section('content')
-<div class="min-h-screen bg-white py-8">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-            <p class="text-gray-600 text-lg">Chance Laptops (Pvt) Ltd · Last updated: {{ date('F d, Y') }}</p>
-        </div>
+<div class="min-h-screen bg-slate-50 py-10 sm:py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-8 text-center">
+            <p class="text-sm font-semibold uppercase tracking-wide text-red-600 mb-2">Chance Laptops · UAE</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Terms of Service</h1>
+            <p class="text-slate-600">Last updated: {{ date('F d, Y') }}</p>
+        </header>
 
-        <!-- Content -->
-        <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-8">
-            <div class="prose prose-invert max-w-none">
-                
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-                <p class="text-gray-700 mb-6">
-                    By accessing and using the website and services of <strong>Chance Laptops (Pvt) Ltd</strong>, you accept and agree to be bound by these Terms of Service.
-                    If you do not agree to these terms, please do not use our services.
+        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8 space-y-8 text-slate-700 leading-relaxed text-sm sm:text-[15px]">
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">1. Acceptance of Terms</h2>
+                <p>
+                    By accessing <strong>chancelaptops.ae</strong>, placing an order, requesting a quotation, or purchasing from Chance Laptops in the United Arab Emirates,
+                    you agree to these Terms of Service. If you do not agree, please do not use our website or services.
                 </p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. About Chance Laptops (Pvt) Ltd</h2>
-                <p class="text-gray-700 mb-6">
-                    Chance Laptops (Pvt) Ltd is a Sri Lanka–based technology retailer specializing in brand-new and used laptops,
-                    accessories, repair, and related IT services. We are committed to quality products and dependable customer service
-                    for individuals and businesses.
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">2. About Chance Laptops</h2>
+                <p>
+                    Chance Laptops is a technology retailer based in Sharjah, UAE. We sell brand-new and used laptops, accessories, and related products,
+                    and provide repair and warranty support. Our store address is:
                 </p>
+                <p class="mt-2 font-medium text-slate-900">{{ config('products.store_address') }}</p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. Products and Services</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">3.1 Product Information</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>We strive to provide accurate product descriptions, specifications, and pricing</li>
-                        <li>Product images are for illustration purposes and may vary from actual products</li>
-                        <li>All prices are in Sri Lankan Rupees (LKR) unless otherwise stated</li>
-                        <li>Prices and availability are subject to change without notice</li>
-                    </ul>
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">3. Products &amp; Pricing</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>All prices are in <strong>UAE Dirhams (AED)</strong> unless otherwise stated.</li>
+                    <li>We aim to keep descriptions and prices accurate; errors may be corrected, and we may cancel an order affected by a clear pricing or stock error.</li>
+                    <li>Product images are illustrative; actual appearance may vary slightly.</li>
+                    <li>Availability is not guaranteed until confirmed. Used or refurbished items are sold as described at the time of sale.</li>
+                    <li>Prices and offers may change without prior notice.</li>
+                </ul>
+            </section>
 
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">3.2 Product Availability</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>All products are subject to availability</li>
-                        <li>We reserve the right to limit quantities or discontinue products</li>
-                        <li>In case of unavailability, we will notify you and offer alternatives or refunds</li>
-                    </ul>
-                </div>
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">4. Orders, Quotations &amp; Payment</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>An order or quotation request is an offer to buy; acceptance occurs when we confirm and/or process payment.</li>
+                    <li>Payment methods currently include arrangements via WhatsApp / in-store. <strong>Tamara</strong>, <strong>Tabby</strong>, and <strong>bank transfer</strong> options may be offered as “coming soon” and will apply only when enabled.</li>
+                    <li>Ownership of goods generally passes after full payment is received. Warranty validity also requires full payment, as stated in our Warranty Terms.</li>
+                    <li>We may refuse or cancel orders that appear fraudulent, incomplete, or unable to be fulfilled.</li>
+                </ul>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. Ordering and Payment</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">4.1 Order Process</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Orders are confirmed upon receipt of payment</li>
-                        <li>You will receive an order confirmation via email or SMS</li>
-                        <li>We reserve the right to cancel orders for any reason</li>
-                    </ul>
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">5. Delivery Across the UAE</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>We offer <strong>Across the UAE Express Delivery</strong> where available.</li>
+                    <li>Delivery charges may be payable on receipt of the parcel, unless otherwise agreed.</li>
+                    <li>Estimated delivery times are guidance only and may vary by emirate, stock location, and courier conditions.</li>
+                    <li>Please provide accurate contact and address details. Failed delivery attempts due to incorrect information may incur extra charges.</li>
+                    <li>Risk of loss or damage typically transfers on delivery to the address you provided, subject to courier terms.</li>
+                </ul>
+            </section>
 
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">4.2 Payment Methods</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Card and online payments via supported gateways (when enabled)</li>
-                        <li>Bank transfer and KOKO Pay / installment options — coming soon</li>
-                        <li>All payments must be received before product dispatch, unless otherwise agreed in writing</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">4.3 Pricing and Taxes</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>All prices include applicable taxes unless otherwise stated</li>
-                        <li>Additional charges may apply for delivery and handling</li>
-                        <li>We reserve the right to adjust prices due to tax changes or errors</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Shipping and Delivery</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">5.1 Delivery Areas</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>We deliver throughout Sri Lanka</li>
-                        <li>Delivery times may vary based on location and product availability</li>
-                        <li>Remote areas may have additional delivery charges</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">5.2 Delivery Process</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>You will receive SMS notifications about order status and delivery</li>
-                        <li>Someone must be available to receive the delivery</li>
-                        <li>Products must be inspected upon delivery</li>
-                        <li>Any damage or discrepancies must be reported immediately</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">6. Returns and Refunds</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">6.1 Return Policy</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Returns are accepted within 7 days of delivery for defective products</li>
-                        <li>Products must be in original condition with all accessories and packaging</li>
-                        <li>Custom-built systems and software are non-returnable unless defective</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">6.2 Refund Process</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Refunds will be processed within 7-14 business days</li>
-                        <li>Refunds will be made to the original payment method</li>
-                        <li>Shipping charges are non-refundable unless the return is due to our error</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">7. Warranties</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">7.1 Manufacturer Warranties</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>All products come with manufacturer's warranty as specified</li>
-                        <li>Warranty terms vary by product and manufacturer</li>
-                        <li>Warranty claims must be processed through authorized service centers</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">7.2 Service Warranty</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Our services come with a 30-day satisfaction guarantee</li>
-                        <li>We will rectify any service-related issues at no additional cost</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">8. User Accounts and Security</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">8.1 Account Registration</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>You may create an account to access additional features</li>
-                        <li>You are responsible for maintaining account security</li>
-                        <li>You must provide accurate and current information</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">8.2 Prohibited Activities</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Using our services for illegal activities</li>
-                        <li>Attempting to hack, disrupt, or damage our systems</li>
-                        <li>Providing false information or impersonating others</li>
-                        <li>Violating intellectual property rights</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">9. Intellectual Property</h2>
-                <p class="text-gray-700 mb-6">
-                    All content on this website, including text, graphics, logos, images, and software, is the property of CHANCE LAPTOPS or 
-                    its licensors and is protected by copyright and other intellectual property laws. You may not use, reproduce, or 
-                    distribute any content without our written permission.
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">6. Store Visits &amp; Business Hours</h2>
+                <p>
+                    Our store hours are <strong>{{ config('products.working_hours') }}</strong>.
+                    Service capacity may vary; complex repairs or warranty work may require additional time for diagnosis and parts.
                 </p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. Privacy and Data Protection</h2>
-                <p class="text-gray-700 mb-6">
-                    Your privacy is important to us. Our collection and use of personal information is governed by our 
-                    <a href="{{ route('privacy-policy') }}" class="text-primary-400 hover:text-primary-300 underline">Privacy Policy</a>, 
-                    which forms part of these Terms of Service.
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">7. Warranty &amp; Repairs</h2>
+                <p class="mb-3">
+                    Hardware warranty and claim procedures are set out in our
+                    <a href="{{ route('warranty') }}" class="text-red-600 font-semibold hover:underline">Warranty Terms</a>.
+                    Key points include:
                 </p>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Standard hardware warranty is generally 1 year from the invoice date for covered components, with battery covered for 2 months only.</li>
+                    <li>Physical, liquid, and cosmetic damage, misuse, and unauthorized repairs are excluded.</li>
+                    <li>Original invoice/proof of purchase is required for claims.</li>
+                    <li>No cash refunds for purchased goods; eligible claims are handled by repair, replacement, or another suitable warranty solution.</li>
+                </ul>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. Limitation of Liability</h2>
-                <div class="text-gray-700 mb-6">
-                    <p class="mb-4">
-                        To the fullest extent permitted by law, CHANCE LAPTOPS shall not be liable for any indirect, incidental, 
-                        special, consequential, or punitive damages, including but not limited to:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Loss of profits, data, or business opportunities</li>
-                        <li>Interruption of business operations</li>
-                        <li>Cost of substitute products or services</li>
-                        <li>Any damages arising from product defects beyond our control</li>
-                    </ul>
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">8. Returns &amp; Cancellations</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Unless required by UAE consumer protection law or expressly agreed in writing, sales of opened electronics, used items, and custom orders are generally final.</li>
+                    <li>If an item arrives defective or incorrect, contact us promptly with your invoice and photos so we can arrange inspection under warranty or our sales policy.</li>
+                    <li>Order cancellations before dispatch may be possible at our discretion; after dispatch, courier and restocking considerations may apply.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">9. User Accounts &amp; Website Use</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>You are responsible for keeping account credentials confidential.</li>
+                    <li>You must not misuse the website, attempt unauthorized access, scrape content unlawfully, or interfere with site operations.</li>
+                    <li>Website content (text, images, branding) belongs to Chance Laptops or its licensors and may not be reused without permission.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">10. Limitation of Liability</h2>
+                <p>
+                    To the fullest extent permitted by UAE law, Chance Laptops is not liable for indirect, incidental, or consequential losses
+                    (including data loss, lost profits, or business interruption) arising from use of our products, website, or services.
+                    Our total liability for any claim relating to a product or service is limited to the amount you paid for that product or service,
+                    except where liability cannot be limited by law.
+                </p>
+                <p class="mt-3">
+                    Customers are responsible for backing up data before repair or warranty service. We cannot guarantee preservation of data during diagnosis or repair.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">11. Privacy</h2>
+                <p>
+                    Personal data is handled according to our
+                    <a href="{{ route('privacy-policy') }}" class="text-red-600 font-semibold hover:underline">Privacy Policy</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">12. Governing Law</h2>
+                <p>
+                    These Terms are governed by the laws of the United Arab Emirates. Disputes shall be subject to the courts of the Emirate of Sharjah,
+                    without prejudice to any mandatory consumer rights under UAE law.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">13. Changes</h2>
+                <p>
+                    We may update these Terms from time to time. The “Last updated” date will be revised when changes are published.
+                    Continued use of our services after changes constitutes acceptance of the updated Terms.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">14. Contact</h2>
+                <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-1">
+                    <p class="font-semibold text-slate-900">Chance Laptops</p>
+                    <p>{{ config('products.store_address') }}</p>
+                    <p>Email: <a href="mailto:info@chancelaptops.ae" class="text-red-600 hover:underline">info@chancelaptops.ae</a></p>
+                    <p>Phone / WhatsApp: <a href="tel:+{{ config('products.phone_tel') }}" class="text-red-600 hover:underline">{{ config('products.phone_display') }}</a></p>
+                    <p>Hours: {{ config('products.working_hours') }}</p>
                 </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">12. Force Majeure</h2>
-                <p class="text-gray-700 mb-6">
-                    We shall not be liable for any failure or delay in performance due to events beyond our reasonable control, 
-                    including but not limited to acts of God, natural disasters, war, terrorism, government actions, strikes, 
-                    or supplier failures.
-                </p>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">13. Governing Law</h2>
-                <p class="text-gray-700 mb-6">
-                    These Terms of Service are governed by the laws of Sri Lanka. Any disputes arising from these terms or 
-                    your use of our services shall be subject to the exclusive jurisdiction of the courts of Sri Lanka.
-                </p>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">14. Changes to Terms</h2>
-                <p class="text-gray-700 mb-6">
-                    We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately 
-                    upon posting on our website. Your continued use of our services after any changes constitutes acceptance 
-                    of the new terms.
-                </p>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">15. Contact Information</h2>
-                <div class="text-gray-700 mb-6">
-                    <p class="mb-4">If you have any questions about these Terms of Service, please contact us:</p>
-                    <div class="bg-gray-50 rounded-lg p-4">
-                        <p class="font-medium text-gray-900 mb-2">Chance Laptops (Pvt) Ltd</p>
-                        <p>Email: <a href="mailto:info@chancelaptops.ae" class="text-primary-400 hover:text-primary-300">info@chancelaptops.ae</a></p>
-                        <p>Phone: <a href="tel:+94112959005" class="text-primary-400 hover:text-primary-300">0112 95 9005</a></p>
-                        <p>Website: <a href="{{ url('/') }}" class="text-primary-400 hover:text-primary-300">{{ url('/') }}</a></p>
-                    </div>
-                </div>
-
-                <div class="border-t border-gray-300 pt-6">
-                    <p class="text-sm text-gray-600 text-center">
-                        By using Chance Laptops (Pvt) Ltd services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
-                    </p>
-                </div>
-
-            </div>
+            </section>
         </div>
     </div>
 </div>

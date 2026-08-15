@@ -9,7 +9,7 @@ Your refund for order **{{ $order->order_number }}** has been successfully proce
 
 **Order Number:** {{ $order->order_number }}  
 **Refund Date:** {{ now()->format('F d, Y \a\t g:i A') }}  
-**Refund Amount:** **LKR {{ number_format($order->total_amount, 2) }}**  
+**Refund Amount:** **AED {{ number_format($order->total_amount, 2) }}**  
 **Processing Method:** Refund to original payment method
 
 ## Timeline
@@ -24,11 +24,11 @@ Your refund for order **{{ $order->order_number }}** has been successfully proce
 | Product | Quantity | Unit Price | Refunded Amount |
 |:--------|:--------:|:----------:|----------------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->unit_price, 2) }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->unit_price, 2) }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
-**Total Refunded:** **LKR {{ number_format($order->total_amount, 2) }}**
+**Total Refunded:** **AED {{ number_format($order->total_amount, 2) }}**
 
 @component('mail::panel')
 **Refund Information** ℹ️
@@ -50,7 +50,7 @@ Your refund for order **{{ $order->order_number }}** has been successfully proce
 Look for this transaction in your bank statement:
 - **Description:** CHANCE LAPTOPS REFUND
 - **Reference:** {{ $order->order_number }}
-- **Amount:** LKR {{ number_format($order->total_amount, 2) }}
+- **Amount:** AED {{ number_format($order->total_amount, 2) }}
 
 ## Need to Check Refund Status?
 
@@ -67,8 +67,8 @@ If you don't see the refund in your account after the expected timeframe:
 3. **Dispute Resolution:** We'll help resolve any banking issues
 
 ### Contact Information
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579
 - **Email:** refunds@chancelaptops.ae
 
 ## We Value Your Feedback

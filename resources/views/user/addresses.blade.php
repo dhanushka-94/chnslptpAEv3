@@ -158,7 +158,7 @@
                         <input type="text" 
                                id="country" 
                                name="country" 
-                               value="{{ old('country', 'Sri Lanka') }}"
+                               value="{{ old('country', 'United Arab Emirates') }}"
                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
                     </div>
 

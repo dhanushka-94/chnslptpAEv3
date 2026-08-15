@@ -65,7 +65,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Today's Revenue</p>
-                    <p class="text-3xl font-bold text-gray-900">LKR {{ number_format($stats['today_revenue'], 2) }}</p>
+                    <p class="text-3xl font-bold text-gray-900">AED {{ number_format($stats['today_revenue'], 2) }}</p>
                     <p class="text-sm text-green-400">From paid orders</p>
                 </div>
                 <div class="p-3 bg-green-500/20 rounded-lg">
@@ -97,7 +97,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Total Revenue</p>
-                    <p class="text-3xl font-bold text-gray-900">LKR {{ number_format($stats['total_revenue'], 2) }}</p>
+                    <p class="text-3xl font-bold text-gray-900">AED {{ number_format($stats['total_revenue'], 2) }}</p>
                     <p class="text-sm text-purple-400">All time</p>
                 </div>
                 <div class="p-3 bg-purple-500/20 rounded-lg">
@@ -184,7 +184,7 @@
             </div>
             
             <div class="text-center">
-                <div class="text-2xl font-bold text-green-400">LKR {{ number_format($stats['today_revenue'], 0) }}</div>
+                <div class="text-2xl font-bold text-green-400">AED {{ number_format($stats['today_revenue'], 0) }}</div>
                 <div class="text-sm text-gray-600">Revenue Today</div>
             </div>
             
@@ -194,7 +194,7 @@
             </div>
             
             <div class="text-center">
-                <div class="text-2xl font-bold text-purple-400">LKR {{ number_format($stats['total_revenue'], 0) }}</div>
+                <div class="text-2xl font-bold text-purple-400">AED {{ number_format($stats['total_revenue'], 0) }}</div>
                 <div class="text-sm text-gray-600">Total Revenue</div>
             </div>
         </div>
@@ -207,11 +207,11 @@ function exportStatistics() {
     const data = [
         ['Metric', 'Value'],
         ['Today Orders', '{{ $stats["today_orders"] }}'],
-        ['Today Revenue', 'LKR {{ number_format($stats["today_revenue"], 2) }}'],
+        ['Today Revenue', 'AED {{ number_format($stats["today_revenue"], 2) }}'],
         ['Pending Orders', '{{ $stats["pending_orders"] }}'],
         ['Processing Orders', '{{ $stats["processing_orders"] }}'],
         ['Shipped Orders', '{{ $stats["shipped_orders"] }}'],
-        ['Total Revenue', 'LKR {{ number_format($stats["total_revenue"], 2) }}']
+        ['Total Revenue', 'AED {{ number_format($stats["total_revenue"], 2) }}']
     ];
     
     const csv = data.map(row => row.join(',')).join('\n');

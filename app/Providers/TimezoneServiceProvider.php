@@ -21,6 +21,6 @@ class TimezoneServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Set PHP's default timezone (Carbon will use this)
-        date_default_timezone_set('Asia/Colombo');
+        date_default_timezone_set('Asia/Dubai');
     }
 }

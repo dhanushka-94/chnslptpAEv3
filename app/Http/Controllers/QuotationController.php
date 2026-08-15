@@ -90,7 +90,7 @@ class QuotationController extends Controller
             'customer_city' => $request->billing_city ?? null,
             'customer_state' => $request->billing_state ?? null,
             'customer_postal_code' => $request->billing_postal_code ?? null,
-            'customer_country' => $request->billing_country ?? 'Sri Lanka',
+            'customer_country' => $request->billing_country ?? 'United Arab Emirates',
             'subtotal' => $subtotal,
             'original_subtotal' => $originalSubtotal,
             'total_discount' => $totalDiscount,
@@ -161,8 +161,8 @@ class QuotationController extends Controller
             'tax_amount' => (float) $quotation->tax_amount,
             'total' => (float) $quotation->total_amount,
             'notes' => $quotation->notes ?? '',
-            'whatsapp_display' => config('products.whatsapp_display', '+971 52 230 6476'),
-            'whatsapp_number' => config('products.whatsapp_number', '971522306476'),
+            'whatsapp_display' => config('products.whatsapp_display', '+971 58 181 1579'),
+            'whatsapp_number' => config('products.whatsapp_number', '971581811579'),
             'email' => 'info@chancelaptops.ae',
             'logo_src' => $forPdf && is_file($logoFs)
                 ? 'file:///' . str_replace('\\', '/', $logoFs)

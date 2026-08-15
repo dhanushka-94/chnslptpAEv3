@@ -244,7 +244,7 @@
                 @if(!empty($logo_src))
                     <img src="{{ $logo_src }}" alt="Chance Laptops" class="logo" width="120">
                 @endif
-                <div class="brand-name">Chance Laptops (Pvt) Ltd</div>
+                <div class="brand-name">Chance Laptops</div>
                 <div class="brand-tag">Brand New &amp; Used Laptops · Repair · Accessories</div>
                 <div class="contact-line">
                     <div><strong>WhatsApp</strong> {{ $whatsapp_display }}</div>
@@ -319,7 +319,7 @@
         </tbody>
     </table>
 
-    <div class="currency-note">Currency · Sri Lankan Rupees (LKR)</div>
+    <div class="currency-note">Currency · United Arab Emiratesn Rupees (AED)</div>
 
     <table class="totals-outer">
         <tr>
@@ -368,7 +368,7 @@
         <h4>Terms</h4>
         <ol>
             <li>Valid for 7 days from issue date.</li>
-            <li>Prices in LKR; subject to change without notice.</li>
+            <li>Prices in AED; subject to change without notice.</li>
             <li>Stock availability confirmed at order time.</li>
             <li>Delivery charges (if any) confirmed separately.</li>
             <li>Questions? Reach us on WhatsApp or email.</li>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'Laptop Promotions & Deals - Brand New & Used Laptops Discounts | CHANCE LAPTOPS')
-@section('description', 'Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops. Limited time offers on laptops in Sri Lanka!')
-@section('keywords', 'laptop promotions, laptop deals, laptop discounts, laptop sales, brand new laptop deals, used laptop deals, laptop accessories deals, Chance Laptops, Sri Lanka')
+@section('description', 'Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops. Limited time offers on laptops in United Arab Emirates!')
+@section('keywords', 'laptop promotions, laptop deals, laptop discounts, laptop sales, brand new laptop deals, used laptop deals, laptop accessories deals, Chance Laptops, United Arab Emirates')
 
 @push('head')
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Laptop Promotions & Deals - Brand New & Used Laptops | CHANCE LAPTOPS">
-    <meta property="og:description" content="Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops in Sri Lanka.">
+    <meta property="og:description" content="Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops in United Arab Emirates.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('images/promotions-banner.jpg') }}">
@@ -15,7 +15,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Laptop Promotions & Deals - Brand New & Used Laptops | CHANCE LAPTOPS">
-    <meta name="twitter:description" content="Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops in Sri Lanka.">
+    <meta name="twitter:description" content="Discover amazing deals and promotions on brand new and used laptops, laptop accessories, and repair services at Chance Laptops in United Arab Emirates.">
     <meta name="twitter:image" content="{{ asset('images/promotions-banner.jpg') }}">
 @endpush
 
@@ -125,11 +125,11 @@
                                     {{ $product->name }}
                                 </h3>
                                 <div class="flex items-baseline gap-1.5 flex-wrap">
-                                    <span class="text-base font-bold text-red-500">LKR {{ number_format($product->promo_price, 2) }}</span>
-                                    <span class="text-xs text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
+                                    <span class="text-base font-bold text-red-500">AED {{ number_format($product->promo_price, 2) }}</span>
+                                    <span class="text-xs text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
                                 </div>
                                 <p class="text-[11px] text-green-600 font-medium mt-0.5">
-                                    Save LKR {{ number_format($product->price - $product->promo_price, 2) }}
+                                    Save AED {{ number_format($product->price - $product->promo_price, 2) }}
                                 </p>
                             </div>
                         </a>

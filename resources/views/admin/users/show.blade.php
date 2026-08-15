@@ -94,7 +94,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="text-sm font-medium text-gray-600">Total Spent</p>
-                            <p class="text-2xl font-semibold text-white">Rs. {{ number_format($userStats['total_spent'], 2) }}</p>
+                            <p class="text-2xl font-semibold text-white">AED {{ number_format($userStats['total_spent'], 2) }}</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="text-sm font-medium text-gray-600">Avg Order</p>
-                            <p class="text-2xl font-semibold text-white">Rs. {{ number_format($userStats['average_order'] ?? 0, 2) }}</p>
+                            <p class="text-2xl font-semibold text-white">AED {{ number_format($userStats['average_order'] ?? 0, 2) }}</p>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                                         <div class="text-sm text-gray-600">{{ $order->orderItems->count() }} items</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                        Rs. {{ number_format($order->total_amount, 2) }}
+                                        AED {{ number_format($order->total_amount, 2) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full

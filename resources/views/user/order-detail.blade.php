@@ -347,8 +347,8 @@
                     <div>
                         <div class="font-medium text-white">Call Us</div>
                         <div class="space-y-1">
-                            <div><a href="tel:+94112959005" class="text-red-500 hover:text-red-600 text-sm">0112 95 9005</a></div>
-                            <div><a href="tel:+94777506939" class="text-red-500 hover:text-red-600 text-sm">0777 50 69 39</a></div>
+                            <div><a href="tel:+971581811579" class="text-red-500 hover:text-red-600 text-sm">+971 58 181 1579</a></div>
+                            <div><a href="tel:+971581811579" class="text-red-500 hover:text-red-600 text-sm">+971 58 181 1579</a></div>
                         </div>
                         <div class="text-xs text-gray-600">Call us anytime</div>
                     </div>
@@ -363,9 +363,9 @@
                     </div>
                     <div>
                         <div class="font-medium text-white">WhatsApp</div>
-                        <a href="https://wa.me/94777506939?text=Hi, I would like to cancel my order {{ $order->order_number }}" 
+                        <a href="https://wa.me/971581811579?text=Hi, I would like to cancel my order {{ $order->order_number }}" 
                            target="_blank"
-                           class="text-green-400 hover:text-green-300 text-sm">0777 50 69 39</a>
+                           class="text-green-400 hover:text-green-300 text-sm">+971 58 181 1579</a>
                         <div class="text-xs text-gray-600">Quick response available</div>
                     </div>
                 </div>
@@ -402,7 +402,7 @@
                         class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
                     Close
                 </button>
-                <a href="https://wa.me/94777506939?text=Hi, I would like to cancel my order {{ $order->order_number }}" 
+                <a href="https://wa.me/971581811579?text=Hi, I would like to cancel my order {{ $order->order_number }}" 
                    target="_blank"
                    class="flex-1 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-center">
                     WhatsApp Now

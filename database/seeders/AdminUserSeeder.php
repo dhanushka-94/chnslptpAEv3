@@ -33,7 +33,7 @@ class AdminUserSeeder extends Seeder
                 'password' => self::ADMIN_PASSWORD,
                 'role' => 'admin',
                 'status' => 'active',
-                'phone' => '0112959005',
+                'phone' => '971581811579',
                 'email_verified_at' => now(),
             ]
         );

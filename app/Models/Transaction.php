@@ -88,16 +88,6 @@ class Transaction extends Model
     }
 
     // Payment method check methods
-    public function isWebXPay(): bool
-    {
-        return $this->payment_method === 'webxpay';
-    }
-
-    public function isKokoPay(): bool
-    {
-        return $this->payment_method === 'kokopay';
-    }
-
     public function isBankTransfer(): bool
     {
         return $this->payment_method === 'bank_transfer';
@@ -107,8 +97,10 @@ class Transaction extends Model
     public function getPaymentMethodNameAttribute(): string
     {
         return match($this->payment_method) {
-            'webxpay' => 'Credit/Debit Card',
-            'kokopay' => 'Koko Pay (BNPL)',
+            'webxpay' => 'Card (Legacy)',
+            'kokopay' => 'BNPL (Legacy)',
+            'tamara' => 'Tamara (Coming Soon)',
+            'tabby' => 'Tabby (Coming Soon)',
             'bank_transfer' => 'Bank Transfer',
             default => ucfirst(str_replace('_', ' ', $this->payment_method))
         };

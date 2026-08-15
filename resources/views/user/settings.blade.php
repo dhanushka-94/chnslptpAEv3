@@ -110,16 +110,16 @@
                             <div>
                                 <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
                                 <select id="currency" name="currency" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-primary-500">
-                                    <option value="LKR" {{ (old('currency', json_decode($user->settings ?? '{}', true)['currency'] ?? 'LKR') == 'LKR') ? 'selected' : '' }}>Sri Lankan Rupee (LKR)</option>
-                                    <option value="USD" {{ (old('currency', json_decode($user->settings ?? '{}', true)['currency'] ?? 'LKR') == 'USD') ? 'selected' : '' }}>US Dollar (USD)</option>
+                                    <option value="AED" {{ (old('currency', json_decode($user->settings ?? '{}', true)['currency'] ?? 'AED') == 'AED') ? 'selected' : '' }}>United Arab Emiratesn Rupee (AED)</option>
+                                    <option value="USD" {{ (old('currency', json_decode($user->settings ?? '{}', true)['currency'] ?? 'AED') == 'USD') ? 'selected' : '' }}>US Dollar (USD)</option>
                                 </select>
                             </div>
 
                             <div class="md:col-span-2">
                                 <label for="timezone" class="block text-sm font-medium text-gray-700 mb-2">Timezone</label>
                                 <select id="timezone" name="timezone" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-primary-500">
-                                    <option value="Asia/Colombo" {{ (old('timezone', json_decode($user->settings ?? '{}', true)['timezone'] ?? 'Asia/Colombo') == 'Asia/Colombo') ? 'selected' : '' }}>Asia/Colombo (GMT+5:30)</option>
-                                    <option value="UTC" {{ (old('timezone', json_decode($user->settings ?? '{}', true)['timezone'] ?? 'Asia/Colombo') == 'UTC') ? 'selected' : '' }}>UTC (GMT+0:00)</option>
+                                    <option value="Asia/Dubai" {{ (old('timezone', json_decode($user->settings ?? '{}', true)['timezone'] ?? 'Asia/Dubai') == 'Asia/Dubai') ? 'selected' : '' }}>Asia/Dubai (GMT+5:30)</option>
+                                    <option value="UTC" {{ (old('timezone', json_decode($user->settings ?? '{}', true)['timezone'] ?? 'Asia/Dubai') == 'UTC') ? 'selected' : '' }}>UTC (GMT+0:00)</option>
                                 </select>
                             </div>
                         </div>

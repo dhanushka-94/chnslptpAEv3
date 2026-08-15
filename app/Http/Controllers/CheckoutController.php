@@ -101,7 +101,7 @@ class CheckoutController extends Controller
             // Required customer information
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'customer_phone' => ['required', 'string', 'regex:/^0[1-9][0-9]{8}$/', 'max:20'],
+            'customer_phone' => ['required', 'string', 'regex:/^(\+971|971|0)?5[0-9]{8}$/', 'max:20'],
             
             // Optional customer information
             'customer_email' => 'nullable|email|max:255',
@@ -128,10 +128,10 @@ class CheckoutController extends Controller
             'shipping_country' => 'nullable|string|max:100',
             
             // Available payment methods
-            'payment_method' => 'required|in:webxpay,kokopay,bank_transfer',
+            'payment_method' => 'required|in:bank_transfer',
             'terms' => 'required|accepted',
         ], [
-            'customer_phone.regex' => 'Please enter a valid Sri Lankan phone number (10 digits starting with 0, e.g., 0771234567)',
+            'customer_phone.regex' => 'Please enter a valid UAE phone number (e.g., +971501234567, 971501234567, or 0501234567)',
         ]);
 
         if ($validator->fails()) {
@@ -199,7 +199,7 @@ class CheckoutController extends Controller
                 $shippingCity = $request->shipping_city;
                 $shippingState = $request->shipping_state;
                 $shippingPostalCode = $request->shipping_postal_code;
-                $shippingCountry = $request->shipping_country ?: 'Sri Lanka';
+                $shippingCountry = $request->shipping_country ?: 'United Arab Emirates';
             } else {
                 // Use billing address for shipping
                 $shippingAddressLine1 = $request->billing_address_line_1;
@@ -207,7 +207,7 @@ class CheckoutController extends Controller
                 $shippingCity = $request->billing_city;
                 $shippingState = $request->billing_state;
                 $shippingPostalCode = $request->billing_postal_code;
-                $shippingCountry = $request->billing_country ?: 'Sri Lanka';
+                $shippingCountry = $request->billing_country ?: 'United Arab Emirates';
             }
 
             // Handle transfer slip upload for bank transfer
@@ -261,7 +261,7 @@ class CheckoutController extends Controller
                 'billing_city' => $request->billing_city,
                 'billing_state' => $request->billing_state ?: null,
                 'billing_postal_code' => $request->billing_postal_code ?: null,
-                'billing_country' => $request->billing_country ?: 'Sri Lanka',
+                'billing_country' => $request->billing_country ?: 'United Arab Emirates',
                 'shipping_address_line_1' => $shippingAddressLine1,
                 'shipping_address_line_2' => $shippingAddressLine2 ?: null,
                 'shipping_city' => $shippingCity,
@@ -288,15 +288,12 @@ class CheckoutController extends Controller
 
             // Handle payment method redirection
             switch ($request->payment_method) {
-                // TEMPORARILY DISABLED: WebXPay and KokoPay payment methods
                 case 'webxpay':
-                    DB::rollBack();
-                    return back()->withErrors(['payment_method' => 'WebXPay payment method is temporarily unavailable. Please use Bank Transfer.']);
-
                 case 'kokopay':
-                    DB::rollBack();
-                    return back()->withErrors(['payment_method' => 'KokoPay payment method is temporarily unavailable. Please use Bank Transfer.']);
-                        
+                case 'tamara':
+                case 'tabby':
+                    return back()->withErrors(['payment_method' => 'This payment method is coming soon. Please use Bank Transfer.']);
+
                 case 'bank_transfer':
                 default:
                     // Clear cart for bank transfer orders (immediate completion)
@@ -443,7 +440,7 @@ class CheckoutController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'postal_code' => $request->postal_code,
-            'country' => $request->country ?? 'Sri Lanka',
+            'country' => $request->country ?? 'United Arab Emirates',
             'is_default' => $request->boolean('is_default'),
         ]);
 

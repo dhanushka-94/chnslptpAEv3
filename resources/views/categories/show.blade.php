@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title', $category->name . ' - Brand New & Used Laptops, Accessories | CHANCE LAPTOPS')
-@section('description', 'Shop ' . $category->name . ' at Chance Laptops. Find brand new and used laptops, laptop accessories, parts, and professional repair services in Sri Lanka.')
-@section('keywords', $category->name . ', laptops, laptop accessories, laptop parts, brand new laptops, used laptops, laptop repair, Chance Laptops, Sri Lanka, ' . strtolower($category->name))
+@section('description', 'Shop ' . $category->name . ' at Chance Laptops. Find brand new and used laptops, laptop accessories, parts, and professional repair services in United Arab Emirates.')
+@section('keywords', $category->name . ', laptops, laptop accessories, laptop parts, brand new laptops, used laptops, laptop repair, Chance Laptops, United Arab Emirates, ' . strtolower($category->name))
 @section('og_title', $category->name . ' - Laptops & Accessories | CHANCE LAPTOPS')
-@section('og_description', 'Discover ' . $category->name . ' products at Chance Laptops. Brand new and used laptops, accessories, and professional repair services in Sri Lanka.')
+@section('og_description', 'Discover ' . $category->name . ' products at Chance Laptops. Brand new and used laptops, accessories, and professional repair services in United Arab Emirates.')
 @section('og_type', 'product.group')
 
 @section('content')
@@ -117,12 +117,12 @@
                                 <div class="flex items-center justify-between">
                                     <div class="text-center flex-1">
                                         <div class="text-xs text-gray-500 mb-1">From</div>
-                                        <div class="text-sm font-medium text-gray-900">Rs. <span id="min-price-display">{{ number_format($priceRange['min'] ?? 0) }}</span></div>
+                                        <div class="text-sm font-medium text-gray-900">AED <span id="min-price-display">{{ number_format($priceRange['min'] ?? 0) }}</span></div>
                                     </div>
                                     <div class="w-px h-8 bg-gray-600 mx-3"></div>
                                     <div class="text-center flex-1">
                                         <div class="text-xs text-gray-500 mb-1">To</div>
-                                        <div class="text-sm font-medium text-gray-900">Rs. <span id="max-price-display">{{ number_format($priceRange['max'] ?? 100000) }}</span></div>
+                                        <div class="text-sm font-medium text-gray-900">AED <span id="max-price-display">{{ number_format($priceRange['max'] ?? 100000) }}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -268,11 +268,11 @@
                             <div class="flex items-center justify-between mb-3 md:mb-4">
                                 <div class="flex flex-col">
                                     @if($product->is_on_sale)
-                                        <span class="text-xs md:text-sm text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
-                                        <span class="text-sm md:text-lg font-bold text-[blue-500]">LKR {{ number_format($product->final_price, 2) }}</span>
+                                        <span class="text-xs md:text-sm text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
+                                        <span class="text-sm md:text-lg font-bold text-[blue-500]">AED {{ number_format($product->final_price, 2) }}</span>
                                     @else
                                         @if($product->price > 0 && $product->final_price > 0)
-                                            <span class="text-sm md:text-lg font-bold text-gray-900">LKR {{ number_format($product->final_price, 2) }}</span>
+                                            <span class="text-sm md:text-lg font-bold text-gray-900">AED {{ number_format($product->final_price, 2) }}</span>
                                         @else
                                             <span class="text-sm md:text-lg font-bold text-[blue-500]">Contact for Price</span>
                                         @endif
@@ -757,11 +757,11 @@
                 
                 let priceHTML = '';
                 if (product.is_on_sale) {
-                    priceHTML = `<span class="text-sm text-gray-500 line-through">LKR ${new Intl.NumberFormat().format(product.price)}</span>
-                                 <span class="text-lg font-bold text-[blue-500]">LKR ${new Intl.NumberFormat().format(product.final_price)}</span>`;
+                    priceHTML = `<span class="text-sm text-gray-500 line-through">AED ${new Intl.NumberFormat().format(product.price)}</span>
+                                 <span class="text-lg font-bold text-[blue-500]">AED ${new Intl.NumberFormat().format(product.final_price)}</span>`;
                 } else {
                     if (product.final_price > 0) {
-                        priceHTML = `<span class="text-lg font-bold text-gray-900">LKR ${new Intl.NumberFormat().format(product.final_price)}</span>`;
+                        priceHTML = `<span class="text-lg font-bold text-gray-900">AED ${new Intl.NumberFormat().format(product.final_price)}</span>`;
                     } else {
                         priceHTML = `<span class="text-lg font-bold text-[blue-500]">Contact for Price</span>`;
                     }

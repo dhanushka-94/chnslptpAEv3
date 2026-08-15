@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('billing_city');
             $table->string('billing_state');
             $table->string('billing_postal_code');
-            $table->string('billing_country')->default('Sri Lanka');
+            $table->string('billing_country')->default('United Arab Emirates');
             
             // Shipping Address
             $table->string('shipping_address_line_1');
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('shipping_city');
             $table->string('shipping_state');
             $table->string('shipping_postal_code');
-            $table->string('shipping_country')->default('Sri Lanka');
+            $table->string('shipping_country')->default('United Arab Emirates');
             
             // Order Details
             $table->decimal('subtotal', 10, 2);

@@ -562,6 +562,80 @@
         transform: translateY(-2px);
     }
 
+    .footer-contact-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+
+    .footer-contact-list li {
+        display: grid;
+        grid-template-columns: 5.5rem 1fr;
+        gap: 0.5rem 0.75rem;
+        align-items: start;
+    }
+
+    .footer-contact-label {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #94a3b8;
+        padding-top: 0.15rem;
+    }
+
+    .footer-contact-value {
+        font-size: 0.875rem;
+        color: #334155;
+        font-weight: 500;
+        word-break: break-word;
+        transition: color 0.2s ease;
+    }
+
+    .footer-payments-strip {
+        padding: 1rem 1.25rem;
+        border-radius: 1rem;
+        background: #ffffff;
+        border: 1px solid #fee2e2;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .footer-pay-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.75rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+    }
+
+    .footer-pay-chip--muted {
+        background: #fff7ed;
+        border-color: #fed7aa;
+    }
+
+    .footer-soon-tag {
+        font-size: 0.625rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #b45309;
+        background: #fef3c7;
+        padding: 0.15rem 0.4rem;
+        border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+        .footer-contact-list li {
+            grid-template-columns: 1fr;
+            gap: 0.15rem;
+        }
+    }
+
     .social-icon-btn {
         display: flex;
         align-items: center;
@@ -720,7 +794,7 @@
         transform: translateY(-4px);
     }
 
-    /* ---- Payment badges (KOKO Pay & Installments) ---- */
+    /* ---- Payment badges (Tamara & Tabby) ---- */
     .payment-badges {
         display: flex;
         flex-wrap: wrap;

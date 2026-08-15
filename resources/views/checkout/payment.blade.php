@@ -91,7 +91,7 @@
                                        name="customer_phone" 
                                        value="{{ old('customer_phone', Auth::user()->phone ?? '') }}" 
                                        required
-                                       placeholder="Enter your phone number"
+                                       placeholder="+971 50 123 4567 or 0501234567"
                                        class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
                             </div>
                             
@@ -290,54 +290,30 @@
                                 </div>
                             </label>
 
-                            {{-- TEMPORARILY HIDDEN: WebXPay --}}
-                            {{-- <label class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-primary-400 transition-colors cursor-pointer">
-                                <input type="radio" 
-                                       name="payment_method" 
-                                       value="webxpay"
-                                       class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 bg-white">
+                            {{-- Coming Soon: Tamara / Tabby (display only) --}}
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg opacity-70 cursor-not-allowed">
+                                <input type="radio" disabled class="h-4 w-4 border-gray-300">
                                 <div class="ml-3 flex-1">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="text-sm font-medium text-white">Credit/Debit Card</div>
-                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-500 text-black">
-                                            Instant
-                                        </span>
-                                    </div>
-                                    <div class="text-sm text-gray-600">Visa, MasterCard, American Express • 3% transaction fee</div>
+                                    <div class="text-sm font-medium text-gray-500">Tamara</div>
+                                    <div class="text-sm text-gray-400">Buy now, pay later — Coming Soon</div>
                                 </div>
-                                <div class="flex items-center space-x-2 text-primary-400">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                                    </svg>
-                                </div>
-                            </label> --}}
-
-                            {{-- TEMPORARILY HIDDEN: KokoPay --}}
-                            {{-- <label class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-purple-400 transition-colors cursor-pointer">
-                                <input type="radio" 
-                                       name="payment_method" 
-                                       value="kokopay"
-                                       class="h-4 w-4 text-purple-500 focus:ring-purple-500 border-gray-300 bg-white">
+                                <img src="{{ asset('images/tamara-logo.png') }}" alt="Tamara" class="h-8 w-auto opacity-90">
+                            </div>
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg opacity-70 cursor-not-allowed mt-3">
+                                <input type="radio" disabled class="h-4 w-4 border-gray-300">
                                 <div class="ml-3 flex-1">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="text-sm font-medium text-white">Koko Pay</div>
-                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-purple-500 to-red-500 text-white">
-                                            Buy Now, Pay Later
-                                        </span>
-                                    </div>
-                                    <div class="text-sm text-gray-600">Split into 3 easy payments • 10% transaction fee</div>
+                                    <div class="text-sm font-medium text-gray-500">Tabby</div>
+                                    <div class="text-sm text-gray-400">Buy now, pay later — Coming Soon</div>
                                 </div>
-                                <div class="flex items-center space-x-2 text-purple-400">
-                                    <img src="/images/kokopay-logo.png" alt="Koko Pay" class="h-6 w-auto">
-                                </div>
-                            </label> --}}
+                                <img src="{{ asset('images/tabby-logo.png') }}" alt="Tabby" class="h-8 w-auto opacity-90">
+                            </div>
                         </div>
                         
                         <!-- Bank Transfer Details — Coming Soon -->
                         <div id="bank-transfer-details" class="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-6">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Bank Transfer — Coming Soon</h4>
                             <p class="text-sm text-gray-700 mb-2">
-                                Account details for Chance Laptops (Pvt) Ltd are not published yet.
+                                Account details for Chance Laptops are not published yet.
                                 Please contact us to arrange payment.
                             </p>
                             <a href="{{ route('contact-us.index') }}" class="text-sm font-semibold text-red-600 hover:underline">Contact us →</a>
@@ -370,19 +346,19 @@
                             <!-- Subtotal -->
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Subtotal:</span>
-                                <span class="text-white" id="subtotal-amount">LKR 0.00</span>
+                                <span class="text-white" id="subtotal-amount">AED 0.00</span>
                             </div>
                             
                             <!-- Discount (if any) -->
                             <div class="flex justify-between text-sm" id="discount-row" style="display: none;">
                                 <span class="text-green-400">Discount:</span>
-                                <span class="text-green-400" id="discount-amount">-LKR 0.00</span>
+                                <span class="text-green-400" id="discount-amount">-AED 0.00</span>
                             </div>
                             
                             <!-- Subtotal after discount -->
                             <div class="flex justify-between text-sm" id="subtotal-after-discount-row" style="display: none;">
                                 <span class="text-gray-600">Subtotal (after discount):</span>
-                                <span class="text-white" id="subtotal-after-discount-amount">LKR 0.00</span>
+                                <span class="text-white" id="subtotal-after-discount-amount">AED 0.00</span>
                             </div>
                             
                             <!-- Shipping -->
@@ -394,14 +370,14 @@
                             <!-- Transaction Fee (dynamic based on payment method) -->
                             <div class="flex justify-between text-sm" id="transaction-fee-row" style="display: none;">
                                 <span class="text-red-400" id="transaction-fee-label">Transaction Fee:</span>
-                                <span class="text-red-400" id="transaction-fee-amount">+LKR 0.00</span>
+                                <span class="text-red-400" id="transaction-fee-amount">+AED 0.00</span>
                             </div>
                             
                             <!-- Order Total -->
                             <div class="border-t border-slate-200 pt-3 mt-3">
                                 <div class="flex justify-between items-center text-lg font-bold">
                                     <span class="text-white">Order Total:</span>
-                                    <span class="text-green-400" id="total-amount">LKR 0.00</span>
+                                    <span class="text-green-400" id="total-amount">AED 0.00</span>
                                 </div>
                             </div>
                         </div>
@@ -469,14 +445,14 @@ function updatePricingBreakdown(cartData) {
     const discount = cartData.total_discount || 0;
     
     // Update subtotal
-    document.getElementById('subtotal-amount').textContent = 'LKR ' + originalSubtotal.toLocaleString('en-US', {minimumFractionDigits: 2});
+    document.getElementById('subtotal-amount').textContent = 'AED ' + originalSubtotal.toLocaleString('en-US', {minimumFractionDigits: 2});
     
     // Show/hide discount rows
     if (discount > 0) {
         document.getElementById('discount-row').style.display = 'flex';
         document.getElementById('subtotal-after-discount-row').style.display = 'flex';
-        document.getElementById('discount-amount').textContent = '-LKR ' + discount.toLocaleString('en-US', {minimumFractionDigits: 2});
-        document.getElementById('subtotal-after-discount-amount').textContent = 'LKR ' + subtotal.toLocaleString('en-US', {minimumFractionDigits: 2});
+        document.getElementById('discount-amount').textContent = '-AED ' + discount.toLocaleString('en-US', {minimumFractionDigits: 2});
+        document.getElementById('subtotal-after-discount-amount').textContent = 'AED ' + subtotal.toLocaleString('en-US', {minimumFractionDigits: 2});
     } else {
         document.getElementById('discount-row').style.display = 'none';
         document.getElementById('subtotal-after-discount-row').style.display = 'none';
@@ -498,17 +474,9 @@ function updateTransactionFee(subtotal) {
     
     if (selectedPaymentMethod) {
         switch (selectedPaymentMethod.value) {
-            case 'kokopay':
-                transactionFee = subtotal * 0.10; // 10% for KOKO
-                feeLabel = 'Transaction Fee (10%):';
-                break;
-            case 'webxpay':
-                transactionFee = subtotal * 0.03; // 3% for Card Payments
-                feeLabel = 'Transaction Fee (3%):';
-                break;
             case 'bank_transfer':
             default:
-                transactionFee = 0; // No fee for bank transfer
+                transactionFee = 0;
                 break;
         }
     }
@@ -517,14 +485,14 @@ function updateTransactionFee(subtotal) {
     if (transactionFee > 0) {
         transactionFeeRow.style.display = 'flex';
         transactionFeeLabel.textContent = feeLabel;
-        transactionFeeAmount.textContent = '+LKR ' + transactionFee.toLocaleString('en-US', {minimumFractionDigits: 2});
+        transactionFeeAmount.textContent = '+AED ' + transactionFee.toLocaleString('en-US', {minimumFractionDigits: 2});
     } else {
         transactionFeeRow.style.display = 'none';
     }
     
     // Update total amount
     const totalAmount = subtotal + transactionFee;
-    totalAmountElement.textContent = 'LKR ' + totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2});
+    totalAmountElement.textContent = 'AED ' + totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2});
 }
 
 function displayCartItems(items) {
@@ -544,7 +512,7 @@ function displayCartItems(items) {
                     <p class="text-gray-600">Qty: ${item.quantity}</p>
                 </div>
                 <div class="text-green-400 font-medium">
-                    LKR ${item.total.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                    AED ${item.total.toLocaleString('en-US', {minimumFractionDigits: 2})}
                 </div>
             </div>
         `;
@@ -568,7 +536,7 @@ function handlePaymentMethodChange() {
     // Recalculate transaction fee when payment method changes
     const subtotalElement = document.getElementById('subtotal-after-discount-amount') || document.getElementById('subtotal-amount');
     if (subtotalElement) {
-        const subtotalText = subtotalElement.textContent.replace('LKR ', '').replace(/,/g, '');
+        const subtotalText = subtotalElement.textContent.replace('AED ', '').replace(/,/g, '');
         const subtotal = parseFloat(subtotalText);
         if (!isNaN(subtotal)) {
             updateTransactionFee(subtotal);

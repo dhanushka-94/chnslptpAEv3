@@ -165,8 +165,10 @@ class Order extends Model
     public function getPaymentMethodBadgeAttribute()
     {
         $badges = [
-            'webxpay' => 'bg-blue-900/50 text-blue-200 border border-blue-700',
-            'kokopay' => 'bg-purple-900/50 text-purple-200 border border-purple-700',
+            'webxpay' => 'bg-gray-900/50 text-gray-200 border border-gray-700',
+            'kokopay' => 'bg-gray-900/50 text-gray-200 border border-gray-700',
+            'tamara' => 'bg-amber-900/50 text-amber-200 border border-amber-700',
+            'tabby' => 'bg-teal-900/50 text-teal-200 border border-teal-700',
             'bank_transfer' => 'bg-green-900/50 text-green-200 border border-green-700',
         ];
 
@@ -176,8 +178,10 @@ class Order extends Model
     public function getPaymentMethodDisplayAttribute()
     {
         $displays = [
-            'webxpay' => '💳 WebXPay',
-            'kokopay' => '⏰ Koko Pay (BNPL)',
+            'webxpay' => '💳 Card (Legacy)',
+            'kokopay' => '⏰ BNPL (Legacy)',
+            'tamara' => 'Tamara (Coming Soon)',
+            'tabby' => 'Tabby (Coming Soon)',
             'bank_transfer' => '🏦 Bank Transfer',
         ];
 
@@ -189,6 +193,8 @@ class Order extends Model
         $icons = [
             'webxpay' => '💳',
             'kokopay' => '⏰',
+            'tamara' => '🕐',
+            'tabby' => '🕐',
             'bank_transfer' => '🏦',
         ];
 
@@ -197,7 +203,7 @@ class Order extends Model
 
     public function getFormattedTotalAttribute()
     {
-        return 'LKR ' . number_format($this->total_amount, 2);
+        return 'AED ' . number_format($this->total_amount, 2);
     }
 
     public function getShippingAddressAttribute()

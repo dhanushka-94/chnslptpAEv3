@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Wholesale Products | Chance Laptops (Pvt) Ltd')
-@section('description', 'Browse wholesale products from Chance Laptops (Pvt) Ltd. Contact us on WhatsApp to purchase. Minimum order is 5 units across any products.')
+@section('title', 'Wholesale Products | Chance Laptops')
+@section('description', 'Browse wholesale products from Chance Laptops. Contact us on WhatsApp to purchase. Minimum order is 5 units across any products.')
 
 @section('content')
 <section class="bg-white py-4 md:py-5 border-b border-gray-200">
@@ -16,7 +16,7 @@
             </div>
             <div class="sm:w-auto w-full sm:max-w-xs flex-shrink-0">
                 <x-whatsapp-enquiry-button
-                    :url="'https://wa.me/'.config('products.whatsapp_number', '971522306476').'?text='.rawurlencode('Hi Chance Laptops, I am interested in wholesale products. Minimum order is '.config('products.wholesale_min_units', 5).' units across any products.')"
+                    :url="'https://wa.me/'.config('products.whatsapp_number', '971581811579').'?text='.rawurlencode('Hi Chance Laptops, I am interested in wholesale products. Minimum order is '.config('products.wholesale_min_units', 5).' units across any products.')"
                     label="WhatsApp — Wholesale"
                     tone="amber"
                 />
@@ -101,10 +101,10 @@
                                     <p class="text-[10px] font-semibold text-amber-700 mb-1">WhatsApp · Min. 5</p>
                                     <div class="flex items-baseline gap-1 mb-2 flex-wrap">
                                         @if($product->is_on_sale)
-                                            <span class="text-[10px] text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
-                                            <span class="text-sm font-bold text-red-600">LKR {{ number_format($product->promo_price, 2) }}</span>
+                                            <span class="text-[10px] text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
+                                            <span class="text-sm font-bold text-red-600">AED {{ number_format($product->promo_price, 2) }}</span>
                                         @elseif($product->price > 0)
-                                            <span class="text-sm font-bold text-gray-900">LKR {{ number_format($product->price, 2) }}</span>
+                                            <span class="text-sm font-bold text-gray-900">AED {{ number_format($product->price, 2) }}</span>
                                         @else
                                             <span class="text-xs font-bold text-red-600">Contact for Price</span>
                                         @endif

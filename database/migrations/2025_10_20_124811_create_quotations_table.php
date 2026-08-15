@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('customer_city')->nullable();
             $table->string('customer_state')->nullable();
             $table->string('customer_postal_code')->nullable();
-            $table->string('customer_country')->default('Sri Lanka');
+            $table->string('customer_country')->default('United Arab Emirates');
             
             // Quotation Details
             $table->decimal('subtotal', 10, 2);

@@ -116,16 +116,16 @@
                                 @if($totalDiscountSavings > 0)
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Original Subtotal</span>
-                                        <span class="text-gray-700 line-through">LKR {{ number_format($originalSubtotal, 2) }}</span>
+                                        <span class="text-gray-700 line-through">AED {{ number_format($originalSubtotal, 2) }}</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-green-400">💸 Product Discounts</span>
-                                        <span class="text-green-400">-LKR {{ number_format($totalDiscountSavings, 2) }}</span>
+                                        <span class="text-green-400">-AED {{ number_format($totalDiscountSavings, 2) }}</span>
                                     </div>
                                 @endif
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Subtotal (After Discounts)</span>
-                                    <span class="text-gray-900 font-medium">LKR {{ number_format($order->subtotal, 2) }}</span>
+                                    <span class="text-gray-900 font-medium">AED {{ number_format($order->subtotal, 2) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -138,19 +138,19 @@
                                     @if($order->shipping_cost > 0)
                                         <div class="flex justify-between">
                                             <span class="text-gray-600">🚚 Shipping Cost</span>
-                                            <span class="text-white">+LKR {{ number_format($order->shipping_cost, 2) }}</span>
+                                            <span class="text-white">+AED {{ number_format($order->shipping_cost, 2) }}</span>
                                         </div>
                                     @endif
                                     @if($order->tax_amount > 0)
                                         <div class="flex justify-between">
                                             <span class="text-gray-600">🧾 Tax</span>
-                                            <span class="text-white">+LKR {{ number_format($order->tax_amount, 2) }}</span>
+                                            <span class="text-white">+AED {{ number_format($order->tax_amount, 2) }}</span>
                                         </div>
                                     @endif
                                     @if($order->discount_amount > 0)
                                         <div class="flex justify-between">
                                             <span class="text-green-400">🎫 Order Discount</span>
-                                            <span class="text-green-400">-LKR {{ number_format($order->discount_amount, 2) }}</span>
+                                            <span class="text-green-400">-AED {{ number_format($order->discount_amount, 2) }}</span>
                                         </div>
                                     @endif
                                 </div>
@@ -165,9 +165,9 @@
                                     <span class="text-gray-600">Payment Method</span>
                                     <span class="text-white">
                                         @if($order->payment_method === 'webxpay')
-                                            💳 WebXPay (Card Payment)
+                                            💳 Card Payment (Legacy)
                                         @elseif($order->payment_method === 'kokopay')
-                                            ⏰ Koko Pay (BNPL)
+                                            ⏰ BNPL (Legacy)
                                         @elseif($order->payment_method === 'bank_transfer')
                                             🏦 Bank Transfer
                                         @else
@@ -178,7 +178,7 @@
                                 @if($paymentFee > 0)
                                     <div class="flex justify-between">
                                         <span class="text-red-400">⚡ Payment Processing Fee (3%)</span>
-                                        <span class="text-red-400">+LKR {{ number_format($paymentFee, 2) }}</span>
+                                        <span class="text-red-400">+AED {{ number_format($paymentFee, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($order->payment_reference)
@@ -195,17 +195,17 @@
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-medium text-gray-900">Order Total</span>
-                                    <span class="text-lg font-bold text-gray-900">LKR {{ number_format($order->total_amount, 2) }}</span>
+                                    <span class="text-lg font-bold text-gray-900">AED {{ number_format($order->total_amount, 2) }}</span>
                                 </div>
                                 @if($paymentFee > 0)
                                     <div class="flex justify-between items-center text-sm border-t border-slate-200 pt-2">
                                         <span class="text-red-300 font-medium">💰 Total Paid</span>
-                                        <span class="text-xl font-bold text-red-500">LKR {{ number_format($finalTotal, 2) }}</span>
+                                        <span class="text-xl font-bold text-red-500">AED {{ number_format($finalTotal, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($totalDiscountSavings > 0)
                                     <div class="text-center text-sm text-green-400 bg-green-900/20 rounded px-2 py-1">
-                                        🎉 You saved LKR {{ number_format($totalDiscountSavings, 2) }} on this order!
+                                        🎉 You saved AED {{ number_format($totalDiscountSavings, 2) }} on this order!
                                     </div>
                                 @endif
                             </div>
@@ -275,9 +275,9 @@
                 <span>Bank Transfer — Coming Soon</span>
             </h3>
             <p class="text-gray-700 text-sm mb-4">
-                Bank account details for Chance Laptops (Pvt) Ltd are not published yet.
+                Bank account details for Chance Laptops are not published yet.
                 Please contact us to arrange payment for order <strong>{{ $order->order_number }}</strong>
-                (LKR {{ number_format($order->total_amount, 2) }}).
+                (AED {{ number_format($order->total_amount, 2) }}).
             </p>
             <a href="{{ route('contact-us.index') }}" class="inline-flex items-center text-red-600 font-semibold hover:underline">Contact Chance Laptops →</a>
         </div>
@@ -368,11 +368,11 @@
             <h3 class="text-lg font-medium text-gray-900 mb-2">Need Help?</h3>
             <p class="text-gray-600 mb-4">If you have any questions about your order, feel free to contact us</p>
             <div class="flex items-center justify-center space-x-6 text-sm">
-                <a href="tel:0112959005" class="text-red-500 hover:text-red-600 transition-colors">
-                    📞 0112 95 9005
+                <a href="tel:971581811579" class="text-red-500 hover:text-red-600 transition-colors">
+                    📞 +971 58 181 1579
                 </a>
-                <a href="https://wa.me/94777506939" class="text-red-500 hover:text-red-600 transition-colors">
-                    📱 WhatsApp: +94 777 506 939
+                <a href="https://wa.me/971581811579" class="text-red-500 hover:text-red-600 transition-colors">
+                    📱 WhatsApp: +971 58 181 1579
                 </a>
                 <a href="mailto:info@chancelaptops.ae" class="text-red-500 hover:text-red-600 transition-colors">
                     ✉️ info@chancelaptops.ae
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Force update any cart displays on the page
     const cartTotalElements = document.querySelectorAll('.cart-total, [data-cart-total]');
     cartTotalElements.forEach(element => {
-        element.textContent = 'LKR 0.00';
+        element.textContent = 'AED 0.00';
     });
     
     const cartCountElements = document.querySelectorAll('.cart-count, [data-cart-count]');

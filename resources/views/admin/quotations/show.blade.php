@@ -133,7 +133,7 @@
                 
                 <!-- Currency Note -->
                 <div class="px-6 py-2 bg-white text-right">
-                    <span class="text-xs text-gray-600 italic">All amounts are in Sri Lankan Rupees (LKR)</span>
+                    <span class="text-xs text-gray-600 italic">All amounts are in United Arab Emiratesn Rupees (AED)</span>
                 </div>
             </div>
 

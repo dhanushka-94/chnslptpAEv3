@@ -69,7 +69,7 @@
                         </div>
                         <div class="text-sm text-gray-500">in {{ $product->category->name }}</div>
                         @if($product->price > 0)
-                        <div class="text-sm text-red-600 font-semibold">LKR {{ number_format($product->price, 2) }}</div>
+                        <div class="text-sm text-red-600 font-semibold">AED {{ number_format($product->price, 2) }}</div>
                         @endif
                     </a>
                     @endforeach

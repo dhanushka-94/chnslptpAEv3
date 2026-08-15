@@ -2,12 +2,12 @@
 
 @section('title', 'Contact Us - CHANCE LAPTOPS | WhatsApp Support')
 @section('description', 'Contact CHANCE LAPTOPS on WhatsApp for laptop sales, repairs, and support.')
-@section('keywords', 'contact Chance Laptops, WhatsApp, laptop sales, laptop repair, Sri Lanka')
+@section('keywords', 'contact Chance Laptops, WhatsApp, laptop sales, laptop repair, United Arab Emirates')
 
 @section('content')
 @php
-    $waNumber = config('products.whatsapp_number', '971522306476');
-    $waDisplay = config('products.whatsapp_display', '+971 52 230 6476');
+    $waNumber = config('products.whatsapp_number', '971581811579');
+    $waDisplay = config('products.whatsapp_display', '+971 58 181 1579');
     $waUrl = 'https://wa.me/'.$waNumber;
 @endphp
 <div class="info-page">
@@ -43,6 +43,16 @@
                 </svg>
                 <span style="color:#fff;">Chat on WhatsApp</span>
             </a>
+            <div class="mt-8 pt-6 border-t border-slate-200 text-left max-w-xl mx-auto">
+                <p class="text-sm font-semibold text-slate-900 mb-2">Visit us</p>
+                <p class="text-sm text-slate-600 leading-relaxed">{{ config('products.store_address') }}</p>
+                <p class="text-sm text-slate-600 mt-3">{{ config('products.working_hours') }}</p>
+                <div class="flex gap-3 mt-4 justify-center sm:justify-start">
+                    <a href="{{ config('products.facebook_url') }}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[#1877f2] hover:underline">Facebook</a>
+                    <span class="text-slate-300">·</span>
+                    <a href="{{ config('products.instagram_url') }}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[#dd2a7b] hover:underline">Instagram</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

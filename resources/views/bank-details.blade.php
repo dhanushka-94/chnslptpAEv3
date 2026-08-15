@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Bank Transfer - Coming Soon | Chance Laptops (Pvt) Ltd')
-@section('description', 'Bank transfer payments for Chance Laptops (Pvt) Ltd are coming soon. Stay tuned for secure account details.')
-@section('keywords', 'bank transfer, Chance Laptops, payment, coming soon, Sri Lanka')
+@section('title', 'Bank Transfer - Coming Soon | Chance Laptops')
+@section('description', 'Bank transfer payments for Chance Laptops are coming soon. Stay tuned for secure account details.')
+@section('keywords', 'bank transfer, Chance Laptops, payment, coming soon, United Arab Emirates')
 
 @section('content')
 <div class="info-page">
@@ -10,7 +10,7 @@
         badge="Payment"
         title="Bank Transfer"
         highlight="Coming Soon"
-        description="Secure bank transfer payments for Chance Laptops (Pvt) Ltd will be available shortly. Account details are not published yet."
+        description="Secure bank transfer payments for Chance Laptops will be available shortly. Account details are not published yet."
     >
         <x-slot:icon>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
@@ -30,7 +30,7 @@
                 </p>
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Bank Transfer</h2>
                 <p class="text-gray-600 max-w-xl mx-auto mb-8 leading-relaxed">
-                    Direct bank transfer details for <strong>Chance Laptops (Pvt) Ltd</strong> are being prepared.
+                    Direct bank transfer details for <strong>Chance Laptops</strong> are being prepared.
                     Please check back soon, or contact us for current payment options.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">

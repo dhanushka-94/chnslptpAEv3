@@ -68,7 +68,7 @@ use Illuminate\Support\Facades\Storage;
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Order Total</p>
-                    <p class="text-2xl font-bold text-red-600 mt-1">LKR {{ number_format($order->total_amount, 2) }}</p>
+                    <p class="text-2xl font-bold text-red-600 mt-1">AED {{ number_format($order->total_amount, 2) }}</p>
                 </div>
                 <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
@@ -253,12 +253,12 @@ use Illuminate\Support\Facades\Storage;
                                         <div class="space-y-1">
                                             <div class="flex items-center space-x-2 text-sm">
                                                 <span class="text-gray-600">Original Price:</span>
-                                                <span class="text-gray-500 line-through">LKR {{ number_format($originalPrice, 2) }}</span>
+                                                <span class="text-gray-500 line-through">AED {{ number_format($originalPrice, 2) }}</span>
                                             </div>
                                             <div class="flex items-center space-x-2 text-sm">
                                                 <span class="text-gray-600">Sale Price:</span>
-                                                <span class="text-green-400 font-medium">LKR {{ number_format($item->unit_price, 2) }}</span>
-                                                <span class="text-green-400 text-xs">(Save LKR {{ number_format($discountAmount, 2) }})</span>
+                                                <span class="text-green-400 font-medium">AED {{ number_format($item->unit_price, 2) }}</span>
+                                                <span class="text-green-400 text-xs">(Save AED {{ number_format($discountAmount, 2) }})</span>
                                             </div>
                                             <div class="flex items-center space-x-2 text-sm">
                                                 <span class="text-gray-600">Quantity:</span>
@@ -268,7 +268,7 @@ use Illuminate\Support\Facades\Storage;
                                     @else
                                         <!-- Product had no discount -->
                                         <div class="flex items-center space-x-2 text-sm text-gray-600">
-                                            <span>Quantity: {{ $item->quantity }} × LKR {{ number_format($item->unit_price, 2) }}</span>
+                                            <span>Quantity: {{ $item->quantity }} × AED {{ number_format($item->unit_price, 2) }}</span>
                                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-700/50 text-gray-600">
                                                 Regular Price
                                             </span>
@@ -281,13 +281,13 @@ use Illuminate\Support\Facades\Storage;
                                     <!-- Show savings summary -->
                                     <div class="space-y-1">
                                         <p class="text-sm text-gray-600">Total Item Cost:</p>
-                                        <p class="text-lg font-medium text-gray-900">LKR {{ number_format($item->total_price, 2) }}</p>
+                                        <p class="text-lg font-medium text-gray-900">AED {{ number_format($item->total_price, 2) }}</p>
                                         <p class="text-xs text-green-400">
-                                            Saved: LKR {{ number_format($discountAmount * $item->quantity, 2) }}
+                                            Saved: AED {{ number_format($discountAmount * $item->quantity, 2) }}
                                         </p>
                                     </div>
                                 @else
-                                <p class="text-lg font-medium text-gray-900">LKR {{ number_format($item->total_price, 2) }}</p>
+                                <p class="text-lg font-medium text-gray-900">AED {{ number_format($item->total_price, 2) }}</p>
                                 @endif
                             </div>
                         </div>
@@ -329,16 +329,16 @@ use Illuminate\Support\Facades\Storage;
                             @if($totalDiscountSavings > 0)
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Original Subtotal</span>
-                                    <span class="text-gray-700 line-through">LKR {{ number_format($originalSubtotal, 2) }}</span>
+                                    <span class="text-gray-700 line-through">AED {{ number_format($originalSubtotal, 2) }}</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-green-400">💸 Product Discounts</span>
-                                    <span class="text-green-400">-LKR {{ number_format($totalDiscountSavings, 2) }}</span>
+                                    <span class="text-green-400">-AED {{ number_format($totalDiscountSavings, 2) }}</span>
                                 </div>
                             @endif
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Subtotal (After Discounts)</span>
-                                <span class="text-gray-900 font-medium">LKR {{ number_format($order->subtotal, 2) }}</span>
+                                <span class="text-gray-900 font-medium">AED {{ number_format($order->subtotal, 2) }}</span>
                             </div>
                         </div>
                     </div>
@@ -351,19 +351,19 @@ use Illuminate\Support\Facades\Storage;
                     @if($order->shipping_cost > 0)
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">🚚 Shipping Cost</span>
-                                        <span class="text-white">+LKR {{ number_format($order->shipping_cost, 2) }}</span>
+                                        <span class="text-white">+AED {{ number_format($order->shipping_cost, 2) }}</span>
                         </div>
                     @endif
                     @if($order->tax_amount > 0)
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">🧾 Tax</span>
-                                        <span class="text-white">+LKR {{ number_format($order->tax_amount, 2) }}</span>
+                                        <span class="text-white">+AED {{ number_format($order->tax_amount, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($order->discount_amount > 0)
                                     <div class="flex justify-between">
                                         <span class="text-green-400">🎫 Order Discount</span>
-                                        <span class="text-green-400">-LKR {{ number_format($order->discount_amount, 2) }}</span>
+                                        <span class="text-green-400">-AED {{ number_format($order->discount_amount, 2) }}</span>
                                     </div>
                                 @endif
                             </div>
@@ -379,9 +379,9 @@ use Illuminate\Support\Facades\Storage;
                                     <span class="text-gray-600">Payment Method</span>
                                     <span class="text-white">
                                         @if($order->payment_method === 'webxpay')
-                                            💳 WebXPay (Card Payment)
+                                            💳 Card (Legacy)
                                         @elseif($order->payment_method === 'kokopay')
-                                            ⏰ Koko Pay (BNPL)
+                                            ⏰ BNPL (Legacy)
                                         @elseif($order->payment_method === 'bank_transfer')
                                             🏦 Bank Transfer
                                         @else
@@ -392,7 +392,7 @@ use Illuminate\Support\Facades\Storage;
                                 @if($paymentFee > 0)
                                     <div class="flex justify-between">
                                         <span class="text-yellow-400">⚡ Payment Processing Fee (3%)</span>
-                                        <span class="text-yellow-400">+LKR {{ number_format($paymentFee, 2) }}</span>
+                                        <span class="text-yellow-400">+AED {{ number_format($paymentFee, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($order->payment_reference)
@@ -411,17 +411,17 @@ use Illuminate\Support\Facades\Storage;
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-medium text-gray-900">Order Total</span>
-                                    <span class="text-lg font-bold text-gray-900">LKR {{ number_format($order->total_amount, 2) }}</span>
+                                    <span class="text-lg font-bold text-gray-900">AED {{ number_format($order->total_amount, 2) }}</span>
                                 </div>
                                 @if($paymentFee > 0)
                                     <div class="flex justify-between items-center text-sm border-t border-slate-200 pt-2">
                                         <span class="text-yellow-300 font-medium">💰 Total Paid by Customer</span>
-                                        <span class="text-xl font-bold text-red-600">LKR {{ number_format($finalTotal, 2) }}</span>
+                                        <span class="text-xl font-bold text-red-600">AED {{ number_format($finalTotal, 2) }}</span>
                                     </div>
                                 @endif
                                 @if($totalDiscountSavings > 0)
                                     <div class="text-center text-sm text-green-400 bg-green-900/20 rounded px-2 py-1">
-                                        🎉 Customer saved LKR {{ number_format($totalDiscountSavings, 2) }} on this order!
+                                        🎉 Customer saved AED {{ number_format($totalDiscountSavings, 2) }} on this order!
                         </div>
                     @endif
                             </div>
@@ -486,7 +486,7 @@ use Illuminate\Support\Facades\Storage;
                         </span>
                     </div>
                     
-                    <!-- Koko Pay Order ID Display -->
+                    <!-- BNPL Order ID (Legacy) Display -->
                     @if($order->payment_method === 'kokopay')
                         @php
                             // Get the related transaction to find Koko Pay order ID
@@ -503,7 +503,7 @@ use Illuminate\Support\Facades\Storage;
                         
                         @if($kokoPayOrderId)
                         <div class="flex items-center justify-between">
-                            <span class="text-gray-600">⏰ Koko Pay Order ID</span>
+                            <span class="text-gray-600">⏰ BNPL Order ID (Legacy)</span>
                             <div class="flex items-center space-x-2">
                                 <span class="bg-purple-900/30 px-3 py-1 rounded-lg text-purple-300 font-mono text-sm font-bold border border-purple-500/30">
                                     {{ $kokoPayOrderId }}
@@ -530,7 +530,7 @@ use Illuminate\Support\Facades\Storage;
                         
                         @if($webxpayReference)
                         <div class="flex items-center justify-between">
-                            <span class="text-gray-600">💳 WebXPay Reference</span>
+                            <span class="text-gray-600">💳 Card Reference (Legacy)</span>
                             <div class="flex items-center space-x-2">
                                 <span class="bg-purple-900/30 px-3 py-1 rounded-lg text-purple-300 font-mono text-sm font-bold border border-purple-500/30">
                                     {{ $webxpayReference }}
@@ -677,7 +677,7 @@ use Illuminate\Support\Facades\Storage;
                     
                     <div class="flex items-center justify-between">
                         <span class="text-gray-600">Amount</span>
-                        <span class="text-red-600 font-bold">LKR {{ number_format($order->total_amount, 2) }}</span>
+                        <span class="text-red-600 font-bold">AED {{ number_format($order->total_amount, 2) }}</span>
                     </div>
                 </div>
             </div>

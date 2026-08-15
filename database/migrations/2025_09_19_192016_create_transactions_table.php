@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('payment_method'); // webxpay, kokopay, bank_transfer
             $table->enum('status', ['pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded'])->default('pending');
             $table->decimal('amount', 10, 2);
-            $table->string('currency', 3)->default('LKR');
+            $table->string('currency', 3)->default('AED');
             
             // Gateway specific data
             $table->string('gateway_transaction_id')->nullable();

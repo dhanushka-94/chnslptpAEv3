@@ -126,7 +126,7 @@
 
                 <div>
                     <label for="billing_country" class="block text-sm font-medium text-gray-700 mb-2">Country *</label>
-                    <input type="text" id="billing_country" name="billing_country" value="{{ old('billing_country', 'Sri Lanka') }}" required
+                    <input type="text" id="billing_country" name="billing_country" value="{{ old('billing_country', 'United Arab Emirates') }}" required
                            class="w-full bg-gray-700 border border-gray-300 rounded-lg px-4 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 @error('billing_country') border-red-500 @enderror">
                     @error('billing_country')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -212,23 +212,23 @@
                         <div class="space-y-3">
                             <div class="flex justify-between">
                                 <span class="text-gray-700">Subtotal:</span>
-                                <span class="text-white font-semibold" id="subtotalDisplay">Rs. 0.00</span>
+                                <span class="text-white font-semibold" id="subtotalDisplay">AED 0.00</span>
                                 <input type="hidden" id="subtotal" name="subtotal" value="0">
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-700">Tax (0%):</span>
-                                <span class="text-white">Rs. 0.00</span>
+                                <span class="text-white">AED 0.00</span>
                                 <input type="hidden" name="tax_amount" value="0">
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-700">Shipping:</span>
-                                <span class="text-white">Rs. 0.00</span>
+                                <span class="text-white">AED 0.00</span>
                                 <input type="hidden" name="shipping_cost" value="0">
                             </div>
                             <div class="border-t border-slate-200 pt-3">
                                 <div class="flex justify-between">
                                     <span class="text-lg font-semibold text-gray-900">Total:</span>
-                                    <span class="text-lg font-semibold text-primary-400" id="totalDisplay">Rs. 0.00</span>
+                                    <span class="text-lg font-semibold text-primary-400" id="totalDisplay">AED 0.00</span>
                                     <input type="hidden" id="total_amount" name="total_amount" value="0">
                                 </div>
                             </div>
@@ -324,7 +324,7 @@ function calculateItemTotal(index) {
     const total = quantity * unitPrice;
     
     const itemTotalInput = document.querySelector(`input[name="items[${index}][quantity]"]`).closest('.order-item').querySelector('.item-total');
-    itemTotalInput.value = 'Rs. ' + total.toFixed(2);
+    itemTotalInput.value = 'AED ' + total.toFixed(2);
     
     calculateOrderTotal();
 }
@@ -342,8 +342,8 @@ function calculateOrderTotal() {
     
     document.getElementById('subtotal').value = subtotal;
     document.getElementById('total_amount').value = subtotal;
-    document.getElementById('subtotalDisplay').textContent = 'Rs. ' + subtotal.toFixed(2);
-    document.getElementById('totalDisplay').textContent = 'Rs. ' + subtotal.toFixed(2);
+    document.getElementById('subtotalDisplay').textContent = 'AED ' + subtotal.toFixed(2);
+    document.getElementById('totalDisplay').textContent = 'AED ' + subtotal.toFixed(2);
 }
 
 // Calculate total on any input change

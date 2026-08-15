@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Search Results for "' . $searchTerm . '" - Laptops & Accessories | CHANCE LAPTOPS')
-@section('description', 'Search results for ' . $searchTerm . ' - Find brand new and used laptops, laptop accessories, and repair services at Chance Laptops in Sri Lanka.')
+@section('description', 'Search results for ' . $searchTerm . ' - Find brand new and used laptops, laptop accessories, and repair services at Chance Laptops in United Arab Emirates.')
 
 @section('content')
 <div class="min-h-screen bg-white">
@@ -200,19 +200,19 @@
                                             @if($product->is_on_sale && $product->promo_price > 0)
                                                 <div class="flex items-baseline gap-2">
                                                     <span class="text-lg font-bold text-primary-400">
-                                                        LKR {{ number_format($product->promo_price, 2) }}
+                                                        AED {{ number_format($product->promo_price, 2) }}
                                                     </span>
                                                     <span class="text-sm text-gray-500 line-through">
-                                                        LKR {{ number_format($product->price, 2) }}
+                                                        AED {{ number_format($product->price, 2) }}
                                                     </span>
                                                 </div>
                                                 <div class="text-xs text-green-400 font-medium">
-                                                    Save LKR {{ number_format($product->price - $product->promo_price, 2) }}
+                                                    Save AED {{ number_format($product->price - $product->promo_price, 2) }}
                                                 </div>
                                             @else
                                                 <div class="text-lg font-bold text-gray-900">
                                                 @if($product->price > 0)
-                                                        LKR {{ number_format($product->price, 2) }}
+                                                        AED {{ number_format($product->price, 2) }}
                                                 @else
                                                         <span class="text-primary-400">Contact for Price</span>
                                                 @endif

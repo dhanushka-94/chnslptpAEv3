@@ -26,7 +26,7 @@ Excellent news! Your order **{{ $order->order_number }}** has been shipped and i
 @endforeach
 @endcomponent
 
-**Order Total:** LKR {{ number_format($order->total_amount, 2) }}
+**Order Total:** AED {{ number_format($order->total_amount, 2) }}
 
 @if($order->tracking_number)
 @component('mail::button', ['url' => '#'])
@@ -64,7 +64,7 @@ Track Your Package
 @component('mail::panel')
 **Cash on Delivery Instructions**
 
-💰 **Amount Due:** LKR {{ number_format($order->total_amount, 2) }}  
+💰 **Amount Due:** AED {{ number_format($order->total_amount, 2) }}  
 💵 Please have the **exact amount** ready  
 🧾 You'll receive an official receipt upon payment
 @endcomponent
@@ -73,8 +73,8 @@ Track Your Package
 ## Need Help?
 
 - **Delivery Issues:** Contact the courier directly
-- **Order Questions:** +94 777 506 939
-- **Emergency Support:** 0112 95 9005
+- **Order Questions:** +971 58 181 1579
+- **Emergency Support:** +971 58 181 1579
 
 @component('mail::button', ['url' => route('orders.show', $order->order_number)])
 View Order Status

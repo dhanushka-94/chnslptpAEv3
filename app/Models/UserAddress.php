@@ -73,7 +73,7 @@ class UserAddress extends Model
             $address .= ', ' . $this->address_line_2;
         }
         $address .= '<br>' . $this->city . ', ' . $this->state . ' ' . $this->postal_code;
-        if ($this->country !== 'Sri Lanka') {
+        if ($this->country !== 'United Arab Emirates') {
             $address .= '<br>' . $this->country;
         }
         return $address;

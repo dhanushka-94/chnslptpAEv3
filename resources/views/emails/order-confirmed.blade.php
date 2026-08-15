@@ -17,11 +17,11 @@ Great news! Your order has been **confirmed** and is now in our system.
 | Product | Quantity | Unit Price | Total |
 |:--------|:--------:|:----------:|------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->unit_price, 2) }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->unit_price, 2) }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
-**Order Total:** **LKR {{ number_format($order->total_amount, 2) }}**
+**Order Total:** **AED {{ number_format($order->total_amount, 2) }}**
 
 @component('mail::panel')
 **What's Next?**
@@ -35,7 +35,7 @@ Great news! Your order has been **confirmed** and is now in our system.
 ## Estimated Timeline
 
 - **Processing:** 1-2 business days
-- **Shipping:** 2-3 business days within Colombo
+- **Shipping:** 2-3 business days across the UAE
 - **Total Delivery Time:** 3-5 business days
 
 @component('mail::button', ['url' => route('orders.show', $order->order_number)])
@@ -46,8 +46,8 @@ Track Your Order
 
 If you need to modify or cancel your order, please contact us **within 2 hours** of confirmation:
 
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939 (Immediate Response)
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579 (Immediate Response)
 - **Email:** info@chancelaptops.ae
 
 Thank you for choosing CHANCE LAPTOPS!

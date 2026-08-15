@@ -50,11 +50,11 @@
                                                 <p class="text-xs text-slate-500 mt-1">Code: {{ $item->product->code }}</p>
                                                 @if($item->product->is_on_sale)
                                                     <div class="flex items-center gap-2 mt-2 flex-wrap">
-                                                        <span class="text-red-600 font-bold text-sm">LKR {{ number_format($item->product->final_price, 2) }}</span>
-                                                        <span class="text-slate-400 line-through text-xs">LKR {{ number_format($item->product->price, 2) }}</span>
+                                                        <span class="text-red-600 font-bold text-sm">AED {{ number_format($item->product->final_price, 2) }}</span>
+                                                        <span class="text-slate-400 line-through text-xs">AED {{ number_format($item->product->price, 2) }}</span>
                                                     </div>
                                                 @else
-                                                    <p class="text-red-600 font-bold mt-2 text-sm">LKR {{ number_format($item->product->final_price, 2) }}</p>
+                                                    <p class="text-red-600 font-bold mt-2 text-sm">AED {{ number_format($item->product->final_price, 2) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                                 <button type="button" class="cart-qty-btn quantity-btn" data-action="increase" data-item-id="{{ $item->id }}">+</button>
                                             </div>
                                             <div class="text-right">
-                                                <p class="font-bold text-slate-900 item-total">LKR {{ number_format($item->product->final_price * $item->quantity, 2) }}</p>
+                                                <p class="font-bold text-slate-900 item-total">AED {{ number_format($item->product->final_price * $item->quantity, 2) }}</p>
                                                 <button type="button" class="remove-item text-red-500 hover:text-red-600 text-xs font-medium mt-1 transition-colors" data-item-id="{{ $item->id }}">
                                                     Remove
                                                 </button>
@@ -97,12 +97,12 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between text-slate-600">
                                 <span>Subtotal</span>
-                                <span class="cart-original-subtotal font-medium text-slate-900">LKR {{ number_format($cartItems->sum(fn($i) => $i->product->price * $i->quantity), 2) }}</span>
+                                <span class="cart-original-subtotal font-medium text-slate-900">AED {{ number_format($cartItems->sum(fn($i) => $i->product->price * $i->quantity), 2) }}</span>
                             </div>
                             @php $discount = $cartItems->sum(fn($i) => ($i->product->price - $i->product->final_price) * $i->quantity); @endphp
                             <div class="flex justify-between text-emerald-600 discount-row" style="{{ $discount > 0 ? '' : 'display: none;' }}">
                                 <span>Discount</span>
-                                <span class="cart-discount font-medium">-LKR {{ number_format($discount, 2) }}</span>
+                                <span class="cart-discount font-medium">-AED {{ number_format($discount, 2) }}</span>
                             </div>
                             <div class="flex justify-between text-slate-600">
                                 <span>Shipping</span>
@@ -111,7 +111,7 @@
                             <div class="border-t border-slate-200 pt-4 mt-2">
                                 <div class="flex justify-between items-baseline">
                                     <span class="font-bold text-slate-900">Grand Total</span>
-                                    <span class="cart-total cart-page-total cart-grand-total">LKR {{ number_format($cartTotal, 2) }}</span>
+                                    <span class="cart-total cart-page-total cart-grand-total">AED {{ number_format($cartTotal, 2) }}</span>
                                 </div>
                                 <p class="text-xs text-slate-500 mt-1">Excluding delivery charges</p>
                             </div>
@@ -134,7 +134,7 @@
                             <div>
                                 <h4 class="font-semibold text-slate-900 text-sm mb-1">Delivery Charges</h4>
                                 <p class="text-slate-600 text-xs leading-relaxed">Delivery charges are due when you receive your parcel.</p>
-                                <p class="text-slate-500 text-xs mt-2 leading-relaxed">පාර්සලය ලැබුණු අවස්ථාවේදී බෙදා හැරීමේ ගාස්තු ගෙවිය යුතුය.</p>
+                                <p class="text-slate-500 text-xs mt-2 leading-relaxed">Delivery charges are due when you receive your parcel.</p>
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 const row = document.querySelector(`.cart-item[data-item-id="${itemId}"]`);
-                row?.querySelector('.item-total')?.replaceChildren(document.createTextNode(`LKR ${data.item_total}`));
+                row?.querySelector('.item-total')?.replaceChildren(document.createTextNode(`AED ${data.item_total}`));
                 updateCartTotals(data);
                 if (window.updateCartTotal) window.updateCartTotal(data.cart_total);
             } else {
@@ -260,15 +260,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else return;
 
         const totalEl = document.querySelector('.cart-page-total') || document.querySelector('.cart-total');
-        if (totalEl) totalEl.textContent = `LKR ${cartTotal}`;
+        if (totalEl) totalEl.textContent = `AED ${cartTotal}`;
 
         const subEl = document.querySelector('.cart-original-subtotal');
-        if (subEl && originalSubtotal !== undefined) subEl.textContent = `LKR ${originalSubtotal}`;
+        if (subEl && originalSubtotal !== undefined) subEl.textContent = `AED ${originalSubtotal}`;
 
         const discountRow = document.querySelector('.discount-row');
         const discountEl = document.querySelector('.cart-discount');
         if (hasDiscount && totalDiscount !== undefined) {
-            if (discountEl) discountEl.textContent = `-LKR ${totalDiscount}`;
+            if (discountEl) discountEl.textContent = `-AED ${totalDiscount}`;
             if (discountRow) discountRow.style.display = 'flex';
         } else if (discountRow) {
             discountRow.style.display = 'none';

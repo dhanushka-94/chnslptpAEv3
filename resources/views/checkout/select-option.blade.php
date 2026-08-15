@@ -39,7 +39,7 @@
                     <span class="font-semibold text-slate-900">Your Cart</span>
                 </div>
                 <div class="text-right">
-                    <div class="text-2xl font-bold text-red-600" id="cart-total">LKR 0.00</div>
+                    <div class="text-2xl font-bold text-red-600" id="cart-total">AED 0.00</div>
                     <div class="text-sm text-slate-500" id="cart-items-count">0 items</div>
                 </div>
             </div>
@@ -120,12 +120,12 @@ function loadCartSummary() {
     .then(r => r.json())
     .then(data => {
         if (data.success) {
-            totalEl.textContent = 'LKR ' + data.total.toLocaleString('en-US', { minimumFractionDigits: 2 });
+            totalEl.textContent = 'AED ' + data.total.toLocaleString('en-US', { minimumFractionDigits: 2 });
             countEl.textContent = data.count + ' item' + (data.count !== 1 ? 's' : '');
         }
     })
     .catch(() => {
-        totalEl.textContent = 'LKR 0.00';
+        totalEl.textContent = 'AED 0.00';
         countEl.textContent = '0 items';
     });
 }

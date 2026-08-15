@@ -322,7 +322,7 @@ class SmaProduct extends Model
      */
     public function getWhatsappNumberAttribute(): string
     {
-        return (string) config('products.whatsapp_number', '971522306476');
+        return (string) config('products.whatsapp_number', '971581811579');
     }
 
     /**

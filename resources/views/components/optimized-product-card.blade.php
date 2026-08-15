@@ -42,11 +42,11 @@
         <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
                 @if($product->promotion && $product->promo_price > 0 && $product->promo_price < $product->price)
-                    <span class="text-sm text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
-                    <span class="text-lg font-bold text-red-600">LKR {{ number_format($product->promo_price, 2) }}</span>
+                    <span class="text-sm text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
+                    <span class="text-lg font-bold text-red-600">AED {{ number_format($product->promo_price, 2) }}</span>
                 @else
                     @if($product->price > 0)
-                        <span class="text-lg font-bold text-gray-900">LKR {{ number_format($product->price, 2) }}</span>
+                        <span class="text-lg font-bold text-gray-900">AED {{ number_format($product->price, 2) }}</span>
                     @else
                         <span class="text-lg font-bold text-red-600">Contact for Price</span>
                     @endif

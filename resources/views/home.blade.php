@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service, Accessories in Sri Lanka')
-@section('description', 'Chance Laptops - Your trusted destination for brand new and used laptops, professional laptop repair services, and all laptop accessories in Sri Lanka. Expert technicians, quality products, and affordable prices.')
-@section('keywords', 'laptops Sri Lanka, brand new laptops, used laptops, laptop repair Sri Lanka, laptop service, laptop accessories, laptop parts, laptop screen repair, laptop battery, laptop charger, laptop keyboard, laptop bag, laptop cooling pad, Chance Laptops, Colombo')
-@section('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service in Sri Lanka')
-@section('og_description', 'Discover brand new and used laptops, expert laptop repair services, and comprehensive laptop accessories at Chance Laptops. Quality products with warranty and expert service in Sri Lanka.')
+@section('title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service, Accessories in United Arab Emirates')
+@section('description', 'Chance Laptops - Your trusted destination for brand new and used laptops, professional laptop repair services, and all laptop accessories in United Arab Emirates. Expert technicians, quality products, and affordable prices.')
+@section('keywords', 'laptops United Arab Emirates, brand new laptops, used laptops, laptop repair United Arab Emirates, laptop service, laptop accessories, laptop parts, laptop screen repair, laptop battery, laptop charger, laptop keyboard, laptop bag, laptop cooling pad, Chance Laptops, Dubai')
+@section('og_title', 'CHANCE LAPTOPS - Brand New & Used Laptops, Repair & Service in United Arab Emirates')
+@section('og_description', 'Discover brand new and used laptops, expert laptop repair services, and comprehensive laptop accessories at Chance Laptops. Quality products with warranty and expert service in United Arab Emirates.')
 @section('og_type', 'website')
 
 @section('content')

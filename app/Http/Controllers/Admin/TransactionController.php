@@ -198,8 +198,8 @@ class TransactionController extends Controller
             'pending_transactions' => $query->byStatus('pending')->count(),
             'total_amount' => $query->completed()->sum('amount'),
             'total_fees' => $query->completed()->sum('transaction_fee'),
-            'webxpay_count' => $query->byPaymentMethod('webxpay')->count(),
-            'kokopay_count' => $query->byPaymentMethod('kokopay')->count(),
+            'tamara_count' => $query->byPaymentMethod('tamara')->count(),
+            'tabby_count' => $query->byPaymentMethod('tabby')->count(),
             'bank_transfer_count' => $query->byPaymentMethod('bank_transfer')->count(),
             'success_rate' => $query->count() > 0 ? round(($query->completed()->count() / $query->count()) * 100, 2) : 0,
         ];

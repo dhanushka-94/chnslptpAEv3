@@ -17,7 +17,7 @@ Thank you for your order! We've received your order and it's being processed.
 | Product | Quantity | Unit Price | Total |
 |:--------|:--------:|:----------:|------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->unit_price, 2) }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->unit_price, 2) }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
@@ -25,14 +25,14 @@ Thank you for your order! We've received your order and it's being processed.
 
 | | |
 |:-----------|----------:|
-| **Subtotal** | LKR {{ number_format($order->subtotal, 2) }} |
+| **Subtotal** | AED {{ number_format($order->subtotal, 2) }} |
 @if($order->shipping_cost > 0)
-| **Shipping** | LKR {{ number_format($order->shipping_cost, 2) }} |
+| **Shipping** | AED {{ number_format($order->shipping_cost, 2) }} |
 @endif
 @if($order->tax_amount > 0)
-| **Tax** | LKR {{ number_format($order->tax_amount, 2) }} |
+| **Tax** | AED {{ number_format($order->tax_amount, 2) }} |
 @endif
-| **Total** | **LKR {{ number_format($order->total_amount, 2) }}** |
+| **Total** | **AED {{ number_format($order->total_amount, 2) }}** |
 
 ## Delivery Address
 
@@ -55,7 +55,7 @@ You selected Cash on Delivery. Please have the exact amount ready when your orde
 @component('mail::panel')
 **Bank Transfer — Coming Soon**
 
-Bank account details for Chance Laptops (Pvt) Ltd are not published yet.
+Bank account details for Chance Laptops are not published yet.
 Please contact us to arrange payment for order **{{ $order->order_number }}**.
 
 Email: info@chancelaptops.ae
@@ -84,8 +84,8 @@ Track Your Order
 
 If you have any questions about your order:
 
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939 (24/7 Support)
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579 (24/7 Support)
 - **Email:** info@chancelaptops.ae
 
 Thank you for choosing CHANCE LAPTOPS!

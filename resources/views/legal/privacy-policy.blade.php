@@ -1,251 +1,146 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy - Chance Laptops (Pvt) Ltd')
+@section('title', 'Privacy Policy - Chance Laptops UAE')
+@section('description', 'Privacy Policy for Chance Laptops in the United Arab Emirates — how we collect, use, and protect your personal data.')
 
 @section('content')
-<div class="min-h-screen bg-white py-8">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-            <p class="text-gray-600 text-lg">Chance Laptops (Pvt) Ltd · Last updated: {{ date('F d, Y') }}</p>
-        </div>
+<div class="min-h-screen bg-slate-50 py-10 sm:py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-8 text-center">
+            <p class="text-sm font-semibold uppercase tracking-wide text-red-600 mb-2">Chance Laptops · UAE</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
+            <p class="text-slate-600">Last updated: {{ date('F d, Y') }}</p>
+        </header>
 
-        <!-- Content -->
-        <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-8">
-            <div class="prose prose-invert max-w-none">
-                
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
-                <p class="text-gray-700 mb-6">
-                    This Privacy Policy is issued by <strong>Chance Laptops (Pvt) Ltd</strong> (“Chance Laptops”, “we”, “us”, or “our”).
-                    We are committed to protecting your privacy and ensuring the security of your personal information.
-                    This Policy explains how we collect, use, disclose, and safeguard your information when you visit our website
-                    or use our products and services in Sri Lanka.
+        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8 space-y-8 text-slate-700 leading-relaxed text-sm sm:text-[15px]">
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">1. Introduction</h2>
+                <p>
+                    This Privacy Policy explains how <strong>Chance Laptops</strong> (“we”, “us”, or “our”), operating in the United Arab Emirates,
+                    collects, uses, stores, and protects personal information when you visit
+                    <a href="{{ url('/') }}" class="text-red-600 hover:underline">chancelaptops.ae</a>, place an order, request a quotation,
+                    contact us, or visit our store in Sharjah.
                 </p>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. Information We Collect</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">2.1 Personal Information</h3>
-                    <p class="mb-4">We may collect the following personal information when you:</p>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li><strong>Create an Account:</strong> Name, email address, phone number, password</li>
-                        <li><strong>Place an Order:</strong> Billing and shipping addresses, payment information</li>
-                        <li><strong>Contact Us:</strong> Name, email, phone number, message content</li>
-                        <li><strong>Subscribe to Newsletter:</strong> Email address, preferences</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">2.2 Technical Information</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>IP address and browser information</li>
-                        <li>Device type and operating system</li>
-                        <li>Pages visited and time spent on our website</li>
-                        <li>Referring website or search terms used</li>
-                        <li>Cookies and similar tracking technologies</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">2.3 Transaction Information</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Order history and purchase details</li>
-                        <li>Payment method and transaction records</li>
-                        <li>Delivery and shipping information</li>
-                        <li>Customer service interactions</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. How We Use Your Information</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">3.1 Primary Uses</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Processing and fulfilling your orders</li>
-                        <li>Sending order confirmations and delivery updates via SMS/email</li>
-                        <li>Providing customer support and technical assistance</li>
-                        <li>Managing your account and preferences</li>
-                        <li>Processing payments and preventing fraud</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">3.2 Communication</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Sending order status updates and delivery notifications</li>
-                        <li>Responding to your inquiries and support requests</li>
-                        <li>Sending promotional offers and newsletters (with your consent)</li>
-                        <li>Notifying you about product updates and new arrivals</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">3.3 Business Operations</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Improving our website and services</li>
-                        <li>Analyzing customer behavior and preferences</li>
-                        <li>Conducting market research and analytics</li>
-                        <li>Compliance with legal obligations</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. SMS and Email Notifications</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">4.1 Order Notifications</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>We use your phone number to send SMS notifications about order status</li>
-                        <li>You will receive updates when your order is confirmed, processed, shipped, and delivered</li>
-                        <li>These notifications are essential for order fulfillment and cannot be opted out</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">4.2 Marketing Communications</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>We may send promotional SMS and emails with your explicit consent</li>
-                        <li>You can opt out of marketing communications at any time</li>
-                        <li>We will not share your phone number with third parties for marketing purposes</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Information Sharing and Disclosure</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">5.1 Third-Party Service Providers</h3>
-                    <p class="mb-4">We may share your information with trusted third parties who assist us in:</p>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li><strong>Payment Processing:</strong> WebXPay and other payment gateways for secure transactions</li>
-                        <li><strong>Shipping and Delivery:</strong> Courier services and logistics partners</li>
-                        <li><strong>SMS Services:</strong> SMS gateway providers for order notifications</li>
-                        <li><strong>Email Services:</strong> Email service providers for communication</li>
-                        <li><strong>Analytics:</strong> Website analytics and performance monitoring</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">5.2 Legal Requirements</h3>
-                    <p class="mb-4">We may disclose your information when required by law or to:</p>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Comply with legal processes or government requests</li>
-                        <li>Protect our rights, property, or safety</li>
-                        <li>Prevent fraud or illegal activities</li>
-                        <li>Enforce our Terms of Service</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">5.3 Business Transfers</h3>
-                    <p>In the event of a merger, acquisition, or sale of assets, your information may be transferred to the new entity.</p>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">6. Data Security</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">6.1 Security Measures</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>SSL encryption for data transmission</li>
-                        <li>Secure servers and databases</li>
-                        <li>Regular security audits and updates</li>
-                        <li>Access controls and employee training</li>
-                        <li>Secure payment processing through certified providers</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">6.2 Payment Security</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>We do not store complete credit card information on our servers</li>
-                        <li>Payment data is processed securely through WebXPay and other certified gateways</li>
-                        <li>All financial transactions are encrypted and protected</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">7. Cookies and Tracking Technologies</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">7.1 Types of Cookies</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li><strong>Essential Cookies:</strong> Required for website functionality</li>
-                        <li><strong>Analytical Cookies:</strong> Help us understand website usage</li>
-                        <li><strong>Functional Cookies:</strong> Remember your preferences</li>
-                        <li><strong>Marketing Cookies:</strong> Used for targeted advertising (with consent)</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">7.2 Cookie Management</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>You can control cookies through your browser settings</li>
-                        <li>Disabling essential cookies may affect website functionality</li>
-                        <li>We respect your cookie preferences and choices</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">8. Your Rights and Choices</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">8.1 Access and Control</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Access and review your personal information</li>
-                        <li>Update or correct your account details</li>
-                        <li>Request deletion of your account and data</li>
-                        <li>Download your data in a portable format</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">8.2 Communication Preferences</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li>Opt out of marketing emails and SMS</li>
-                        <li>Update your communication preferences</li>
-                        <li>Choose which notifications to receive</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">8.3 Data Portability</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Request a copy of your data in machine-readable format</li>
-                        <li>Transfer your data to another service provider</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">9. Data Retention</h2>
-                <div class="text-gray-700 mb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">9.1 Retention Periods</h3>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li><strong>Account Information:</strong> Retained while your account is active</li>
-                        <li><strong>Order History:</strong> Retained for 7 years for tax and legal purposes</li>
-                        <li><strong>Support Records:</strong> Retained for 3 years for service improvement</li>
-                        <li><strong>Marketing Data:</strong> Retained until you opt out or withdraw consent</li>
-                    </ul>
-
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">9.2 Data Deletion</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>We securely delete data when no longer needed</li>
-                        <li>Some data may be retained for legal compliance</li>
-                        <li>You can request immediate deletion of non-essential data</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. Children's Privacy</h2>
-                <p class="text-gray-700 mb-6">
-                    Our services are not intended for children under 13 years of age. We do not knowingly collect personal 
-                    information from children under 13. If we become aware that we have collected such information, we will 
-                    take steps to delete it promptly.
+                <p class="mt-3">
+                    We process personal data in accordance with applicable UAE laws, including Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data
+                    (UAE PDPL), where it applies to our activities.
                 </p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. International Data Transfers</h2>
-                <p class="text-gray-700 mb-6">
-                    Your information is primarily stored and processed in Sri Lanka. If we transfer data to other countries, 
-                    we will ensure appropriate safeguards are in place to protect your information in accordance with this 
-                    Privacy Policy.
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">2. Information We Collect</h2>
+                <h3 class="font-semibold text-slate-900 mb-2">2.1 Information you provide</h3>
+                <ul class="list-disc list-inside space-y-1.5 mb-4">
+                    <li>Name, email address, phone / WhatsApp number</li>
+                    <li>Billing and delivery addresses within the UAE</li>
+                    <li>Order, quotation, and warranty claim details</li>
+                    <li>Account login details (if you register)</li>
+                    <li>Messages you send via WhatsApp, email, forms, or social media</li>
+                </ul>
+                <h3 class="font-semibold text-slate-900 mb-2">2.2 Information collected automatically</h3>
+                <ul class="list-disc list-inside space-y-1.5 mb-4">
+                    <li>IP address, browser type, device information</li>
+                    <li>Pages visited, referring links, and approximate usage statistics</li>
+                    <li>Cookies or similar technologies used for site functionality and analytics</li>
+                </ul>
+                <h3 class="font-semibold text-slate-900 mb-2">2.3 Payment information</h3>
+                <p>
+                    When online payment gateways (such as Tamara or Tabby) become available, payment data is processed by those providers.
+                    We do not store full card numbers on our servers. Bank transfer details you share with us are used only to confirm payment.
                 </p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">12. Changes to This Privacy Policy</h2>
-                <p class="text-gray-700 mb-6">
-                    We may update this Privacy Policy from time to time to reflect changes in our practices or for legal 
-                    and regulatory reasons. We will notify you of any material changes by posting the updated policy on our 
-                    website and updating the "Last Updated" date.
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">3. How We Use Your Information</h2>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Process orders, quotations, deliveries, and warranty claims</li>
+                    <li>Communicate about your purchase, repair, or enquiry</li>
+                    <li>Provide customer support via phone, WhatsApp, or email</li>
+                    <li>Improve our website, products, and services</li>
+                    <li>Comply with legal, tax, and accounting obligations in the UAE</li>
+                    <li>Prevent fraud, abuse, or security incidents</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">4. Legal Bases</h2>
+                <p>We process personal data where necessary to:</p>
+                <ul class="list-disc list-inside space-y-1.5 mt-2">
+                    <li>Perform a contract with you (orders, repairs, delivery)</li>
+                    <li>Comply with UAE legal obligations</li>
+                    <li>Pursue legitimate business interests (improving services, securing our systems), balanced against your rights</li>
+                    <li>Obtain your consent where required (for example, optional marketing messages)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">5. Sharing Your Information</h2>
+                <p class="mb-3">We do not sell your personal data. We may share information with:</p>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Delivery and logistics partners for UAE shipments</li>
+                    <li>Payment providers and banks (when you choose those methods)</li>
+                    <li>IT, hosting, email, and analytics service providers who support our operations</li>
+                    <li>Manufacturers or authorized service partners for warranty assessment, where needed</li>
+                    <li>Authorities when required by UAE law</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">6. Data Storage &amp; Security</h2>
+                <p>
+                    We store personal data only as long as needed for the purposes above, or as required by UAE commercial and tax rules.
+                    We use reasonable technical and organizational measures to protect your information. No method of transmission or storage is completely secure;
+                    please contact us immediately if you suspect unauthorized use of your account or data.
                 </p>
+            </section>
 
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">13. Contact Us About Privacy</h2>
-                <div class="text-gray-700 mb-6">
-                    <p class="mb-4">If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
-                    <div class="bg-gray-50 rounded-lg p-4">
-                        <p class="font-medium text-gray-900 mb-2">Chance Laptops (Pvt) Ltd — Privacy Team</p>
-                        <p>Email: <a href="mailto:privacy@chancelaptops.ae" class="text-primary-400 hover:text-primary-300">privacy@chancelaptops.ae</a></p>
-                        <p>Phone: <a href="tel:+94112959005" class="text-primary-400 hover:text-primary-300">0112 95 9005</a></p>
-                        <p>Address: Chance Laptops (Pvt) Ltd, Sri Lanka</p>
-                    </div>
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">7. Cookies</h2>
+                <p>
+                    Our website may use essential cookies for login, cart, and security, and optional analytics cookies to understand site usage.
+                    You can control cookies through your browser settings. Disabling some cookies may affect site features.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">8. Your Rights</h2>
+                <p class="mb-3">Subject to applicable UAE law, you may request to:</p>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Access the personal data we hold about you</li>
+                    <li>Correct inaccurate or incomplete data</li>
+                    <li>Request deletion or restriction where legally allowed</li>
+                    <li>Object to certain processing, including direct marketing</li>
+                    <li>Withdraw consent where processing is based on consent</li>
+                </ul>
+                <p class="mt-3">To exercise these rights, contact us using the details below. We may need to verify your identity before responding.</p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">9. Children’s Privacy</h2>
+                <p>
+                    Our services are intended for adults and businesses. We do not knowingly collect personal data from children under 16 without appropriate guardian involvement.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">10. Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. The “Last updated” date at the top will change when we do.
+                    Continued use of our website or services after updates means you acknowledge the revised policy.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">11. Contact Us</h2>
+                <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-1">
+                    <p class="font-semibold text-slate-900">Chance Laptops</p>
+                    <p>{{ config('products.store_address') }}</p>
+                    <p>Email: <a href="mailto:info@chancelaptops.ae" class="text-red-600 hover:underline">info@chancelaptops.ae</a></p>
+                    <p>Phone / WhatsApp: <a href="tel:+{{ config('products.phone_tel') }}" class="text-red-600 hover:underline">{{ config('products.phone_display') }}</a></p>
+                    <p>Hours: {{ config('products.working_hours') }}</p>
                 </div>
-
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">14. Consent</h2>
-                <p class="text-gray-700 mb-6">
-                    By using our website and services, you consent to the collection and use of your information as described 
-                    in this Privacy Policy. If you do not agree with our practices, please do not use our services.
-                </p>
-
-                <div class="border-t border-gray-300 pt-6">
-                    <p class="text-sm text-gray-600 text-center">
-                        Your privacy matters to us. We are committed to protecting your personal information and being transparent about our data practices.
-                    </p>
-                </div>
-
-            </div>
+            </section>
         </div>
     </div>
 </div>

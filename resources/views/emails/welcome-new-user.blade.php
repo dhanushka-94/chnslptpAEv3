@@ -37,8 +37,8 @@ As a welcome gift, you'll receive notifications about our exclusive deals and ne
 
 Our customer support team is here to help:
 
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579
 - **Email:** info@chancelaptops.ae
 
 @component('mail::button', ['url' => route('home')])
@@ -54,6 +54,6 @@ The CHANCE LAPTOPS Team
 Follow us on social media for the latest updates:
 - Facebook: CHANCE LAPTOPS
 - Instagram: @chancelaptops
-- YouTube: CHANCE LAPTOPS Sri Lanka
+- YouTube: CHANCE LAPTOPS United Arab Emirates
 @endcomponent
 @endcomponent

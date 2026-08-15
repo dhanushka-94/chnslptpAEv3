@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Laptops & Accessories - Brand New & Used Laptops in Sri Lanka | CHANCE LAPTOPS')
-@section('description', 'Browse our extensive collection of brand new and used laptops, laptop accessories, parts, and services at Chance Laptops. Professional laptop repair and quality products in Sri Lanka.')
+@section('title', 'Laptops & Accessories - Brand New & Used Laptops in United Arab Emirates | CHANCE LAPTOPS')
+@section('description', 'Browse our extensive collection of brand new and used laptops, laptop accessories, parts, and services at Chance Laptops. Professional laptop repair and quality products in United Arab Emirates.')
 
 @section('content')
 <!-- Page Header -->
@@ -165,11 +165,11 @@
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-2">
                                             @if($product->is_on_sale)
-                                                <span class="text-sm text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
-                                                <span class="text-lg font-bold text-red-600">LKR {{ number_format($product->promo_price, 2) }}</span>
+                                                <span class="text-sm text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
+                                                <span class="text-lg font-bold text-red-600">AED {{ number_format($product->promo_price, 2) }}</span>
                                             @else
                                                 @if($product->price > 0)
-                                                    <span class="text-lg font-bold text-gray-900">LKR {{ number_format($product->price, 2) }}</span>
+                                                    <span class="text-lg font-bold text-gray-900">AED {{ number_format($product->price, 2) }}</span>
                                                 @else
                                                     <span class="text-lg font-bold text-red-600">Contact for Price</span>
                                                 @endif

@@ -232,7 +232,7 @@ class AdminOrderController extends Controller
                 'payment_method' => $order->payment_method ?? 'bank_transfer',
                 'status' => 'completed',
                 'amount' => $order->total_amount,
-                'currency' => 'LKR',
+                'currency' => 'AED',
                 'gateway_transaction_id' => $request->payment_reference ?? $order->payment_reference ?? 'MANUAL-' . time(),
                 'gateway_reference' => $request->payment_reference ?? $order->payment_reference,
                 'customer_name' => $order->customer_name,

@@ -26,10 +26,10 @@
 
             <div class="mt-auto">
                 @if($product->is_on_sale)
-                    <span class="text-xs text-slate-400 line-through block">LKR {{ number_format($product->price, 2) }}</span>
-                    <span class="text-base font-bold text-red-600">LKR {{ number_format($product->final_price, 2) }}</span>
+                    <span class="text-xs text-slate-400 line-through block">AED {{ number_format($product->price, 2) }}</span>
+                    <span class="text-base font-bold text-red-600">AED {{ number_format($product->final_price, 2) }}</span>
                 @elseif($product->price > 0 && $product->final_price > 0)
-                    <span class="text-base font-bold text-slate-900">LKR {{ number_format($product->final_price, 2) }}</span>
+                    <span class="text-base font-bold text-slate-900">AED {{ number_format($product->final_price, 2) }}</span>
                 @else
                     <span class="text-sm font-bold text-red-600">Contact for Price</span>
                 @endif

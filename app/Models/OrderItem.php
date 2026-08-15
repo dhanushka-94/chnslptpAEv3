@@ -73,12 +73,12 @@ class OrderItem extends Model
      */
     public function getFormattedUnitPriceAttribute()
     {
-        return 'LKR ' . number_format($this->unit_price, 2);
+        return 'AED ' . number_format($this->unit_price, 2);
     }
 
     public function getFormattedTotalPriceAttribute()
     {
-        return 'LKR ' . number_format($this->total_price, 2);
+        return 'AED ' . number_format($this->total_price, 2);
     }
 
     public function getProductImageUrlAttribute()

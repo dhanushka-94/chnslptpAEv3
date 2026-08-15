@@ -36,7 +36,7 @@
                         <span class="font-medium text-red-500">CHANCE LAPTOPS</span> Admin Dashboard - Real-time Management System
                     </div>
                     <div class="text-gray-500">
-                        Developed by <span class="text-red-500 font-medium">Olexto Digital Solutions (Pvt) Ltd</span>
+                        Developed by <span class="text-red-500 font-medium">Olexto Digital Solutions</span>
                     </div>
                 </div>
             </div>
@@ -408,7 +408,7 @@
                             <span>Developed by</span>
                         </div>
                         <div class="flex items-center gap-1">
-                            <span class="font-semibold text-primary-400">Olexto Digital Solutions (Pvt) Ltd</span>
+                            <span class="font-semibold text-primary-400">Olexto Digital Solutions</span>
                             <span class="text-gray-500">•</span>
                             <span class="text-xs text-gray-500">{{ date('Y') }}</span>
                         </div>

@@ -196,9 +196,9 @@
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex flex-col">
-                                <span class="text-gray-900 font-medium">LKR {{ number_format($quotation->total_amount, 2) }}</span>
+                                <span class="text-gray-900 font-medium">AED {{ number_format($quotation->total_amount, 2) }}</span>
                                 @if($quotation->total_discount > 0)
-                                <span class="text-sm text-red-400">-LKR {{ number_format($quotation->total_discount, 2) }} discount</span>
+                                <span class="text-sm text-red-400">-AED {{ number_format($quotation->total_discount, 2) }} discount</span>
                                 @endif
                             </div>
                         </td>

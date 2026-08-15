@@ -77,7 +77,7 @@
 
                     @if($transaction->payment_method === 'kokopay' && $transaction->gateway_reference)
                     <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Koko Pay Order ID</label>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">BNPL Order ID (Legacy)</label>
                         <p class="text-white font-mono bg-purple-900/20 px-2 py-1 rounded">{{ $transaction->gateway_reference }}</p>
                     </div>
                     @endif
@@ -282,21 +282,21 @@
                                 <p class="text-gray-600 text-sm">Quantity: {{ $item->quantity }}</p>
                                 @if($hasDiscount)
                                     <div class="space-y-1">
-                                        <p class="text-gray-500 text-sm line-through">LKR {{ number_format($originalPrice, 2) }} each</p>
-                                        <p class="text-green-400 font-medium text-sm">LKR {{ number_format($item->unit_price, 2) }} each (Sale Price)</p>
+                                        <p class="text-gray-500 text-sm line-through">AED {{ number_format($originalPrice, 2) }} each</p>
+                                        <p class="text-green-400 font-medium text-sm">AED {{ number_format($item->unit_price, 2) }} each (Sale Price)</p>
                                     </div>
                                 @else
-                                    <p class="text-red-600 font-medium">LKR {{ number_format($item->unit_price, 2) }} each</p>
+                                    <p class="text-red-600 font-medium">AED {{ number_format($item->unit_price, 2) }} each</p>
                                 @endif
                             </div>
                             <div class="text-right">
                                 @if($hasDiscount)
                                     <div class="space-y-1">
-                                        <p class="text-gray-900 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
-                                        <p class="text-green-400 text-xs">Saved: LKR {{ number_format($discountAmount * $item->quantity, 2) }}</p>
+                                        <p class="text-gray-900 font-medium">AED {{ number_format($item->total_price, 2) }}</p>
+                                        <p class="text-green-400 text-xs">Saved: AED {{ number_format($discountAmount * $item->quantity, 2) }}</p>
                                     </div>
                                 @else
-                                    <p class="text-gray-900 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
+                                    <p class="text-gray-900 font-medium">AED {{ number_format($item->total_price, 2) }}</p>
                                 @endif
                             </div>
                         @else
@@ -311,10 +311,10 @@
                                     <p class="text-gray-500 text-xs">Code: {{ $item->product_code }}</p>
                                 @endif
                                 <p class="text-gray-500 text-sm">Quantity: {{ $item->quantity }}</p>
-                                <p class="text-gray-600 font-medium">LKR {{ number_format($item->unit_price, 2) }} each</p>
+                                <p class="text-gray-600 font-medium">AED {{ number_format($item->unit_price, 2) }} each</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-gray-600 font-medium">LKR {{ number_format($item->total_price, 2) }}</p>
+                                <p class="text-gray-600 font-medium">AED {{ number_format($item->total_price, 2) }}</p>
                             </div>
                         @endif
                     </div>
@@ -368,16 +368,16 @@
                                     @if($totalDiscountSavings > 0)
                                         <div class="flex justify-between">
                                             <span class="text-gray-600">Original Subtotal</span>
-                                            <span class="text-gray-700 line-through">LKR {{ number_format($originalSubtotal, 2) }}</span>
+                                            <span class="text-gray-700 line-through">AED {{ number_format($originalSubtotal, 2) }}</span>
                                         </div>
                                         <div class="flex justify-between">
                                             <span class="text-green-400">💸 Product Discounts</span>
-                                            <span class="text-green-400">-LKR {{ number_format($totalDiscountSavings, 2) }}</span>
+                                            <span class="text-green-400">-AED {{ number_format($totalDiscountSavings, 2) }}</span>
                                         </div>
                                     @endif
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Subtotal (After Discounts)</span>
-                                        <span class="text-gray-900 font-medium">LKR {{ number_format($order->subtotal, 2) }}</span>
+                                        <span class="text-gray-900 font-medium">AED {{ number_format($order->subtotal, 2) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -390,19 +390,19 @@
                                         @if($order->shipping_cost > 0)
                                             <div class="flex justify-between">
                                                 <span class="text-gray-600">🚚 Shipping Cost</span>
-                                                <span class="text-white">+LKR {{ number_format($order->shipping_cost, 2) }}</span>
+                                                <span class="text-white">+AED {{ number_format($order->shipping_cost, 2) }}</span>
                                             </div>
                                         @endif
                                         @if($order->tax_amount > 0)
                                             <div class="flex justify-between">
                                                 <span class="text-gray-600">🧾 Tax</span>
-                                                <span class="text-white">+LKR {{ number_format($order->tax_amount, 2) }}</span>
+                                                <span class="text-white">+AED {{ number_format($order->tax_amount, 2) }}</span>
                                             </div>
                                         @endif
                                         @if($order->discount_amount > 0)
                                             <div class="flex justify-between">
                                                 <span class="text-green-400">🎫 Order Discount</span>
-                                                <span class="text-green-400">-LKR {{ number_format($order->discount_amount, 2) }}</span>
+                                                <span class="text-green-400">-AED {{ number_format($order->discount_amount, 2) }}</span>
                                             </div>
                                         @endif
                                     </div>
@@ -417,9 +417,9 @@
                                         <span class="text-gray-600">Payment Method</span>
                                         <span class="text-white">
                                             @if($transaction->payment_method === 'webxpay')
-                                                💳 WebXPay (Card Payment)
+                                                💳 Card (Legacy)
                                             @elseif($transaction->payment_method === 'kokopay')
-                                                ⏰ Koko Pay (BNPL)
+                                                ⏰ BNPL (Legacy)
                                             @elseif($transaction->payment_method === 'bank_transfer')
                                                 🏦 Bank Transfer
                                             @else
@@ -430,7 +430,7 @@
                                     @if($paymentFee > 0)
                                         <div class="flex justify-between">
                                             <span class="text-yellow-400">⚡ Payment Processing Fee (3%)</span>
-                                            <span class="text-yellow-400">+LKR {{ number_format($paymentFee, 2) }}</span>
+                                            <span class="text-yellow-400">+AED {{ number_format($paymentFee, 2) }}</span>
                                         </div>
                                     @endif
                                     @if($transaction->gateway_reference)
@@ -447,17 +447,17 @@
                                 <div class="space-y-2">
                                     <div class="flex justify-between items-center">
                                         <span class="text-lg font-medium text-gray-900">Order Total</span>
-                                        <span class="text-lg font-bold text-gray-900">LKR {{ number_format($order->total_amount, 2) }}</span>
+                                        <span class="text-lg font-bold text-gray-900">AED {{ number_format($order->total_amount, 2) }}</span>
                                     </div>
                                     @if($paymentFee > 0)
                                         <div class="flex justify-between items-center text-sm border-t border-slate-200 pt-2">
                                             <span class="text-yellow-300 font-medium">💰 Total Paid</span>
-                                            <span class="text-xl font-bold text-red-600">LKR {{ number_format($finalTotal, 2) }}</span>
+                                            <span class="text-xl font-bold text-red-600">AED {{ number_format($finalTotal, 2) }}</span>
                                         </div>
                                     @endif
                                     @if($totalDiscountSavings > 0)
                                         <div class="text-center text-sm text-green-400 bg-green-900/20 rounded px-2 py-1">
-                                            🎉 Customer saved LKR {{ number_format($totalDiscountSavings, 2) }} on this order!
+                                            🎉 Customer saved AED {{ number_format($totalDiscountSavings, 2) }} on this order!
                                         </div>
                                     @endif
                                 </div>
@@ -583,7 +583,7 @@
                 </div>
             </div>
 
-            <!-- Koko Pay Specific Information -->
+            <!-- Legacy BNPL details -->
             @if($transaction->payment_method === 'kokopay' && $transaction->metadata)
             <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
@@ -592,7 +592,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
                         </svg>
                     </div>
-                    Koko Pay Details
+                    BNPL Details (Legacy)
                 </h3>
 
                 <div class="space-y-3">
@@ -660,7 +660,7 @@
             </div>
             @endif
 
-            <!-- WebXPay Details -->
+            <!-- Legacy card gateway details -->
             @if($transaction->payment_method === 'webxpay' && $transaction->metadata)
             <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center">
@@ -669,7 +669,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3-3v8a3 3 0 003 3z"/>
                         </svg>
                     </div>
-                    WebXPay Payment Details
+                    Card Payment Details (Legacy)
                 </h3>
                 <div class="space-y-3">
                     <!-- CORE WEBXPAY PARAMETERS -->

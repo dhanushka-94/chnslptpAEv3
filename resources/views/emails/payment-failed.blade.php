@@ -9,7 +9,7 @@ We encountered an issue processing your payment for order **{{ $order->order_num
 
 **Order Number:** {{ $order->order_number }}  
 **Attempted Date:** {{ now()->format('F d, Y \a\t g:i A') }}  
-**Amount:** LKR {{ number_format($order->total_amount, 2) }}  
+**Amount:** AED {{ number_format($order->total_amount, 2) }}  
 **Payment Method:** {{ ucfirst(str_replace('_', ' ', $order->payment_method)) }}  
 **Status:** Failed
 
@@ -44,17 +44,17 @@ Retry Payment
 @endcomponent
 
 ### Option 2: Bank Transfer
-**Coming Soon** — Bank account details for Chance Laptops (Pvt) Ltd are not published yet.
+**Coming Soon** — Bank account details for Chance Laptops are not published yet.
 Please contact us at info@chancelaptops.ae to arrange payment for order {{ $order->order_number }}.
 
 ### Option 3: Contact Us
-**Chance Laptops (Pvt) Ltd**  
+**Chance Laptops**  
 Contact our team for current payment options.
 
 **Payment Options (when available):**
 - Card / online payments
 - Bank Transfer — Coming Soon
-- KOKO Pay & Installments — Coming Soon
+- Tamara & Tabby — Coming Soon
 
 ## Order Summary
 
@@ -62,19 +62,19 @@ Contact our team for current payment options.
 | Product | Quantity | Price |
 |:--------|:--------:|------:|
 @foreach($order->orderItems as $item)
-| {{ $item->product_name }} | {{ $item->quantity }} | LKR {{ number_format($item->total_price, 2) }} |
+| {{ $item->product_name }} | {{ $item->quantity }} | AED {{ number_format($item->total_price, 2) }} |
 @endforeach
 @endcomponent
 
-**Total Amount:** **LKR {{ number_format($order->total_amount, 2) }}**
+**Total Amount:** **AED {{ number_format($order->total_amount, 2) }}**
 
 ## Need Assistance?
 
 Our team is ready to help you complete your payment:
 
 ### Immediate Support
-- **WhatsApp:** +94 777 506 939 (24/7)
-- **Phone:** 0112 95 9005
+- **WhatsApp:** +971 58 181 1579 (24/7)
+- **Phone:** +971 58 181 1579
 - **Email:** payments@chancelaptops.ae
 
 ### Common Solutions
@@ -110,7 +110,7 @@ Browse Similar Products
 
 Don't let a payment issue stop you from getting the products you need. Our team will work with you to find a solution.
 
-**Contact us now:** +94 777 506 939
+**Contact us now:** +971 58 181 1579
 
 Best regards,  
 CHANCE LAPTOPS Payment Support Team
@@ -118,6 +118,6 @@ CHANCE LAPTOPS Payment Support Team
 @component('mail::subcopy')
 Payment failed: {{ now()->format('F d, Y \a\t g:i A') }}  
 Order expires: {{ now()->addHours(24)->format('F d, Y \a\t g:i A') }}  
-Need help? WhatsApp +94 777 506 939
+Need help? WhatsApp +971 58 181 1579
 @endcomponent
 @endcomponent

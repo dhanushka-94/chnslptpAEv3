@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', $product->name . ' - CHANCE LAPTOPS | Laptops, Accessories & Services in Sri Lanka')
-@section('description', $product->details ? Str::limit(strip_tags($product->details), 160) : $product->name . ' - Available at Chance Laptops. Brand new and used laptops, laptop accessories, and professional repair services in Sri Lanka.')
-@section('keywords', $product->name . ', ' . ($product->category ? $product->category->name : '') . ', laptop, laptops Sri Lanka, laptop accessories, laptop parts, Chance Laptops, Sri Lanka, ' . ($product->code ? $product->code : ''))
-@section('og_title', $product->name . ' - LKR ' . number_format($product->final_price, 2) . ' at CHANCE LAPTOPS')
-@section('og_description', $product->details ? Str::limit(strip_tags($product->details), 200) : 'Premium ' . $product->name . ' available at Chance Laptops. Expert laptop sales, repair services, and accessories in Sri Lanka.')
+@section('title', $product->name . ' - CHANCE LAPTOPS | Laptops, Accessories & Services in United Arab Emirates')
+@section('description', $product->details ? Str::limit(strip_tags($product->details), 160) : $product->name . ' - Available at Chance Laptops. Brand new and used laptops, laptop accessories, and professional repair services in United Arab Emirates.')
+@section('keywords', $product->name . ', ' . ($product->category ? $product->category->name : '') . ', laptop, laptops United Arab Emirates, laptop accessories, laptop parts, Chance Laptops, United Arab Emirates, ' . ($product->code ? $product->code : ''))
+@section('og_title', $product->name . ' - AED ' . number_format($product->final_price, 2) . ' at CHANCE LAPTOPS')
+@section('og_description', $product->details ? Str::limit(strip_tags($product->details), 200) : 'Premium ' . $product->name . ' available at Chance Laptops. Expert laptop sales, repair services, and accessories in United Arab Emirates.')
 @section('og_image', $product->main_image)
 @section('og_type', 'product')
 
@@ -86,7 +86,7 @@
                     </span>
                     @if($product->is_on_sale)
                         <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-500/20 to-pink-500/20 border border-red-500/40 rounded-lg text-red-400 text-sm font-bold">
-                            💰 Save LKR {{ number_format($product->price - $product->promo_price, 2) }}
+                            💰 Save AED {{ number_format($product->price - $product->promo_price, 2) }}
                         </span>
                     @endif
                     </div>
@@ -160,15 +160,15 @@
                     @if($product->is_on_sale)
                         <div class="mb-4">
                             <div class="flex flex-col sm:flex-row sm:items-baseline gap-3 mb-3">
-                                <span class="text-2xl sm:text-3xl font-bold text-red-400">LKR {{ number_format($product->promo_price, 2) }}</span>
-                                <span class="text-base sm:text-lg text-gray-500 line-through">LKR {{ number_format($product->price, 2) }}</span>
+                                <span class="text-2xl sm:text-3xl font-bold text-red-400">AED {{ number_format($product->promo_price, 2) }}</span>
+                                <span class="text-base sm:text-lg text-gray-500 line-through">AED {{ number_format($product->price, 2) }}</span>
                             </div>
                             <div class="flex flex-wrap items-center gap-2">
                                 <span class="inline-flex items-center px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-lg text-green-400 text-sm font-semibold">
                                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                     </svg>
-                                    Save LKR {{ number_format($product->price - $product->promo_price, 2) }}
+                                    Save AED {{ number_format($product->price - $product->promo_price, 2) }}
                                 </span>
                                 <span class="inline-flex items-center px-3 py-1 bg-red-500/20 border border-red-500/40 rounded-lg text-red-400 text-sm font-semibold">
                                     {{ round((($product->price - $product->promo_price) / $product->price) * 100) }}% OFF
@@ -178,7 +178,7 @@
                     @else
                         <div>
                             @if($product->price > 0)
-                                <span class="text-2xl sm:text-3xl font-bold text-red-400">LKR {{ number_format($product->price, 2) }}</span>
+                                <span class="text-2xl sm:text-3xl font-bold text-red-400">AED {{ number_format($product->price, 2) }}</span>
                             @else
                                 <span class="text-xl sm:text-2xl font-bold text-red-400">Contact for Price</span>
                             @endif
@@ -471,7 +471,7 @@
                             <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            <span>Island-wide delivery available</span>
+                            <span>Across the UAE Express Delivery</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -535,12 +535,12 @@
                             <div class="mb-3">
                                 @if($relatedProduct->is_on_sale)
                                     <div class="space-y-1">
-                                        <span class="text-xs text-gray-500 line-through block">LKR {{ number_format($relatedProduct->price, 0) }}</span>
-                                        <span class="text-base font-bold text-red-400">LKR {{ number_format($relatedProduct->promo_price, 0) }}</span>
+                                        <span class="text-xs text-gray-500 line-through block">AED {{ number_format($relatedProduct->price, 0) }}</span>
+                                        <span class="text-base font-bold text-red-400">AED {{ number_format($relatedProduct->promo_price, 0) }}</span>
                                     </div>
                                 @else
                                     @if($relatedProduct->price > 0)
-                                        <span class="text-base font-bold text-gray-900">LKR {{ number_format($relatedProduct->price, 0) }}</span>
+                                        <span class="text-base font-bold text-gray-900">AED {{ number_format($relatedProduct->price, 0) }}</span>
                                     @else
                                         <span class="text-sm font-bold text-red-400">Contact for Price</span>
                                     @endif

@@ -228,8 +228,8 @@
                     <div>
                         <div class="font-medium text-white">Call Us</div>
                         <div class="space-y-1">
-                            <div><a href="tel:+94112959005" class="text-red-600 hover:text-[#d97706] text-sm">0112 95 9005</a></div>
-                            <div><a href="tel:+94777506939" class="text-red-600 hover:text-[#d97706] text-sm">0777 50 69 39</a></div>
+                            <div><a href="tel:+971581811579" class="text-red-600 hover:text-[#d97706] text-sm">+971 58 181 1579</a></div>
+                            <div><a href="tel:+971581811579" class="text-red-600 hover:text-[#d97706] text-sm">+971 58 181 1579</a></div>
                         </div>
                         <div class="text-xs text-gray-600">Call us anytime</div>
                     </div>
@@ -244,7 +244,7 @@
                     </div>
                     <div>
                         <div class="font-medium text-white">WhatsApp</div>
-                        <a href="#" id="whatsappLink" target="_blank" class="text-green-400 hover:text-green-300 text-sm">0777 50 69 39</a>
+                        <a href="#" id="whatsappLink" target="_blank" class="text-green-400 hover:text-green-300 text-sm">+971 58 181 1579</a>
                         <div class="text-xs text-gray-600">Quick response available</div>
                     </div>
                 </div>
@@ -300,7 +300,7 @@ function showCancelContactInfo(orderNumber) {
     
     // Update WhatsApp links
     const whatsappMessage = `Hi, I would like to cancel my order ${orderNumber}`;
-    const whatsappUrl = `https://wa.me/94777506939?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/971581811579?text=${encodeURIComponent(whatsappMessage)}`;
     document.getElementById('whatsappLink').href = whatsappUrl;
     document.getElementById('whatsappNowButton').href = whatsappUrl;
     

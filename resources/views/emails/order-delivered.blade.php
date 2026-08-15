@@ -9,7 +9,7 @@ Great news! Your order **{{ $order->order_number }}** has been **successfully de
 
 **Delivered Date:** {{ $order->delivered_at->format('F d, Y \a\t g:i A') }}  
 **Delivered To:** {{ $order->shipping_address }}  
-**Order Total:** LKR {{ number_format($order->total_amount, 2) }}
+**Order Total:** AED {{ number_format($order->total_amount, 2) }}
 
 ## Items Delivered
 
@@ -48,8 +48,8 @@ Register Products
 ## Need Support?
 
 ### Technical Support
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579
 - **Email:** support@chancelaptops.ae
 
 ### Returns & Exchanges
@@ -87,7 +87,7 @@ Stay updated with our latest products and offers:
 
 - **Facebook:** CHANCE LAPTOPS
 - **Instagram:** @chancelaptops
-- **YouTube:** CHANCE LAPTOPS Sri Lanka
+- **YouTube:** CHANCE LAPTOPS United Arab Emirates
 - **Website:** www.chancelaptops.ae
 
 Thank you for choosing CHANCE LAPTOPS! We hope you love your new products.
@@ -98,6 +98,6 @@ The CHANCE LAPTOPS Team
 @component('mail::subcopy')
 Order completed: {{ $order->delivered_at->format('F d, Y \a\t g:i A') }}  
 Order Number: {{ $order->order_number }}  
-Need help? Contact us anytime at +94 777 506 939
+Need help? Contact us anytime at +971 58 181 1579
 @endcomponent
 @endcomponent

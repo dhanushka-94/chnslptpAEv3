@@ -103,7 +103,7 @@
                                        required
                                            placeholder="Enter your phone number (e.g., 0771234567)"
                                            pattern="^0[1-9][0-9]{8}$"
-                                           title="Please enter a valid Sri Lankan phone number (10 digits starting with 0)"
+                                           title="Please enter a valid United Arab Emiratesn phone number (10 digits starting with 0)"
                                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[blue-500] focus:border-transparent">
                                     <div class="flex items-center mt-2 text-xs text-gray-600">
                                         <svg class="w-4 h-4 mr-1 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +216,7 @@
                                 <input type="text" 
                                        id="billing_country" 
                                        name="billing_country" 
-                                       value="{{ old('billing_country', 'Sri Lanka') }}"
+                                       value="{{ old('billing_country', 'United Arab Emirates') }}"
                                        placeholder="Country (optional)"
                                        class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[blue-500] focus:border-transparent">
                             </div>
@@ -321,7 +321,7 @@
                                 <input type="text" 
                                        id="shipping_country" 
                                        name="shipping_country" 
-                                       value="{{ old('shipping_country', 'Sri Lanka') }}"
+                                       value="{{ old('shipping_country', 'United Arab Emirates') }}"
                                        placeholder="Country (optional)"
                                        class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[blue-500] focus:border-transparent">
                             </div>
@@ -347,64 +347,10 @@
                                     <p class="text-red-300 text-sm mb-3">
                                         Kindly note that delivery charges are due at the time of parcel receipt.
                                     </p>
-                                    <p class="text-red-300 text-sm font-medium">
-                                        පාර්සලය ලැබුණු අවස්ථාවේදී බෙදා හැරීමේ ගාස්තු ගෙවිය යුතු බව කරුණාවෙන් සලකන්න.
-                                    </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Transaction Fee Notice (shown only when Credit/Debit Card is selected) -->
-                        <div class="bg-red-900/20 border border-red-700/50 rounded-lg p-4 webxpay-notice" style="display: none;">
-                            <div class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <div>
-                                    <h4 class="text-red-400 font-medium text-sm mb-2">Card Payment Processing Fee</h4>
-                                    <p class="text-red-300 text-sm mb-3">
-                                        A standard transaction fee of 3% will be applied for secure card payment processing.
-                                    </p>
-                                    <p class="text-red-300 text-sm font-medium">
-                                        ✓ SSL Encrypted • ✓ PCI Compliant • ✓ Instant Processing
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Koko Pay KOKO Notice (shown only when Koko Pay is selected) -->
-                    <div class="bg-purple-900/20 border border-purple-700/50 rounded-lg p-4 kokopay-notice" style="display: none;">
-                        <div class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
-                            </svg>
-                            <div>
-                                <h4 class="text-purple-400 font-medium text-sm mb-2">Buy Now, Pay Later with Koko Pay</h4>
-                                <p class="text-purple-300 text-sm mb-3">
-                                    Split your payment into 3 easy installments. Pay only 1/3 today, remaining in 30 & 60 days.
-                                </p>
-                                
-                                <!-- 3-Split Payment Breakdown -->
-                                <div class="grid grid-cols-3 gap-2 mb-3">
-                                    <div class="text-center p-2 bg-purple-800/20 rounded-lg">
-                                        <div class="text-xs text-purple-300 mb-1">Today</div>
-                                        <div class="text-sm font-semibold text-white kokopay-split-1">LKR 0.00</div>
-                                    </div>
-                                    <div class="text-center p-2 bg-red-800/20 rounded-lg">
-                                        <div class="text-xs text-red-300 mb-1">30 Days</div>
-                                        <div class="text-sm font-semibold text-white kokopay-split-2">LKR 0.00</div>
-                                    </div>
-                                    <div class="text-center p-2 bg-green-800/20 rounded-lg">
-                                        <div class="text-xs text-green-300 mb-1">60 Days</div>
-                                        <div class="text-sm font-semibold text-white kokopay-split-3">LKR 0.00</div>
-                                    </div>
-                                </div>
-                                <p class="text-purple-300 text-sm font-medium">
-                                    කොකෝ පේ සමඟ දැන් මිලදී ගෙන පසුව ගෙවන්න. වාරික 3කින් ගෙවන්න.
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Simple Checkout Options -->
@@ -450,12 +396,50 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-4">Payment Methods</h4>
 
                             <div class="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-4 text-sm text-amber-900">
-                                <strong>Bank Transfer</strong>, <strong>KOKO Pay</strong>, and <strong>Installments</strong> are coming soon.
-                                Please contact Chance Laptops (Pvt) Ltd to complete your order, or request a quotation.
+                                <strong>Tamara</strong>, <strong>Tabby</strong>, and <strong>Bank Transfer</strong> are coming soon.
+                                Please contact Chance Laptops to complete your order, or request a quotation.
+                            </div>
+
+                            <!-- Tamara — Coming Soon -->
+                            <div class="flex items-center p-4 border-2 border-dashed border-gray-300 bg-gray-50 rounded-lg opacity-80 cursor-not-allowed relative">
+                                <input type="radio"
+                                       name="payment_method_display"
+                                       value="tamara"
+                                       disabled
+                                       class="h-4 w-4 text-gray-400 border-gray-300 bg-white">
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center space-x-2 flex-wrap gap-1">
+                                        <div class="text-sm font-medium text-gray-700">Tamara</div>
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 uppercase">
+                                            Coming Soon
+                                        </span>
+                                    </div>
+                                    <div class="text-sm text-gray-500">Split payments — launching soon in the UAE</div>
+                                </div>
+                                <img src="{{ asset('images/tamara-logo.png') }}" alt="Tamara" class="h-8 w-auto opacity-90">
+                            </div>
+
+                            <!-- Tabby — Coming Soon -->
+                            <div class="flex items-center p-4 border-2 border-dashed border-gray-300 bg-gray-50 rounded-lg opacity-80 cursor-not-allowed relative mt-3">
+                                <input type="radio"
+                                       name="payment_method_display"
+                                       value="tabby"
+                                       disabled
+                                       class="h-4 w-4 text-gray-400 border-gray-300 bg-white">
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center space-x-2 flex-wrap gap-1">
+                                        <div class="text-sm font-medium text-gray-700">Tabby</div>
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 uppercase">
+                                            Coming Soon
+                                        </span>
+                                    </div>
+                                    <div class="text-sm text-gray-500">Buy now, pay later — launching soon in the UAE</div>
+                                </div>
+                                <img src="{{ asset('images/tabby-logo.png') }}" alt="Tabby" class="h-8 w-auto opacity-90">
                             </div>
 
                             <!-- Bank Transfer — Coming Soon -->
-                            <div class="flex items-center p-4 border-2 border-dashed border-gray-300 bg-gray-50 rounded-lg opacity-80 cursor-not-allowed relative">
+                            <div class="flex items-center p-4 border-2 border-dashed border-gray-300 bg-gray-50 rounded-lg opacity-80 cursor-not-allowed relative mt-3">
                                 <input type="radio"
                                        name="payment_method"
                                        value="bank_transfer"
@@ -470,78 +454,6 @@
                                     </div>
                                     <div class="text-sm text-gray-500">Account details will be published when this option is available</div>
                                 </div>
-                            </div>
-
-                            <!-- Koko Pay — Coming Soon -->
-                            <div class="flex items-center p-4 border-2 border-dashed border-gray-300 bg-gray-50 rounded-lg opacity-80 cursor-not-allowed relative mt-3">
-                                <input type="radio"
-                                       name="payment_method"
-                                       value="kokopay"
-                                       disabled
-                                       class="h-4 w-4 text-gray-400 border-gray-300 bg-white">
-                                <div class="ml-3 flex-1">
-                                    <div class="flex items-center space-x-2 flex-wrap gap-1">
-                                        <div class="text-sm font-medium text-gray-700">KOKO Pay & Installments</div>
-                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 uppercase">
-                                            Coming Soon
-                                        </span>
-                                    </div>
-                                    <div class="text-sm text-gray-500">Buy now, pay later and installment plans — launching soon</div>
-                                </div>
-                                <img src="{{ asset('images/kokopay-logo.png') }}" alt="" class="h-6 w-auto opacity-50">
-                            </div>
-
-                            {{-- TEMPORARILY HIDDEN: Credit/Debit Card Payment (WebXPay) --}}
-                            {{-- <label class="flex items-center p-4 border border-gray-300 rounded-lg hover:border-primary-400 transition-colors cursor-pointer">
-                                <input type="radio" 
-                                       name="payment_method" 
-                                       value="webxpay" 
-                                       class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 bg-white">
-                                <div class="ml-3 flex-1">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="text-sm font-medium text-white">Credit or Debit Card Payment</div>
-                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-500 text-black">
-                                            Secure & Instant
-                                        </span>
-                                    </div>
-                                    <div class="text-sm text-gray-600">Secure online payment • Credit Cards, Debit Cards, Online Banking, Mobile Wallets</div>
-                                </div>
-                                <div class="flex items-center space-x-2 text-primary-400">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                                    </svg>
-                                </div>
-                            </label> --}}
-
-                            <!-- Bank Transfer notice — no account numbers while coming soon -->
-                            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 bank-transfer-notice mt-3" style="display: none;">
-                                <h4 class="text-amber-800 font-medium text-sm mb-1">Bank Transfer — Coming Soon</h4>
-                                <p class="text-amber-700 text-sm">Bank account details are not published yet. Please contact Chance Laptops (Pvt) Ltd for payment assistance.</p>
-                            </div>
-
-                            <!-- WebXPay Notice (shown only when WebXPay is selected) -->
-                            <div class="bg-primary-900/20 border border-primary-700/50 rounded-lg p-4 webxpay-notice" style="display: none;">
-                                <div class="flex items-start space-x-3">
-                                    <svg class="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                                    </svg>
-                                    <div>
-                                        <h4 class="text-primary-400 font-medium text-sm mb-2">Secure Card Payment with WebXPay</h4>
-                                        <p class="text-primary-300 text-sm mb-3">
-                                            You'll be redirected to our secure payment gateway to complete your card payment. 
-                                            A 3% transaction fee will be added to your total.
-                                        </p>
-                                        <div class="text-xs text-primary-200">
-                                            ✓ SSL Encrypted • ✓ PCI Compliant • ✓ Instant Processing
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Koko Pay notice — coming soon -->
-                            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 kokopay-notice mt-3" style="display: none;">
-                                <h4 class="text-amber-800 font-medium text-sm mb-1">KOKO Pay & Installments — Coming Soon</h4>
-                                <p class="text-amber-700 text-sm">Buy now, pay later will be available shortly from Chance Laptops (Pvt) Ltd.</p>
                             </div>
                         </div>
                     </div>
@@ -576,7 +488,7 @@
                                         <p class="text-sm font-medium text-white truncate">{{ $cartProduct['product']->name }}</p>
                                         <p class="text-sm text-gray-600">Qty: {{ $cartProduct['cart_item']->quantity }}</p>
                                     </div>
-                                    <p class="text-sm font-medium text-white">LKR {{ number_format($cartProduct['line_total'], 2) }}</p>
+                                    <p class="text-sm font-medium text-white">AED {{ number_format($cartProduct['line_total'], 2) }}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -585,7 +497,7 @@
                         <div class="border-t border-gray-300 pt-4 space-y-2">
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Subtotal</span>
-                                <span class="text-white">LKR {{ number_format($originalSubtotal > 0 ? $originalSubtotal : $subtotal, 2) }}</span>
+                                <span class="text-white">AED {{ number_format($originalSubtotal > 0 ? $originalSubtotal : $subtotal, 2) }}</span>
                             </div>
                             
                             <!-- Discount Section -->
@@ -595,13 +507,13 @@
                                     Discount
                                     <span class="text-xs text-gray-500 block">You save</span>
                                 </span>
-                                <span class="text-green-400">-LKR {{ number_format($totalDiscount, 2) }}</span>
+                                <span class="text-green-400">-AED {{ number_format($totalDiscount, 2) }}</span>
                             </div>
                             
                             <!-- Subtotal after discount -->
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Subtotal (after discount)</span>
-                                <span class="text-white">LKR {{ number_format($subtotal, 2) }}</span>
+                                <span class="text-white">AED {{ number_format($subtotal, 2) }}</span>
                             </div>
                             @endif
                             
@@ -615,36 +527,14 @@
                             @if($taxAmount > 0)
                                 <div class="flex justify-between text-sm">
                                     <span class="text-gray-600">Tax</span>
-                                    <span class="text-white">LKR {{ number_format($taxAmount, 2) }}</span>
+                                    <span class="text-white">AED {{ number_format($taxAmount, 2) }}</span>
                                 </div>
                             @endif
-                            
-                            <!-- Transaction Fee (shown only when WebXPay is selected) -->
-                            <div class="flex justify-between text-sm webxpay-fee" style="display: none;">
-                                <span class="text-gray-600">
-                                    Transaction Fee (3%)
-                                    <span class="text-xs text-red-400 block">Payment processing</span>
-                                </span>
-                                <span class="text-red-400 webxpay-fee-amount">
-                                    LKR 0.00
-                                </span>
-                            </div>
-
-                            <!-- Koko Pay Transaction Fee (shown only when Koko Pay is selected) -->
-                            <div class="flex justify-between text-sm kokopay-fee" style="display: none;">
-                                <span class="text-gray-600">
-                                    Transaction Fee (10%)
-                                    <span class="text-xs text-purple-400 block">KOKO processing</span>
-                                </span>
-                                <span class="text-purple-400 kokopay-fee-amount">
-                                    LKR 0.00
-                                </span>
-                            </div>
                             
                             <div class="border-t border-gray-300 pt-2">
                                 <div class="flex justify-between">
                                     <span class="text-lg font-medium text-gray-900">Order Total</span>
-                                    <span class="text-lg font-bold text-[blue-500] order-total">LKR {{ number_format($total, 2) }}</span>
+                                    <span class="text-lg font-bold text-[blue-500] order-total">AED {{ number_format($total, 2) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -804,119 +694,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const baseOrderTotal = {{ $total }};
     
     function formatCurrency(amount) {
-        return 'LKR ' + parseFloat(amount).toLocaleString('en-US', {
+        return 'AED ' + parseFloat(amount).toLocaleString('en-US', {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         });
     }
     
     function updatePaymentFees() {
-        const webxpayRadio = document.querySelector('input[name="payment_method"][value="webxpay"]');
-        const kokopayRadio = document.querySelector('input[name="payment_method"][value="kokopay"]');
-        const bankTransferRadio = document.querySelector('input[name="payment_method"][value="bank_transfer"]');
-        
-        // Payment method elements
-        const webxpayNotice = document.querySelector('.webxpay-notice');
-        const webxpayFeeRow = document.querySelector('.webxpay-fee');
-        const webxpayFeeAmount = document.querySelector('.webxpay-fee-amount');
-        
-        // Koko Pay elements
-        const kokopayNotice = document.querySelector('.kokopay-notice');
-        const kokopayFeeRow = document.querySelector('.kokopay-fee');
-        const kokopayFeeAmount = document.querySelector('.kokopay-fee-amount');
-        
-        // Koko Pay 3-split breakdown elements
-        const kokopaySplit1 = document.querySelector('.kokopay-split-1');
-        const kokopaySplit2 = document.querySelector('.kokopay-split-2');
-        const kokopaySplit3 = document.querySelector('.kokopay-split-3');
-        
-        // Bank Transfer elements
-        const bankTransferNotice = document.querySelector('.bank-transfer-notice');
-        
         const orderTotalElement = document.querySelector('.order-total');
-        
-        // Hide all notices and fee rows by default
-        if (webxpayNotice) webxpayNotice.style.display = 'none';
-        if (webxpayFeeRow) webxpayFeeRow.style.display = 'none';
-        if (kokopayNotice) kokopayNotice.style.display = 'none';
-        if (kokopayFeeRow) kokopayFeeRow.style.display = 'none';
-        if (bankTransferNotice) bankTransferNotice.style.display = 'none';
-        
-        if (webxpayRadio && webxpayRadio.checked) {
-            // Show WebXPay transaction fee notice and row
-            if (webxpayNotice) webxpayNotice.style.display = 'block';
-            if (webxpayFeeRow) webxpayFeeRow.style.display = 'flex';
-            
-            // Calculate 3% transaction fee
-            const transactionFee = baseOrderTotal * 0.03;
-            const newTotal = baseOrderTotal + transactionFee;
-            
-            // Update amounts with proper formatting
-            if (webxpayFeeAmount) webxpayFeeAmount.textContent = formatCurrency(transactionFee);
-            if (orderTotalElement) orderTotalElement.textContent = formatCurrency(newTotal);
-            
-            // Remove transfer slip requirement for WebXPay
-            const transferSlipInput = document.getElementById('transfer_slip');
-            if (transferSlipInput) {
-                transferSlipInput.removeAttribute('required');
-            }
-            
-            console.log('WebXPay selected - Transaction Fee: ' + formatCurrency(transactionFee) + ', New Total: ' + formatCurrency(newTotal));
-            
-        } else if (kokopayRadio && kokopayRadio.checked) {
-            // Show Koko Pay KOKO notice and transaction fee row
-            if (kokopayNotice) kokopayNotice.style.display = 'block';
-            if (kokopayFeeRow) kokopayFeeRow.style.display = 'flex';
-            
-            // Calculate 10% transaction fee for Koko Pay
-            const transactionFee = baseOrderTotal * 0.10;
-            const newTotal = baseOrderTotal + transactionFee;
-            
-            // Calculate 3-split breakdown (total with fee divided by 3)
-            const splitAmount = newTotal / 3;
-            
-            // Update amounts with proper formatting
-            if (kokopayFeeAmount) kokopayFeeAmount.textContent = formatCurrency(transactionFee);
-            if (orderTotalElement) orderTotalElement.textContent = formatCurrency(newTotal);
-            
-            // Update 3-split breakdown
-            if (kokopaySplit1) kokopaySplit1.textContent = formatCurrency(splitAmount);
-            if (kokopaySplit2) kokopaySplit2.textContent = formatCurrency(splitAmount);
-            if (kokopaySplit3) kokopaySplit3.textContent = formatCurrency(splitAmount);
-            
-            // Remove transfer slip requirement for KokoPay
-            const transferSlipInput = document.getElementById('transfer_slip');
-            if (transferSlipInput) {
-                transferSlipInput.removeAttribute('required');
-            }
-            
-            console.log('Koko Pay selected - Transaction Fee: ' + formatCurrency(transactionFee) + ', New Total: ' + formatCurrency(newTotal));
-            
-        } else if (bankTransferRadio && bankTransferRadio.checked) {
-            // Show Bank Transfer details
-            if (bankTransferNotice) bankTransferNotice.style.display = 'block';
-            
-            // Reset to original total (no fees for bank transfer)
-            if (orderTotalElement) orderTotalElement.textContent = formatCurrency(baseOrderTotal);
-            
-            // Transfer slip upload is optional for bank transfer
-            const transferSlipInput = document.getElementById('transfer_slip');
-            if (transferSlipInput) {
-                transferSlipInput.removeAttribute('required');
-            }
-            
-            console.log('Bank Transfer selected - No fees applied, Total: ' + formatCurrency(baseOrderTotal));
-        } else {
-            // Reset to original total for no selection
-            if (orderTotalElement) orderTotalElement.textContent = formatCurrency(baseOrderTotal);
-            
-            // Remove transfer slip requirement for other payment methods
-            const transferSlipInput = document.getElementById('transfer_slip');
-            if (transferSlipInput) {
-                transferSlipInput.removeAttribute('required');
-            }
-            
-            console.log('No payment method selected - Total: ' + formatCurrency(baseOrderTotal));
+        if (orderTotalElement) {
+            orderTotalElement.textContent = formatCurrency(baseOrderTotal);
         }
     }
     
@@ -992,7 +779,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('shipping_address_line_2').value = '';
             document.getElementById('shipping_state').value = '';
             document.getElementById('shipping_postal_code').value = '';
-            document.getElementById('shipping_country').value = 'Sri Lanka';
+            document.getElementById('shipping_country').value = 'United Arab Emirates';
         }
     });
 
@@ -1075,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Sri Lankan phone number validation
+    // United Arab Emiratesn phone number validation
     const phoneInput = document.getElementById('customer_phone');
     console.log('Phone input found:', phoneInput ? 'Yes' : 'No');
     
@@ -1091,7 +878,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isValid = phonePattern.test(phoneValue);
         
         if (phoneValue.length > 0 && !isValid) {
-            phoneInput.setCustomValidity('Please enter a valid Sri Lankan phone number (10 digits starting with 0, e.g., 0771234567)');
+            phoneInput.setCustomValidity('Please enter a valid United Arab Emiratesn phone number (10 digits starting with 0, e.g., 0771234567)');
             phoneInput.style.borderColor = '#ef4444';
         } else {
             phoneInput.setCustomValidity('');

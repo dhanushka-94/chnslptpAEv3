@@ -105,13 +105,12 @@ class CardTypeDetector
     }
     
     /**
-     * Detect card type from WebXPay payment gateway response
+     * Detect card type from payment gateway response (legacy)
      */
     public static function detectFromWebXPayGateway(string $paymentGateway): array
     {
         $gateway = strtolower($paymentGateway);
         
-        // Common WebXPay gateway mappings
         $gatewayMap = [
             'visa' => [
                 'type' => 'visa',
@@ -150,19 +149,16 @@ class CardTypeDetector
             ]
         ];
         
-        // Check for exact matches
         if (isset($gatewayMap[$gateway])) {
             return $gatewayMap[$gateway];
         }
         
-        // Check for partial matches
         foreach ($gatewayMap as $key => $data) {
             if (strpos($gateway, $key) !== false) {
                 return $data;
             }
         }
         
-        // If no specific card type detected, return generic card info
         return [
             'type' => 'card',
             'brand' => 'Credit/Debit Card',
@@ -178,16 +174,19 @@ class CardTypeDetector
      */
     public static function detectFromTransactionData(array $metadata, string $paymentMethod): array
     {
-        // For WebXPay transactions
+        // Legacy card gateway transactions
         if ($paymentMethod === 'webxpay' && isset($metadata['payment_gateway'])) {
             return self::detectFromWebXPayGateway($metadata['payment_gateway']);
         }
         
-        // For Koko Pay (BNPL - not a card)
-        if ($paymentMethod === 'kokopay') {
+        if (in_array($paymentMethod, ['kokopay', 'tamara', 'tabby'])) {
             return [
                 'type' => 'bnpl',
-                'brand' => 'Buy Now Pay Later',
+                'brand' => match ($paymentMethod) {
+                    'tamara' => 'Tamara (Coming Soon)',
+                    'tabby' => 'Tabby (Coming Soon)',
+                    default => 'BNPL (Legacy)',
+                },
                 'icon' => '⏰',
                 'color' => 'text-purple-500',
                 'bg' => 'bg-purple-100'

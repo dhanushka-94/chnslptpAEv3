@@ -12,8 +12,8 @@
             <p class="text-gray-600">Welcome to the CHANCE LAPTOPS admin panel</p>
         </div>
         <div class="text-right text-sm text-gray-600">
-            <p>{{ \Carbon\Carbon::now()->setTimezone('Asia/Colombo')->format('l, F j, Y') }}</p>
-            <p>{{ \Carbon\Carbon::now()->setTimezone('Asia/Colombo')->format('g:i A') }} <span class="text-xs text-gray-500">LKT</span></p>
+            <p>{{ \Carbon\Carbon::now()->setTimezone('Asia/Dubai')->format('l, F j, Y') }}</p>
+            <p>{{ \Carbon\Carbon::now()->setTimezone('Asia/Dubai')->format('g:i A') }} <span class="text-xs text-gray-500">LKT</span></p>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Today's Orders</h2>
-                    <p class="text-gray-700">{{ \Carbon\Carbon::today()->setTimezone('Asia/Colombo')->format('F j, Y') }}</p>
+                    <p class="text-gray-700">{{ \Carbon\Carbon::today()->setTimezone('Asia/Dubai')->format('F j, Y') }}</p>
                 </div>
                 <div class="text-right">
                     <div class="text-3xl font-bold text-primary-400">{{ $stats['today_orders'] }}</div>
@@ -43,7 +43,7 @@
                     <div class="text-xs text-green-400">Processed</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-lg font-semibold text-gray-900">LKR {{ number_format($stats['today_revenue'], 0) }}</div>
+                    <div class="text-lg font-semibold text-gray-900">AED {{ number_format($stats['today_revenue'], 0) }}</div>
                     <div class="text-xs text-primary-400">Revenue</div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Yesterday's Orders</h2>
-                    <p class="text-gray-700">{{ \Carbon\Carbon::yesterday()->setTimezone('Asia/Colombo')->format('F j, Y') }}</p>
+                    <p class="text-gray-700">{{ \Carbon\Carbon::yesterday()->setTimezone('Asia/Dubai')->format('F j, Y') }}</p>
                 </div>
                 <div class="text-right">
                     <div class="text-3xl font-bold text-gray-700">{{ $stats['yesterday_orders'] }}</div>
@@ -85,7 +85,7 @@
                     <div class="text-xs text-green-400">Processed</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-lg font-semibold text-gray-900">LKR {{ number_format($stats['yesterday_revenue'], 0) }}</div>
+                    <div class="text-lg font-semibold text-gray-900">AED {{ number_format($stats['yesterday_revenue'], 0) }}</div>
                     <div class="text-xs text-gray-600">Revenue</div>
                 </div>
             </div>
@@ -161,8 +161,8 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Total Revenue</p>
-                    <p class="text-3xl font-bold text-gray-900">LKR {{ number_format($stats['total_revenue'], 2) }}</p>
-                    <p class="text-sm text-red-600">LKR {{ number_format($stats['monthly_revenue'], 2) }} this month</p>
+                    <p class="text-3xl font-bold text-gray-900">AED {{ number_format($stats['total_revenue'], 2) }}</p>
+                    <p class="text-sm text-red-600">AED {{ number_format($stats['monthly_revenue'], 2) }} this month</p>
                 </div>
                 <div class="p-3 bg-red-500/20 rounded-lg">
                     <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -222,7 +222,7 @@
                                     <p class="text-sm text-gray-600">{{ $order->customer_name ?? $order->customer_email }}</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-medium text-white">LKR {{ number_format($order->total_amount, 2) }}</p>
+                                    <p class="text-sm font-medium text-white">AED {{ number_format($order->total_amount, 2) }}</p>
                                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium 
                                         @if($order->status == 'pending') bg-yellow-500/20 text-yellow-400
                                         @elseif($order->status == 'confirmed') bg-red-500/20 text-red-400
@@ -237,7 +237,7 @@
                             </div>
                             <div class="flex items-center justify-between text-xs text-gray-500">
                                 <span>{{ $order->orderItems->count() ?? 0 }} items</span>
-                                <span>{{ $order->created_at->setTimezone('Asia/Colombo')->format('g:i A') }}</span>
+                                <span>{{ $order->created_at->setTimezone('Asia/Dubai')->format('g:i A') }}</span>
                             </div>
                         </div>
                     @endforeach
@@ -281,7 +281,7 @@
                                     <p class="text-sm text-gray-600">{{ $order->customer_name ?? $order->customer_email }}</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-medium text-white">LKR {{ number_format($order->total_amount, 2) }}</p>
+                                    <p class="text-sm font-medium text-white">AED {{ number_format($order->total_amount, 2) }}</p>
                                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium 
                                         @if($order->status == 'pending') bg-yellow-500/20 text-yellow-400
                                         @elseif($order->status == 'confirmed') bg-red-500/20 text-red-400
@@ -296,7 +296,7 @@
                             </div>
                             <div class="flex items-center justify-between text-xs text-gray-500">
                                 <span>{{ $order->orderItems->count() ?? 0 }} items</span>
-                                <span>{{ $order->created_at->setTimezone('Asia/Colombo')->format('g:i A') }}</span>
+                                <span>{{ $order->created_at->setTimezone('Asia/Dubai')->format('g:i A') }}</span>
                             </div>
                         </div>
                     @endforeach
@@ -382,7 +382,7 @@
                                 </div>
                             </div>
                             <div class="text-right">
-                                <p class="text-sm text-gray-600">{{ $customer->created_at->setTimezone('Asia/Colombo')->format('M d, Y') }}</p>
+                                <p class="text-sm text-gray-600">{{ $customer->created_at->setTimezone('Asia/Dubai')->format('M d, Y') }}</p>
                             </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@ new Chart(salesCtx, {
     data: {
         labels: salesData.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`),
         datasets: [{
-            label: 'Revenue (LKR)',
+            label: 'Revenue (AED)',
             data: salesData.map(item => item.total),
             borderColor: '#f59e0b',
             backgroundColor: 'rgba(245, 158, 11, 0.1)',
@@ -433,7 +433,7 @@ new Chart(salesCtx, {
                 ticks: {
                     color: '#9ca3af',
                     callback: function(value) {
-                        return 'LKR ' + value.toLocaleString();
+                        return 'AED ' + value.toLocaleString();
                     }
                 },
                 grid: {

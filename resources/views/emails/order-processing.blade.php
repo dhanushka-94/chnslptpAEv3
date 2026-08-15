@@ -23,7 +23,7 @@ Our team is carefully:
 @endforeach
 @endcomponent
 
-**Order Total:** LKR {{ number_format($order->total_amount, 2) }}
+**Order Total:** AED {{ number_format($order->total_amount, 2) }}
 
 @if($order->payment_status === 'paid')
 @component('mail::panel')
@@ -36,7 +36,7 @@ Your payment has been received and processed successfully.
 **Payment Pending** ⏳
 
 Please ensure your payment is completed to avoid delays:
-- Bank Transfer: Send confirmation to +94 777 506 939
+- Bank Transfer: Send confirmation to +971 58 181 1579
 - Card Payment: Check your payment status
 @endcomponent
 @endif
@@ -65,8 +65,8 @@ View Order Details
 
 Questions about your order processing?
 
-- **Phone:** 0112 95 9005
-- **WhatsApp:** +94 777 506 939
+- **Phone:** +971 58 181 1579
+- **WhatsApp:** +971 58 181 1579
 - **Email:** info@chancelaptops.ae
 
 We'll notify you as soon as your order ships!

@@ -150,7 +150,7 @@ class ComprehensiveSystemSeeder extends Seeder
         ];
         
         $sriLankanCities = [
-            'Colombo', 'Kandy', 'Galle', 'Jaffna', 'Negombo', 'Anuradhapura', 'Ratnapura', 
+            'Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Umm Al Quwain', 
             'Batticaloa', 'Matara', 'Kurunegala', 'Trincomalee', 'Badulla', 'Kalutara',
             'Puttalam', 'Kegalle', 'Ampara', 'Hambantota', 'Monaragala', 'Polonnaruwa',
             'Maharagama', 'Kelaniya', 'Moratuwa', 'Wattala', 'Panadura', 'Negombo'
@@ -181,12 +181,12 @@ class ComprehensiveSystemSeeder extends Seeder
                 'billing_city' => $sriLankanCities[array_rand($sriLankanCities)],
                 'billing_state' => ['Western', 'Central', 'Southern', 'Northern', 'Eastern', 'North Western', 'North Central', 'Uva', 'Sabaragamuwa'][array_rand(['Western', 'Central', 'Southern', 'Northern', 'Eastern', 'North Western', 'North Central', 'Uva', 'Sabaragamuwa'])],
                 'billing_postal_code' => str_pad(rand(10000, 99999), 5, '0', STR_PAD_LEFT),
-                'billing_country' => 'Sri Lanka',
+                'billing_country' => 'United Arab Emirates',
                 'shipping_address_line_1' => rand(1, 999) . '/' . chr(rand(65, 90)) . ', ' . ['Main Street', 'Galle Road', 'Kandy Road', 'Negombo Road'][array_rand(['Main Street', 'Galle Road', 'Kandy Road', 'Negombo Road'])],
                 'shipping_city' => $sriLankanCities[array_rand($sriLankanCities)],
                 'shipping_state' => ['Western', 'Central', 'Southern', 'Northern', 'Eastern', 'North Western', 'North Central', 'Uva', 'Sabaragamuwa'][array_rand(['Western', 'Central', 'Southern', 'Northern', 'Eastern', 'North Western', 'North Central', 'Uva', 'Sabaragamuwa'])],
                 'shipping_postal_code' => str_pad(rand(10000, 99999), 5, '0', STR_PAD_LEFT),
-                'shipping_country' => 'Sri Lanka',
+                'shipping_country' => 'United Arab Emirates',
                 'notes' => rand(0, 1) ? ['Please call before delivery', 'Urgent delivery required', 'Handle with care', 'Gift wrapping requested', 'Corporate order'][array_rand(['Please call before delivery', 'Urgent delivery required', 'Handle with care', 'Gift wrapping requested', 'Corporate order'])] : null,
                 'admin_notes' => rand(0, 1) ? ['VIP customer', 'Regular customer', 'New customer', 'Bulk order discount applied'][array_rand(['VIP customer', 'Regular customer', 'New customer', 'Bulk order discount applied'])] : null,
                 'admin_viewed_at' => rand(0, 1) ? $orderDate->addHours(rand(1, 48)) : null,
