@@ -385,16 +385,15 @@
         min-width: 0;
     }
 
-    /* Square brand logo — Chance Laptops mark */
+    /* Stacked Chance Laptops .ae wordmark */
     .site-logo {
         display: block;
-        height: 2.75rem;
+        height: 3rem;
         width: auto;
         max-width: 100%;
         object-fit: contain;
         object-position: left center;
         flex-shrink: 0;
-        border-radius: 0.35rem;
         transition: transform 0.2s ease;
     }
 
@@ -408,22 +407,22 @@
         }
 
         .site-logo {
-            height: 3rem;
-            max-width: 10rem;
+            height: 3.25rem;
+            max-width: 13rem;
         }
     }
 
     @media (min-width: 768px) {
         .site-logo {
-            height: 3.25rem;
-            max-width: 11rem;
+            height: 3.5rem;
+            max-width: 15rem;
         }
     }
 
     @media (min-width: 1024px) {
         .site-logo {
-            height: 3.5rem;
-            max-width: 12rem;
+            height: 4rem;
+            max-width: 17rem;
         }
     }
 

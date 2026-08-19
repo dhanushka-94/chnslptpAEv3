@@ -20,11 +20,11 @@
             <div class="relative z-10">
                 <!-- Logo and Header -->
                 <div class="text-center mb-8">
-                    <div class="h-28 w-28 md:h-36 md:w-36 mx-auto mb-6 relative group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/30 to-red-600/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                    <div class="h-24 w-52 md:h-28 md:w-64 mx-auto mb-6 relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/30 to-red-600/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                         <div class="relative z-10">
-                            <img src="{{ asset('chance-laptops-logo.png') }}" 
-                                 alt="Chance Laptops Logo" 
+                            <img src="{{ asset('chance-laptops-logo.png') }}"
+                                 alt="Chance Laptops UAE"
                                  class="w-full h-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>

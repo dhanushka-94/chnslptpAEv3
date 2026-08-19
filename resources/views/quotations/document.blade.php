@@ -50,7 +50,7 @@
     .qdoc .header-table td { vertical-align: top; }
 
     .qdoc .logo {
-        width: 120px;
+        width: 160px;
         height: auto;
         display: block;
         margin: 0 0 8px 0;

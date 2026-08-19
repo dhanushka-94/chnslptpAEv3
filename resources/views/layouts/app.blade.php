@@ -45,9 +45,10 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('favicon.png') }}?v=ae">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon-192.png') }}?v=ae">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=ae">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}?v=ae">
     
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -177,10 +178,10 @@
                 <div class="site-logo-wrap flex-shrink-0">
                     <a href="{{ route('home') }}" class="site-logo-link group" aria-label="Chance Laptops Home">
                         <img src="{{ asset('chance-laptops-logo.png') }}"
-                             alt="Chance Laptops Logo"
+                             alt="Chance Laptops UAE"
                              class="site-logo"
                              width="280"
-                             height="48"
+                             height="140"
                              loading="eager"
                              decoding="async">
                         <div class="hidden lg:block site-logo-text min-w-0">
@@ -706,8 +707,8 @@
                     <div class="footer-brand-block h-full">
                         <div class="flex items-start gap-4 mb-5">
                             <img src="{{ asset('chance-laptops-logo.png') }}"
-                                 alt="Chance Laptops"
-                                 class="w-16 h-16 object-contain flex-shrink-0">
+                                 alt="Chance Laptops UAE"
+                                 class="h-20 w-auto max-w-[11rem] object-contain flex-shrink-0">
                             <div>
                                 <h3 class="text-xl font-bold text-red-600 leading-tight">CHANCE LAPTOPS</h3>
                                 <p class="text-xs font-semibold text-red-500/90 uppercase tracking-wider mt-0.5">Online Store · UAE</p>

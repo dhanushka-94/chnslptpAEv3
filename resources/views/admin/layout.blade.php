@@ -6,6 +6,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <title>@yield('title', 'Admin Panel') - CHANCE LAPTOPS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('favicon.png') }}?v=ae">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon-192.png') }}?v=ae">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=ae">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}?v=ae">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +54,7 @@
                 <!-- Logo & Navigation -->
                 <div class="flex items-center space-x-10 lg:space-x-12 xl:space-x-16">
                     <div class="flex items-center space-x-4 py-3">
-                        <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops" class="h-16 w-16">
+                        <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops UAE" class="h-14 w-auto max-w-[11rem] object-contain">
                         <div>
                             <span class="text-xl font-bold text-red-500">CHANCE LAPTOPS</span>
                             <div class="text-sm text-gray-600">Admin Panel</div>

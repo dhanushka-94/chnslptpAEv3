@@ -9,7 +9,7 @@
             <div class="bg-gradient-to-r from-red-500 to-red-600 p-8">
                 <div class="flex justify-between items-start">
                     <div>
-                        <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops" class="h-20 mb-4">
+                        <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops UAE" class="h-20 w-auto object-contain mb-4">
                         <h1 class="text-3xl font-bold text-gray-900">INVOICE</h1>
                         <p class="text-red-100">Invoice #{{ $order->order_number }}</p>
                     </div>

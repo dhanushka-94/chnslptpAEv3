@@ -16,9 +16,9 @@
         <div class="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl p-6 md:p-8 shadow-2xl">
             <!-- Logo and Header -->
             <div class="text-center">
-                <div class="h-32 w-32 md:h-40 md:w-40 mx-auto mb-4 md:mb-6 relative">
-                    <div class="absolute inset-0 bg-red-500/20 rounded-full blur-xl"></div>
-                    <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops Logo" class="w-full h-full object-contain relative z-10 scale-125">
+                <div class="h-24 w-52 md:h-28 md:w-64 mx-auto mb-4 md:mb-6 relative">
+                    <div class="absolute inset-0 bg-red-500/20 rounded-xl blur-xl"></div>
+                    <img src="{{ asset('chance-laptops-logo.png') }}" alt="Chance Laptops UAE" class="w-full h-full object-contain relative z-10">
                 </div>
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
                 <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Join CHANCE LAPTOPS for exclusive deals and faster checkout</p>
