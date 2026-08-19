@@ -25,10 +25,9 @@
             <section>
                 <h2 class="text-lg font-bold text-slate-900 mb-3">2. About Chance Laptops</h2>
                 <p>
-                    Chance Laptops is a technology retailer based in Sharjah, UAE. We sell brand-new and used laptops, accessories, and related products,
-                    and provide repair and warranty support. Our store address is:
+                    Chance Laptops is an online technology store serving the UAE. We sell brand-new and used laptops, accessories, and related products,
+                    and provide repair and warranty support through our website and WhatsApp.
                 </p>
-                <p class="mt-2 font-medium text-slate-900">{{ config('products.store_address') }}</p>
             </section>
 
             <section>
@@ -46,7 +45,7 @@
                 <h2 class="text-lg font-bold text-slate-900 mb-3">4. Orders, Quotations &amp; Payment</h2>
                 <ul class="list-disc list-inside space-y-1.5">
                     <li>An order or quotation request is an offer to buy; acceptance occurs when we confirm and/or process payment.</li>
-                    <li>Payment methods currently include arrangements via WhatsApp / in-store. <strong>Tamara</strong>, <strong>Tabby</strong>, and <strong>bank transfer</strong> options may be offered as “coming soon” and will apply only when enabled.</li>
+                    <li>Payment methods currently include arrangements via WhatsApp and our online store. <strong>Tamara</strong>, <strong>Tabby</strong>, and <strong>bank transfer</strong> options may be offered as “coming soon” and will apply only when enabled.</li>
                     <li>Ownership of goods generally passes after full payment is received. Warranty validity also requires full payment, as stated in our Warranty Terms.</li>
                     <li>We may refuse or cancel orders that appear fraudulent, incomplete, or unable to be fulfilled.</li>
                 </ul>
@@ -64,9 +63,9 @@
             </section>
 
             <section>
-                <h2 class="text-lg font-bold text-slate-900 mb-3">6. Store Visits &amp; Business Hours</h2>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">6. Online Support Hours</h2>
                 <p>
-                    Our store hours are <strong>{{ config('products.working_hours') }}</strong>.
+                    Our online store support hours are <strong>{{ config('products.working_hours') }}</strong>.
                     Service capacity may vary; complex repairs or warranty work may require additional time for diagnosis and parts.
                 </p>
             </section>
@@ -88,6 +87,10 @@
 
             <section>
                 <h2 class="text-lg font-bold text-slate-900 mb-3">8. Returns &amp; Cancellations</h2>
+                <p class="mb-3">
+                    Returns, the checking window, and repair / replace / refund for defective goods are set out in our
+                    <a href="{{ route('return-policy') }}" class="text-red-600 font-semibold hover:underline">Return Policy</a>.
+                </p>
                 <ul class="list-disc list-inside space-y-1.5">
                     <li>Unless required by UAE consumer protection law or expressly agreed in writing, sales of opened electronics, used items, and custom orders are generally final.</li>
                     <li>If an item arrives defective or incorrect, contact us promptly with your invoice and photos so we can arrange inspection under warranty or our sales policy.</li>
@@ -128,7 +131,7 @@
             <section>
                 <h2 class="text-lg font-bold text-slate-900 mb-3">12. Governing Law</h2>
                 <p>
-                    These Terms are governed by the laws of the United Arab Emirates. Disputes shall be subject to the courts of the Emirate of Sharjah,
+                    These Terms are governed by the laws of the United Arab Emirates. Disputes shall be subject to the courts of the United Arab Emirates,
                     without prejudice to any mandatory consumer rights under UAE law.
                 </p>
             </section>
@@ -144,8 +147,7 @@
             <section>
                 <h2 class="text-lg font-bold text-slate-900 mb-3">14. Contact</h2>
                 <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-1">
-                    <p class="font-semibold text-slate-900">Chance Laptops</p>
-                    <p>{{ config('products.store_address') }}</p>
+                    <p class="font-semibold text-slate-900">Chance Laptops · Online Store</p>
                     <p>Email: <a href="mailto:info@chancelaptops.ae" class="text-red-600 hover:underline">info@chancelaptops.ae</a></p>
                     <p>Phone / WhatsApp: <a href="tel:+{{ config('products.phone_tel') }}" class="text-red-600 hover:underline">{{ config('products.phone_display') }}</a></p>
                     <p>Hours: {{ config('products.working_hours') }}</p>

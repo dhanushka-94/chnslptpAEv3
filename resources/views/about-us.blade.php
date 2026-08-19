@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'About Us - Chance Laptops | Laptops, Repair & Accessories in the UAE')
-@section('description', 'Chance Laptops in Sharjah, UAE — brand-new and used laptops, accessories, expert repair, and after-sales support across the United Arab Emirates.')
-@section('keywords', 'about Chance Laptops, laptop store Sharjah, laptops UAE, laptop repair Sharjah, used laptops Dubai, laptop accessories UAE')
+@section('description', 'Chance Laptops is an online laptop store in the UAE — brand-new and used laptops, accessories, expert repair, and after-sales support across the United Arab Emirates.')
+@section('keywords', 'about Chance Laptops, online laptop store UAE, laptops UAE, laptop repair UAE, used laptops Dubai, laptop accessories UAE')
 
 @section('content')
 <div class="info-page">
@@ -10,7 +10,7 @@
         badge="About Chance Laptops"
         title="Your Trusted"
         highlight="Laptop Partner in the UAE"
-        description="Brand-new and used laptops, accessories, and professional repair from our store in Sharjah — serving customers across the United Arab Emirates."
+        description="Brand-new and used laptops, accessories, and professional repair from our online store — serving customers across the United Arab Emirates."
     >
         <x-slot:icon>
             <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -22,12 +22,12 @@
             <div class="info-card space-y-4 text-slate-700 leading-relaxed">
                 <h2 class="text-2xl font-bold text-slate-900">Who We Are</h2>
                 <p>
-                    <strong class="text-slate-900">Chance Laptops</strong> is a technology retailer based in Sharjah, United Arab Emirates.
+                    <strong class="text-slate-900">Chance Laptops</strong> is an online technology store serving the United Arab Emirates.
                     We help individuals and businesses find reliable laptops and accessories at fair prices, with clear advice and dependable after-sales support.
                 </p>
                 <p>
                     Whether you need a brand-new machine for work or study, a quality used laptop that fits your budget, or professional repair service,
-                    our team is here to help — in store and online.
+                    our team is here to help online via WhatsApp, email, and our website.
                 </p>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="info-stat-card text-left p-5">
                     <h3 class="font-bold text-slate-900 mb-2">Repair &amp; Service</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Hardware diagnostics, repairs, and warranty support from our Sharjah workshop.</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Hardware diagnostics, repairs, and warranty support arranged through our online store.</p>
                 </div>
             </div>
         </div>
@@ -91,8 +91,8 @@
                     <p class="text-sm text-slate-600 leading-relaxed">We help you choose the right device for your needs and budget — not the most expensive one.</p>
                 </div>
                 <div class="info-card">
-                    <h3 class="font-bold text-slate-900 mb-2">Local Support</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Visit our Sharjah store or reach us on WhatsApp for sales, wholesale, and warranty questions.</p>
+                    <h3 class="font-bold text-slate-900 mb-2">Online Support</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Shop on our website or reach us on WhatsApp for sales, wholesale, and warranty questions.</p>
                 </div>
                 <div class="info-card">
                     <h3 class="font-bold text-slate-900 mb-2">UAE Delivery</h3>
@@ -105,8 +105,8 @@
     <section class="info-section">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="info-card">
-                <h2 class="text-2xl font-bold text-slate-900 mb-4">Visit Our Store</h2>
-                <p class="text-slate-700 leading-relaxed mb-4">{{ config('products.store_address') }}</p>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Shop Online</h2>
+                <p class="text-slate-700 leading-relaxed mb-4">Browse, enquire, and order through our online store. We deliver across the UAE.</p>
                 <dl class="space-y-3 text-sm">
                     <div class="flex flex-col sm:flex-row sm:gap-3">
                         <dt class="font-semibold text-slate-900 min-w-[7rem]">Hours</dt>

@@ -20,7 +20,7 @@
                     This Privacy Policy explains how <strong>Chance Laptops</strong> (“we”, “us”, or “our”), operating in the United Arab Emirates,
                     collects, uses, stores, and protects personal information when you visit
                     <a href="{{ url('/') }}" class="text-red-600 hover:underline">chancelaptops.ae</a>, place an order, request a quotation,
-                    contact us, or visit our store in Sharjah.
+                    contact us, or shop on our online store.
                 </p>
                 <p class="mt-3">
                     We process personal data in accordance with applicable UAE laws, including Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data
@@ -134,8 +134,7 @@
             <section>
                 <h2 class="text-lg font-bold text-slate-900 mb-3">11. Contact Us</h2>
                 <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-1">
-                    <p class="font-semibold text-slate-900">Chance Laptops</p>
-                    <p>{{ config('products.store_address') }}</p>
+                    <p class="font-semibold text-slate-900">Chance Laptops · Online Store</p>
                     <p>Email: <a href="mailto:info@chancelaptops.ae" class="text-red-600 hover:underline">info@chancelaptops.ae</a></p>
                     <p>Phone / WhatsApp: <a href="tel:+{{ config('products.phone_tel') }}" class="text-red-600 hover:underline">{{ config('products.phone_display') }}</a></p>
                     <p>Hours: {{ config('products.working_hours') }}</p>

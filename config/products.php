@@ -20,20 +20,6 @@ return [
     'wholesale_min_units' => 5,
 
     /*
-    | Store address (Sharjah, UAE)
-    */
-    'store_address' => env(
-        'STORE_ADDRESS',
-        'SHUBRA NO.18-19 MALEHA STREET, BEHIND SOUK AL MUBARAK HYPERMARKET, INDUSTRIAL AREA 5, SHARJAH, UNITED ARAB EMIRATES'
-    ),
-    'store_address_lines' => [
-        'SHUBRA NO.18-19 MALEHA STREET',
-        'Behind Souk Al Mubarak Hypermarket',
-        'Industrial Area 5, Sharjah',
-        'United Arab Emirates',
-    ],
-
-    /*
     | Social media
     */
     'facebook_url' => env('FACEBOOK_URL', 'https://www.facebook.com/profile.php?id=61592877957245'),

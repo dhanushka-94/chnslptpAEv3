@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'Warranty Terms - Chance Laptops')
-@section('description', '1-year hardware warranty coverage, exclusions, claim process, and customer responsibilities from Chance Laptops, Sharjah, UAE.')
+@section('description', '1-year hardware warranty coverage, exclusions, claim process, and customer responsibilities from Chance Laptops online store, UAE.')
 
 @section('content')
 <section class="bg-gradient-to-br from-white via-red-50 to-white py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center px-4 py-2 bg-red-500/10 border border-red-300/20 rounded-full text-red-600 text-sm font-medium mb-6">
-            Chance Laptops · Sharjah, UAE
+            Chance Laptops · Online Store · UAE
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Warranty Terms</h1>
         <p class="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -173,7 +173,7 @@
                     WhatsApp Us
                 </a>
             </div>
-            <p class="text-gray-500 text-xs mt-4">{{ config('products.store_address') }}</p>
+            <p class="text-gray-500 text-xs mt-4">Chance Laptops · Online store serving the UAE</p>
         </div>
     </div>
 </section>

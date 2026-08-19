@@ -148,6 +148,7 @@ Route::get('/sitemap.xml', function() {
         ['url' => url('/about-us'), 'priority' => '0.7', 'changefreq' => 'monthly'],
         ['url' => url('/contact-us'), 'priority' => '0.7', 'changefreq' => 'monthly'],
         ['url' => url('/warranty'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+        ['url' => url('/return-policy'), 'priority' => '0.6', 'changefreq' => 'monthly'],
     ];
 
     foreach ($infoPages as $page) {
@@ -344,6 +345,7 @@ Route::get('/payment/status/{order}', [App\Http\Controllers\PaymentController::c
 // Legal Pages
 Route::get('/terms-of-service', [App\Http\Controllers\LegalController::class, 'termsOfService'])->name('terms-of-service');
 Route::get('/privacy-policy', [App\Http\Controllers\LegalController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/return-policy', [App\Http\Controllers\LegalController::class, 'returnPolicy'])->name('return-policy');
 Route::get('/warranty', function () {
     return view('warranty');
 })->name('warranty');

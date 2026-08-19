@@ -21,4 +21,12 @@ class LegalController extends Controller
     {
         return view('legal.privacy-policy');
     }
+
+    /**
+     * Display the Return Policy page
+     */
+    public function returnPolicy()
+    {
+        return view('legal.return-policy');
+    }
 }

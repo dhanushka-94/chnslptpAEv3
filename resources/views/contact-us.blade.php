@@ -44,9 +44,8 @@
                 <span style="color:#fff;">Chat on WhatsApp</span>
             </a>
             <div class="mt-8 pt-6 border-t border-slate-200 text-left max-w-xl mx-auto">
-                <p class="text-sm font-semibold text-slate-900 mb-2">Visit us</p>
-                <p class="text-sm text-slate-600 leading-relaxed">{{ config('products.store_address') }}</p>
-                <p class="text-sm text-slate-600 mt-3">{{ config('products.working_hours') }}</p>
+                <p class="text-sm font-semibold text-slate-900 mb-2">Online store support</p>
+                <p class="text-sm text-slate-600 mt-1">{{ config('products.working_hours') }}</p>
                 <div class="flex gap-3 mt-4 justify-center sm:justify-start">
                     <a href="{{ config('products.facebook_url') }}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[#1877f2] hover:underline">Facebook</a>
                     <span class="text-slate-300">·</span>

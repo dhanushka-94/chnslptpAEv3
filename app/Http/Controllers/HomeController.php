@@ -19,6 +19,23 @@ class HomeController extends Controller
 
     private function resolveHeroSlides($promoDeals)
     {
+        $slides = collect(config('homepage.hero_slides', []))
+            ->filter(function ($slide) {
+                return ! empty($slide['image']) && file_exists(public_path($slide['image']));
+            })
+            ->map(function ($slide) {
+                return [
+                    'image' => asset($slide['image']),
+                    'url' => ! empty($slide['route']) ? route($slide['route']) : null,
+                    'alt' => $slide['alt'] ?? 'Chance Laptops',
+                ];
+            })
+            ->values();
+
+        if ($slides->isNotEmpty()) {
+            return $slides;
+        }
+
         try {
             if (class_exists(HeroSlide::class) && Schema::hasTable('hero_slides')) {
                 $dbSlides = HeroSlide::active()->ordered()->get();
@@ -35,23 +52,6 @@ class HomeController extends Controller
             }
         } catch (\Throwable $e) {
             Log::warning('Hero slides unavailable: '.$e->getMessage());
-        }
-
-        $slides = collect(config('homepage.hero_slides', []))
-            ->filter(function ($slide) {
-                return ! empty($slide['image']) && file_exists(public_path($slide['image']));
-            })
-            ->map(function ($slide) {
-                return [
-                    'image' => asset($slide['image']),
-                    'url' => ! empty($slide['route']) ? route($slide['route']) : null,
-                    'alt' => $slide['alt'] ?? 'Chance Laptops',
-                ];
-            })
-            ->values();
-
-        if ($slides->isNotEmpty()) {
-            return $slides;
         }
 
         return $promoDeals->map(function ($product) {

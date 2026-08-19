@@ -693,7 +693,7 @@
                     </div>
                     <div class="footer-trust-item justify-center sm:justify-start">
                         <svg class="w-4 h-4 text-red-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <span>Sharjah Store · Open Daily (Fri Closed)</span>
+                        <span>Online Store · Support Daily (Fri Closed)</span>
                     </div>
                 </div>
             </div>
@@ -710,7 +710,7 @@
                                  class="w-16 h-16 object-contain flex-shrink-0">
                             <div>
                                 <h3 class="text-xl font-bold text-red-600 leading-tight">CHANCE LAPTOPS</h3>
-                                <p class="text-xs font-semibold text-red-500/90 uppercase tracking-wider mt-0.5">Sharjah · UAE</p>
+                                <p class="text-xs font-semibold text-red-500/90 uppercase tracking-wider mt-0.5">Online Store · UAE</p>
                                 <p class="text-slate-600 text-sm leading-relaxed mt-2">
                                     Brand-new &amp; used laptops, accessories, and expert repair across the United Arab Emirates.
                                 </p>
@@ -757,6 +757,7 @@
                         <li><a href="{{ route('about-us.index') }}" class="footer-link">About Us</a></li>
                         <li><a href="{{ route('contact-us.index') }}" class="footer-link">Contact</a></li>
                         <li><a href="{{ route('warranty') }}" class="footer-link">Warranty</a></li>
+                        <li><a href="{{ route('return-policy') }}" class="footer-link">Return Policy</a></li>
                         <li><a href="{{ route('privacy-policy') }}" class="footer-link">Privacy Policy</a></li>
                         <li><a href="{{ route('terms-of-service') }}" class="footer-link">Terms of Service</a></li>
                     </ul>
@@ -779,10 +780,6 @@
                         <li>
                             <span class="footer-contact-label">Hours</span>
                             <span class="footer-contact-value">Everyday 11:00 AM – 11:00 PM · Friday Closed</span>
-                        </li>
-                        <li>
-                            <span class="footer-contact-label">Address</span>
-                            <span class="footer-contact-value leading-relaxed">{{ config('products.store_address') }}</span>
                         </li>
                     </ul>
                 </div>
