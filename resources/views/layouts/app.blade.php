@@ -119,13 +119,18 @@
                     
                     <div class="hidden sm:block w-px h-5 bg-red-500/20"></div>
                     
-                    <div class="flex items-center justify-center sm:justify-start space-x-2 group cursor-pointer min-h-[44px] py-1">
+                    <a href="tel:+{{ config('products.phone_number', '971581811579') }}"
+                       class="flex items-center justify-center sm:justify-start space-x-2 group cursor-pointer min-h-[44px] py-1">
                         <div class="w-9 h-9 sm:w-8 sm:h-8 bg-red-500/10 rounded-lg flex items-center justify-center group-hover:bg-red-500/20 transition-colors flex-shrink-0">
-                            <svg class="w-5 h-5 sm:w-4 sm:h-4 text-red-400 group-hover:text-red-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                        <a href="mailto:info@chancelaptops.ae" class="text-sm sm:text-sm font-medium text-gray-700 group-hover:text-red-400 transition-colors break-all sm:break-normal">info@chancelaptops.ae</a>
+                            <svg class="w-5 h-5 sm:w-4 sm:h-4 text-red-400 group-hover:text-red-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.515l.82 3.28a2 2 0 01-.58 1.92l-1.4 1.4a16 16 0 006.95 6.95l1.4-1.4a2 2 0 011.92-.58l3.28.82A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.16 24 0 14.84 0 3V2a2 2 0 012-2h1z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-red-400 transition-colors block leading-tight">Contact No</span>
+                            <span class="text-xs text-gray-500">{{ config('products.phone_display', '+971 58 181 1579') }}</span>
+                        </div>
+                    </a>
                 </div>
                 </div>
                 

@@ -20,9 +20,9 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
         <article class="bg-white border border-gray-200 rounded-xl p-6 sm:p-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">1. 7-Day Checking Period</h2>
+            <h2 class="text-xl font-bold text-gray-900 mb-4">1. 24 Hours Checking Period</h2>
             <p class="text-gray-700 text-sm leading-relaxed">
-                Customers are provided a 24 hours checking window starting from the date of purchase. If the laptop is found to be defective, malfunctions, or does not match the specifications agreed upon, the customer is entitled to report the issue. During this period, the item can be evaluated for a prompt repair, an exchange for an equivalent model, or a refund if a replacement is unavailable.
+                Customers are provided a 24-hour checking window starting from the date of purchase. If the laptop is found to be defective, malfunctions, or does not match the specifications agreed upon, the customer is entitled to report the issue. During this period, the item can be evaluated for a prompt repair, an exchange for an equivalent model, or a refund if a replacement is unavailable.
             </p>
         </article>
 
